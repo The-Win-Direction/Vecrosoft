@@ -11,7 +11,15 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-     
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about_us' element={<About_Us />} />
+        <Route path='/article' element={<Article />} />
+        <Route path='/ai' element={<AI />} />
+        <Route path='/chat' element={<Chat />} />
+      </Routes>
+      <Footer />
     </>
   );
 }

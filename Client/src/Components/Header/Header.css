@@ -1,14 +1,11 @@
-.header {
-    background-color: #333;
-    color: white;
-}
+
 
 .header-top {
     display: flex;
     justify-content: left;
     align-items: center;
     padding: 10px 20px;
-    background-color: #444;
+    background-color: cyan;
 }
 
 .logo-box {
@@ -30,17 +27,24 @@
 .navbar {
     background-color: #333;
     padding: 10px 0;
-    display:flex ;
+}
+
+nav {
+    display: flex;
     justify-content: center;
-    justify-content: space-around;
+    gap: 10px; /* Adjusts the space between the boxes */
 }
 
 nav a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: green;
     color: white;
-    margin: 0 10px;
+    border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: darkgreen;
 }

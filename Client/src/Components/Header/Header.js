@@ -10,7 +10,7 @@ const Header = () => {
         <header className="header">
             <div className="header-top">
                 <div className="logo-box">
-                    <img src="/src/Assets/Images/logo.png" alt="Vecrosoft Logo1" />
+                    <img src="src/Assets/Images/logo.png" alt="Vecrosoft Logo" />
                     <h1>Vecrosoft</h1>
                 </div>
             </div>
@@ -18,10 +18,10 @@ const Header = () => {
                 <div className="navbar">
                     <nav>
                         <Link to="/">Home</Link>
-                        <Link to="/About_Us">About Us</Link>
-                        <Link to="/Ai">AI</Link>
-                        <Link to="/Chat">Chat</Link>
-                        <Link to="/Article">Articles</Link>
+                        <Link to="/about-us">About Us</Link>
+                        <Link to="/ai">AI</Link>
+                        <Link to="/chat">Chat</Link>
+                        <Link to="/articles">Articles</Link>
                     </nav>
                 </div>
             )}

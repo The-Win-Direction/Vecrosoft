@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import logo from '../../Assets/Images/logo.png';
 
 const Header = () => {
     const location = useLocation();
@@ -10,7 +11,7 @@ const Header = () => {
         <header className="header">
             <div className="header-top">
                 <div className="logo-box">
-                    <img src="src/Assets/Images/logo.png" alt="Vecrosoft Logo" />
+                    <img src={logo} alt="Vecrosoft Logo" />
                     <h1>Vecrosoft</h1>
                 </div>
             </div>

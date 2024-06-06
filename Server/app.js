@@ -26,3 +26,4 @@ app.use(router);
 
 
 //my change added
+//component 2

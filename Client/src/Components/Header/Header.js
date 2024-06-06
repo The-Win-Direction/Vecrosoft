@@ -10,7 +10,7 @@ const Header = () => {
         <header className="header">
             <div className="header-top">
                 <div className="logo-box">
-                    <img src="src/Assets/Images/logo.png" alt="Vecrosoft Logo" />
+                    <img src="" alt="Vecrosoft Logo" />
                     <h1>Vecrosoft</h1>
                 </div>
             </div>

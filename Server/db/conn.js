@@ -1,30 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+//const uri = process.env.DATABASE; 
+const uri="mongodb+srv://giridipak743:vecrosoftdb@cluster0.wzdjwvz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const connectDB = async () => {
+  try {
+    await mongoose.connect(uri);
+    console.log('Connected to MongoDB Atlas!');
+  } catch (error) {
+    console.error('Error connecting to MongoDB Atlas:', error);
+    process.exit(1);
+  }
+};
 
-const DB = process.env.DATABASE
-
-
-mongoose.connect(DB, {
-    // useNewUrlParser: true, // Deprecated
-    // useUnifiedTopology: true, // Deprecated
-    // useCreateIndex: true, // Deprecated
-    // useFindAndModify: false, // Deprecated
-})
-.then(() => {
-    console.log('Database connected successfully');
-})
-.catch((err) => {
-    console.log('Database connection failed: ', err);
-});
-
-
-// mongoose.connect(DB, {
-//     useUnifieldTopology:true,
-//     useNewUrlParser:true
-// }).then(()=> console.log("DataBase Connected")).catch((err)=>{
-//     console.log(err);
-// })
-
-
-
-
-// npm i -g nodemon
+module.exports = connectDB;

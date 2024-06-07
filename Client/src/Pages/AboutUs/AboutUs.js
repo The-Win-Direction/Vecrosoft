@@ -15,8 +15,9 @@ function AboutUs() {
   return (
     <div className="about-us">
       <div className="about-us-content">
-        <h1>Our Story</h1>
+        <h1>Agripath Connect</h1>
         <img src={about} alt="About Us" />
+        <div className="overlay-text">A digital AI powered, networking platform for agricultural community</div>
         <div className="questions">
           <ul>
             <hr />

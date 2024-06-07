@@ -1,5 +1,37 @@
+.about-us {
+    padding: 20px;
+}
 
+.about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-   .questions{
-    width: 15rem;
-   }
+.about-us img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.questions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.questions li {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.questions li:hover {
+    background-color: #f0f0f0;
+}
+
+.questions .answer {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+}

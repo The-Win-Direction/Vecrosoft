@@ -1,0 +1,54 @@
+.about-us {
+    padding: 20px;
+}
+
+.about-us-content {
+    max-width: 800px;
+    margin: 0 auto;
+    /* text-align: center; */
+}
+h1{
+    text-align: center;
+}
+
+.about-us img {
+    width: 50rem;
+    height: 20rem;
+}
+.overlay-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    font-weight:bolder;
+    text-align: center;
+  }
+.questions{
+    width: 35rem;
+    margin: 0 auto;
+}
+
+.questions ul {
+   
+    list-style: none;
+    padding: 0;
+}
+
+.questions li {
+    cursor: pointer;
+    /* padding: 10px; */
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.questions li:hover {
+    background-color: #f0f0f0;
+}
+
+.questions .answer {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+}

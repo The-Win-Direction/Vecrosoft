@@ -1,12 +1,23 @@
 .container{
-    background-color: rgb(95, 205, 95);
+    background-color: rgb(170, 241, 241);
     width:50rem;
     margin: 0 auto;
     margin-top: 8rem;
     padding: 2rem;
+    border-radius: 1rem;
 }
 .image-drag{
-    height:6rem;
+    height:4rem;
     background-color: white;
-    /* display:flex; */
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 1rem;
+    border: solid black 0.1rem;
+
+}
+.image-drag button{
+    height:2rem;
 }

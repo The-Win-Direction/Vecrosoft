@@ -1,0 +1,12 @@
+.container{
+    background-color: rgb(95, 205, 95);
+    width:50rem;
+    margin: 0 auto;
+    margin-top: 8rem;
+    padding: 2rem;
+}
+.image-drag{
+    height:6rem;
+    background-color: white;
+    /* display:flex; */
+}

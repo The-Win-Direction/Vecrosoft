@@ -1,0 +1,53 @@
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  .post-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .comments {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .comment-username {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .comment-content {
+    color: #555;
+  }
+  

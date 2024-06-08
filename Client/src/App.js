@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home/Home';
-import About_Us from './Pages/About_Us/About_Us';
+import AboutUs from './Pages/AboutUs/AboutUs';
 import Article from './Pages/Article/Article';
 import AI from './Pages/AI/AI';
 import Chat from './Pages/Chat/Chat';
@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about_us' element={<About_Us />} />
+        <Route path='/AboutUs' element={<AboutUs />} />
         <Route path='/article' element={<Article />} />
         <Route path='/ai' element={<AI />} />
         <Route path='/chat' element={<Chat />} />

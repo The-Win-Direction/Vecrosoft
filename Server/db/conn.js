@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-//const uri = process.env.DATABASE; 
-const uri="mongodb+srv://giridipak743:vecrosoftdb@cluster0.wzdjwvz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+require('dotenv').config();
+const uri = process.env.DATABASE; 
+
 const connectDB = async () => {
   try {
     await mongoose.connect(uri);

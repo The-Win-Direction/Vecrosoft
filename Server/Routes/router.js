@@ -1,33 +1,14 @@
-// const express = require("express");
-// const router = new express.Router();
-// const usersController = require("../Controllers/usersControllers");
+const express = require("express");
+const router = new express.Router();
 
-// const upload = require("../multerconfig/storageConfig");
+router.get("/hello", (req, res) => {
+    res.send("Hello World");
+});
 
-// // Define your routes here
-// // Example: router.get('/users', usersController.getUsers);
+router.post("/register",async(req,res)=>{
+    console.log(req.body)
+    const{fname,lname,email,password}=req.body;
+    
+})
 
-// module.exports = router;
-
-
-
-
-
-
-
-
-
-// const express = require("express");
-// const router = new express.Router();
-// const controllers = require("../Controllers/usersControllers");
-// const usersController = require('../Controllers/usersControllers');
-
-// const upload = require("../multerconfig/storageConfig");
-
-
-
-// //routes
-
-
-
-// module.exports = router
+module.exports=router;

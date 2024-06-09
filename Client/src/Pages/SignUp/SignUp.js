@@ -11,9 +11,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:4000/SignUp', {
-                fname,
-                lname,
+            const res = await axios.post('http://localhost:4000/SignIn', {
                 email,
                 password
             },{
@@ -36,7 +34,7 @@ const SignUp = () => {
             } else {
                 setMessage('An error occurred. Please try again.',error);
             }
-            console.error("Error during registration:", error);
+            console.error("Error during SignUp:", error);
         }
     
         

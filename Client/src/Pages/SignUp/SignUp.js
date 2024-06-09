@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Register = () => {
+const SignUp = () => {
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
@@ -11,7 +11,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:4000/register', {
+            const res = await axios.post('http://localhost:4000/SignUp', {
                 fname,
                 lname,
                 email,
@@ -21,7 +21,15 @@ const Register = () => {
                     'Content-Type': 'application/json'
                 }
             });
+
+            setFname('');
+            setLname('');
+            setEmail('');
+            setPassword('');
+
+            console.log(res.data.message)
             setMessage(res.data.message);
+            
         } catch (error) {
             if (error.response && error.response.data) {
                 setMessage(error.response.data.error);
@@ -30,11 +38,14 @@ const Register = () => {
             }
             console.error("Error during registration:", error);
         }
+    
+        
     };
 
     return (
+        <>
         <div>
-            <h2>Register</h2>
+            <h2>SignUp</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>First Name:</label>
@@ -52,11 +63,14 @@ const Register = () => {
                     <label>Password:</label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit">SignUp</button>
             </form>
             {message && <p>{message}</p>}
+
         </div>
+           
+        </>
     );
 };
 
-export default Register;
+export default SignUp;

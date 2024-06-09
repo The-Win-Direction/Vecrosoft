@@ -9,7 +9,7 @@ const connectDB = require("./db/conn");
 connectDB();
     
 app.use(express.json());
-app.use(cors());
+app.use(cors);
 app.use(router);
 app.listen(PORT, () => {
     console.log(`Server running at port no ${PORT}`);

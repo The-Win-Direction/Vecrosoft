@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './about_us.css';
-import about from '../../Assets/Images/logo.png';
+import about from '../../Assets/Images/about.png';
 
 function AboutUs() {
   const [visibleAnswers, setVisibleAnswers] = useState({});

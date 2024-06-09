@@ -1,0 +1,64 @@
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import './Post.css';
+
+const Post = ({ post }) => {
+  const [likes, setLikes] = useState(post.likes);
+  const [commentsVisible, setCommentsVisible] = useState(false);
+
+  const toggleComments = () => {
+    setCommentsVisible(!commentsVisible);
+  };
+
+  const increaseLikes = () => {
+    setLikes(likes + 1);
+  };
+
+  return (
+    <div className="post">
+      <div className="post-header">
+        <img src={post.profilePic} alt={`${post.username}'s profile`} className="profile-pic" />
+        <span>{post.username}</span>
+      </div>
+      <p><strong>Caption:</strong> {post.caption}</p>
+      <img src={post.imageUrl} alt="Post" className="post-image" />
+      <p>{post.paragraph}</p>
+      <div className="post-info">
+        <button onClick={increaseLikes}>Like {likes}</button>
+        <button onClick={toggleComments}>
+          {commentsVisible ? 'Hide Comments' : 'Show Comments'} ({post.comments.length})
+        </button>
+      </div>
+      {commentsVisible && (
+        <div className="comments">
+          {post.comments.map((comment, index) => (
+            <div key={index} className="comment">
+              <span className="comment-username">{comment.username}:</span>
+              <span className="comment-content">{comment.content}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.number,
+    imageUrl: PropTypes.string.isRequired,
+    paragraph: PropTypes.string.isRequired,
+    caption: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired,
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired
+      })
+    ).isRequired,
+    username: PropTypes.string.isRequired,
+    profilePic: PropTypes.string.isRequired
+  }).isRequired
+};
+
+export default Post;

@@ -6,7 +6,6 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Article from './Pages/Article/Article';
 import AI from './Pages/AI/AI';
 import Chat from './Pages/Chat/Chat';
-import Register from './Pages/Register/Register';
 import { Routes, Route } from "react-router-dom";
 
 function App() {

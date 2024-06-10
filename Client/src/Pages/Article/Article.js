@@ -6,7 +6,7 @@ const Article = () => {
     {
       id: 1,
       title: 'Understanding React Hooks',
-      author: 'John Doe',
+      author: 'Dipak Raj Giri',
       publishedDate: '2023-05-01',
       content: `React hooks are functions that let us hook into the React state and lifecycle features from function components. 
                 They were introduced in React 16.8 and allow developers to use state and other React features without writing a class. 
@@ -41,7 +41,7 @@ const Article = () => {
     {
       id: 3,
       title: 'A Guide to Node.js',
-      author: 'Jane Smith',
+      author: 'Dhiraj Pant',
       publishedDate: '2023-06-15',
       content: `Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to build scalable network applications using JavaScript. 
                 Node.js is known for its non-blocking, event-driven architecture, which makes it ideal for I/O-heavy applications such as web servers.

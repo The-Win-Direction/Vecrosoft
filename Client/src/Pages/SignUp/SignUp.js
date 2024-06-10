@@ -44,51 +44,51 @@ const SignUp = () => {
     };
 
     return (
-        
-        <div className='signInUp'>
-            <h2>SignUp</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>First Name:</label>
-                    <input type="text" value={fname} onChange={(e) => setFname(e.target.value)} required />
+        <div className='signup-container'>
+            <h2 className='signup-title'>SignUp</h2>
+            <form className='signup-form' onSubmit={handleSubmit}>
+                <div className='signup-field'>
+                    <label className='signup-label'>First Name:</label>
+                    <input className='signup-input' type="text" value={fname} onChange={(e) => setFname(e.target.value)} placeholder='Enter your first name' required />
                 </div>
-                <div>
-                    <label>Last Name:</label>
-                    <input type="text" value={lname} onChange={(e) => setLname(e.target.value)} required />
+                <div className='signup-field'>
+                    <label className='signup-label'>Last Name:</label>
+                    <input className='signup-input' type="text" value={lname} onChange={(e) => setLname(e.target.value)} placeholder='Enter your last name' required />
                 </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <div className='signup-field'>
+                    <label className='signup-label'>Email:</label>
+                    <input className='signup-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='example@gmail.com' required />
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className='signup-field'>
+                    <label className='signup-label'>Password:</label>
+                    <div className='signup-password'>
                         <input
+                            className='signup-input'
                             type={showPassword ? 'text' : 'password'}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            placeholder='Enter your password'
                             required
                         />
                         <button
+                            className='signup-show-password'
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            style={{ marginLeft: '5px' }}
                         >
                             {showPassword ? 'Hide' : 'Show'}
                         </button>
                     </div>
                 </div>
-                <button type="submit">SignUp</button>
+                <button className='signup-button' type="submit">SignUp</button>
             </form>
-            {message && <p>{message}</p>}
-            <div>
+            {message && <p className='signup-message'>{message}</p>}
+            <div className='signup-signin-link'>
                 <p>
                     Already have an account? &nbsp;
-                    <Link to="/SignIn"> SignIn here!</Link>
+                    <Link to="/SignIn">SignIn here!</Link>
                 </p>
             </div>
         </div>
-        
     );
 };
 

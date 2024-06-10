@@ -1,11 +1,17 @@
-
+.footer-margin-top{
+    margin-top: 6rem;
+}
 
 .container_footer{
 text-align: center;
+width: 100%;
 background-color: rgb(111, 234, 234);
 display: flex;
 align-items: center;
 justify-content: space-evenly;
+position: fixed;
+bottom: 0;
+
 
 }
 .images{
@@ -25,8 +31,9 @@ p{
 text-align: center;
 font-size:medium;
 font-weight: bold;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
 }
+
 
 
 

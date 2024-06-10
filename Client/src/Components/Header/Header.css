@@ -2,6 +2,9 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    position: fixed;
+    top:0;
+    width:100%;
 }
 
 .header-top {
@@ -60,4 +63,8 @@ nav a {
 
 nav a:hover {
     background-color: rgb(135, 227, 135);
+}
+.margin_bottom{
+    margin-bottom: 8rem;
+
 }

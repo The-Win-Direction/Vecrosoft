@@ -5,7 +5,8 @@ import linkedin from '../../Assets/Images/linkedin.png';
 import gmail from '../../Assets/Images/gmail.png';
 import github from '../../Assets/Images/github.png';
 function Footer (){
-  return (
+  return (<>
+    <div className='footer-margin-top'></div>
     <div class="container_footer">
       <div class="slogan">
         <p>Urbar baari kisanko gahana<br/>
@@ -18,7 +19,8 @@ function Footer (){
    <img src={github} alt="githubimage"/></div>
       <h4>&copy; 2024 copyright: Vecrosoft.com</h4>
     </div>
+    </>
   )
 }
 
-export default Footer
+export default Footer; 

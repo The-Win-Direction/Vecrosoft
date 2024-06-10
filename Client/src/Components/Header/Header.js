@@ -8,6 +8,7 @@ const Header = () => {
     const hideNav = location.pathname === '/SignIn' || location.pathname === '/SignUp';
 
     return (
+        <>
         <header className="header">
             <div className="header-top">
                 <div className="logo-box">
@@ -27,6 +28,10 @@ const Header = () => {
                 </div>
             )}
         </header>
+        <div className='margin_bottom'>
+
+        </div>
+        </>
     );
 };
 

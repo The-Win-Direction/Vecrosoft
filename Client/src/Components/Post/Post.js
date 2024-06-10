@@ -4,6 +4,7 @@ import './Post.css';
 
 const Post = ({ post }) => {
   const [likes, setLikes] = useState(post.likes);
+  const [like, setLike] = useState(false);
   const [commentsVisible, setCommentsVisible] = useState(false);
 
   const toggleComments = () => {
@@ -11,7 +12,14 @@ const Post = ({ post }) => {
   };
 
   const increaseLikes = () => {
-    setLikes(likes + 1);
+    if(!like){
+      setLikes(likes + 1);
+      setLike(!like)
+    }
+    else{
+      setLikes(likes - 1);
+      setLike(!like)
+    }
   };
 
   return (

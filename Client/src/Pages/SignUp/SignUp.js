@@ -43,7 +43,7 @@ const SignUp = () => {
     return (
         <>
         <div>
-            <h2>SignUp</h2>
+            <h2>SignIn</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>First Name:</label>

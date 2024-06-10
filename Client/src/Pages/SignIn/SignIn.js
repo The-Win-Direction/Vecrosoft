@@ -39,7 +39,7 @@ const SignUp = () => {
     return (
         <>
         <div>
-            <h2>SignUp</h2>
+            <h2>SignIn</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Email:</label>
@@ -60,4 +60,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-////

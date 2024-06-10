@@ -6,8 +6,8 @@ const ArticlePost = ({ title, author, publishedDate, content, imageUrl }) => {
   return (
     <div className="article-post">
       <h2 className="article-title">{title}</h2>
-      <p className="article-author"><strong>By: </strong>{author}</p>
-      <p className="article-date"><strong>Published On: </strong>{publishedDate}</p>
+      <p className="article-author"><strong>{/* By: */} </strong>{author}</p>
+      <p className="article-date"><strong>{/* Published On:  */}</strong>{publishedDate}</p>
       {imageUrl ? (
         <div className="article-content-with-image">
           <img src={imageUrl} alt="Article" className="article-image" />

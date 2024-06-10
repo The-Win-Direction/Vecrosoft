@@ -5,7 +5,7 @@ import logo from '../../Assets/Images/logo.png';
 
 const Header = () => {
     const location = useLocation();
-    const hideNav = location.pathname === '/login' || location.pathname === '/signup';
+    const hideNav = location.pathname === '/SignIn' || location.pathname === '/SignUp';
 
     return (
         <header className="header">
@@ -20,9 +20,9 @@ const Header = () => {
                     <nav>
                         <Link to="/">Home</Link>
                         <Link to="/AboutUs">About Us</Link>
-                        <Link to="/ai">AI</Link>
-                        <Link to="/chat">Chat</Link>
-                        <Link to="/articles">Articles</Link>
+                        <Link to="/Ai">AI</Link>
+                        <Link to="/Chat">Chat</Link>
+                        <Link to="/Article">Articles</Link>
                     </nav>
                 </div>
             )}

@@ -30,12 +30,13 @@
   
   .article-content-with-image {
     display: flex;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    justify-content: space-evenly;
   }
   
   .article-image {
-    max-width: 200px;
-    margin-right: 20px;
+    /* max-width: 200px; */
+    margin-right: 1rem;
     border-radius: 8px;
   }
   

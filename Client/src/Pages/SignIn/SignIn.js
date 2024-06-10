@@ -12,7 +12,7 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:4000/SignUp', {
+            const res = await axios.post('http://localhost:4000/SignIn', {
                 email,
                 password
             },{
@@ -33,49 +33,48 @@ const SignIn = () => {
             } else {
                 setMessage('An error occurred. Please try again.', error);
             }
-            console.error("Error during SignIn :", error);
+            console.error("Error during SignIn:", error);
         }
     };
 
     return (
-        
-        <div className='signInUp'>
-            <h2>SignIn</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className='signin-container'>
+            <h2 className='signin-title'>SignIn</h2>
+            <form className='signin-form' onSubmit={handleSubmit}>
+                <div className='signin-field'>
+                    <label className='signin-label'>Email:</label>
+                    <input className='signin-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className='signin-field'>
+                    <label className='signin-label'>Password:</label>
+                    <div className='signin-password'>
                         <input
+                            className='signin-input'
                             type={showPassword ? 'text' : 'password'}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                         <button
+                            className='signin-show-password'
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            style={{ marginLeft: '5px' }}
                         >
                             {showPassword ? 'Hide' : 'Show'}
                         </button>
                     </div>
                 </div>
-                <button type="submit">SignIn</button>
+                <button className='signin-button' type="submit">SignIn</button>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p className='signin-message'>{message}</p>}
 
-            <div>
-              <p>
-                Don't have an account? &nbsp;
-                <Link to="/SignUp">SignUp here!</Link>
-              </p>
+            <div className='signin-signup-link'>
+                <p>
+                    Don't have an account? &nbsp;
+                    <Link to="/SignUp">SignUp here!</Link>
+                </p>
             </div>
         </div>
-        
     );
 };
 

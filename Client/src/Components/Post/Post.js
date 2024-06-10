@@ -20,7 +20,7 @@ const Post = ({ post }) => {
       setLikes(likes - 1);
       setLike(!like)
     }
-  };
+  };  
 
   return (
     <div className="post">

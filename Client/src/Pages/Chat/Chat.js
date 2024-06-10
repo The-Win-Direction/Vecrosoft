@@ -36,7 +36,7 @@ function Chat() {
       <div className='container_chat_content'>
       <h1>AI Chat</h1>
       <textarea value={question} onChange={(e) => { setQuestion(e.target.value) }} placeholder="Ask me anything!"
-        cols="50" rows="10"></textarea>
+        cols="50" rows="8"></textarea>
       <button onClick={generateAnswer} className='generate_answer'>Generate answer</button>
       <p>{answer}</p>
       </div>

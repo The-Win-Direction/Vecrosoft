@@ -1,0 +1,22 @@
+.container_chat{
+ background-color: aquamarine;
+ width:30%;
+ height:30%;
+ border-radius: 1rem;
+ margin: 5rem auto;
+ padding: 5rem;
+}
+.container_chat_content{
+    background-color: rgb(238, 236, 234);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+.container_chat h1{
+ text-align: center;
+}
+
+
+

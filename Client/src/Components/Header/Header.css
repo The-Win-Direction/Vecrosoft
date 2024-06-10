@@ -8,9 +8,10 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(157, 220, 220);
-    height: 1.5rem;
+    padding: 40px 20px;
+    background-color: rgb(111, 234, 234);
+    height:1.5rem;
+
 }
 
 .logo-box {
@@ -21,12 +22,13 @@
 }
 
 .logo-box img {
-    height: 40px;
-    margin-right: 10px;
+    height:70px;
+    width:80px;
+    margin-left:5px;
 }
 
-.logo-box h1 {
-    margin: 0;
+.logo-box h1{
+    margin-left:0px;
 }
 
 .navbar {

@@ -18,11 +18,12 @@ function App() {
         <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/AboutUs' element={<AboutUs />} />
-        <Route path='/article' element={<Article />} />
-        <Route path='/ai' element={<AI />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/Article' element={<Article />} />
+        <Route path='/Ai' element={<AI />} />
+        <Route path='/Chat' element={<Chat />} />
         <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='/SignIn' element={<SignIn/>}/>
+        
        
       
       </Routes>

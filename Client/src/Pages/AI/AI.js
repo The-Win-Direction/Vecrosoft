@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import './ai.css';
 
 function AI() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [dragging, setDragging] = useState(false);
+  const [prediction, setPrediction] = useState("");
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -31,20 +31,23 @@ function AI() {
     }
   };
 
-  const handlePredict = () => {
+  const handlePredict = async () => {
     if (selectedImage) {
+      setPrediction("Predicting... Please wait.");
       // Implement prediction logic here
-      console.log('Predicting for:', selectedImage);
+      // For demonstration, we will simulate a prediction with a timeout
+      setTimeout(() => {
+        setPrediction("Prediction result: This is an example result.");
+      }, 2000);
     } else {
-      console.log('No image selected');
+      setPrediction("No image selected.");
     }
   };
 
   return (
-    <div className="container">
-      <h1>Plant Disease Classifier With AI</h1>
-      <h2>Made By Vecrosoft</h2>
-      <h3>Choose an image</h3>
+    <div className="ai-container">
+      <h1>Plant Disease Classifier</h1>
+      <h2>By Vecrosoft</h2>
       <div 
         className={`image-drag ${dragging ? 'dragging' : ''}`} 
         onDragOver={handleDragOver} 
@@ -68,7 +71,8 @@ function AI() {
           <img src={selectedImage} alt="Selected" className="preview-image" />
         </div>
       )}
-      <button onClick={handlePredict}>Predict</button>
+      <button onClick={handlePredict} className="predict-button">Predict</button>
+      {prediction && <p className="prediction-result">{prediction}</p>}
     </div>
   );
 }

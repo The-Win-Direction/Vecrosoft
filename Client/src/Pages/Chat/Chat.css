@@ -19,10 +19,9 @@
     align-items: center;
   }
   
-  h1 {
+  .chat-box h1 {
     margin-bottom: 20px;
     font-size: 1.5rem;
-    color: #333;
   }
   
   .chat-messages {
@@ -43,10 +42,10 @@
   
   .bot-message {
     background-color: #e0e0e0;
-    color: #333;
+    font-weight:600;
   }
   
-  textarea {
+  .chat-box textarea {
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 8px;

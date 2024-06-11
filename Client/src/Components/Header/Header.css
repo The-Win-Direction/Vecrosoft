@@ -1,70 +1,81 @@
-.header{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    position: fixed;
-    top:0;
-    width:100%;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E2DEDC;
+  padding: 10px 20px;
 }
 
-.header-top {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(157, 220, 220);
-    height: 1.5rem;
+.header-left {
+  display: flex;
+  align-items: center;
 }
 
-.logo-box {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 5px;
+.logo {
+  width: 40px;
+  height: 40px;
 }
 
-.logo-box img {
-    height: 40px;
-    /* margin-right: 10px; */
+.site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(14, 202, 14);
 }
 
-.logo-box h1 {
-    margin: 0;
-    color: green;
+.nav {
+  display: flex;
+  gap: 4rem;
 }
 
-.navbar {
-    /* background-color: #333; */
-    padding: 10px 0;
+.nav a {
+  text-decoration: none;
+  font-size: 1.4rem;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    margin-right:8rem ;
-    /* gap: 10px; Adjusts the space between the boxes */
+/* .header-right {
+  display: flex;
+  align-items: center;
+  
+} */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-nav a {
-    /* display: inline-block; */
-    background-color: rgb(185, 210, 245);
-    color: black;
-    width:7rem;
-    height:rem;
-    text-align: center;
-    margin-left: 7rem;
-    border-radius: 0.6rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-
+.dropbtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid blue;
+  border-radius: 5px;
 }
 
-nav a:hover {
-    background-color: rgb(135, 227, 135);
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 7rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
-.margin_bottom{
-    margin-bottom: 8rem;
 
+.dropdown-content a {
+  /* color: black; */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #f1f1f1;
 }

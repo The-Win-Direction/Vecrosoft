@@ -1,38 +1,32 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../../Assets/Images/logo.png';
+import logo from "../../Assets/Images/logo.png"
 
 const Header = () => {
-    const location = useLocation();
-    const hideNav = location.pathname === '/SignIn' || location.pathname === '/SignUp';
-
-    return (
-        <>
-        <header className="header">
-            <div className="header-top">
-                <div className="logo-box">
-                    <img src={logo} alt="Vecrosoft Logo" />
-                    <h1>Vecrosoft</h1>
-                </div>
-            </div>
-            {!hideNav && (
-                <div className="navbar">
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/AboutUs">About Us</Link>
-                        <Link to="/Ai">AI</Link>
-                        <Link to="/Chat">Chat</Link>
-                        <Link to="/Article">Articles</Link>
-                    </nav>
-                </div>
-            )}
-        </header>
-        <div className='margin_bottom'>
-
+  return (
+    <header className="header">
+      <div className="header-left">
+        <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        <span className="site-title">Vecrosoft</span>
+      </div>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/article">Article</Link>
+        <Link to="/chat">Chat</Link>
+        <Link to="/ai">AI</Link>
+      </nav>
+      <div className="header-right">
+        <div className="dropdown">
+          <button className="dropbtn">Create ▼</button>
+          <div className="dropdown-content">
+            <Link to="/create-article">Article</Link>
+            <Link to="/create-post">Post</Link>
+          </div>
         </div>
-        </>
-    );
+      </div>
+    </header>
+  );
 };
 
 export default Header;

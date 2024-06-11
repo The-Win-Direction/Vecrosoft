@@ -2,8 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #E2DEDC;
+    background-color: #efebeb;
     padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
   }
   
   .header-left {
@@ -73,6 +78,7 @@
     border: 1px solid blue;
     border-radius: 5px;
     background-color: white;
+    margin-right: 4rem;
   }
   
   .dropdown-content {

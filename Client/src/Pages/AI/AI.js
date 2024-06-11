@@ -5,6 +5,7 @@ import DiseaseDetection from '../../../src/Components/DiseaseDetection/DiseaseDe
 import DetectionDescription from '../../../src/Components/DetectionDescription/DetectionDescription';
 import SampleImages from '../../Components/SampleImages/SampleImages';
 import FeatureDescription from '../../Components/FeatureDescription/FeatureDescription';
+import Testimonials from '../../Components/Testimonials/Testimonials';
 
 
 function AI() {
@@ -18,6 +19,7 @@ function AI() {
     </div>  
   </div>
   <FeatureDescription/>
+  <Testimonials />
   </div>
   );
 }

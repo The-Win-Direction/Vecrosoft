@@ -1,0 +1,10 @@
+.full-article {
+    padding: 20px;
+  }
+  
+  .full-article img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  

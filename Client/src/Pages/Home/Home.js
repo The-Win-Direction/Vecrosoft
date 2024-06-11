@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Post from '../../Components/Post/Post';
 import './Home.css';
+import Sidebar from '../../Components/SideBar/SideBar';
 
 
 const Home = () => {
@@ -18,8 +19,11 @@ const Home = () => {
 
   
   return (
+   <div>
+    <Sidebar/>
     <div className="home">
       <Post post={post} />
+    </div>
     </div>
   );
 }

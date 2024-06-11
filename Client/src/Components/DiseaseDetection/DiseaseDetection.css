@@ -2,9 +2,10 @@
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width:24%;
+  width:80%;
+  margin-right: 15rem;
 }
 
 .disease-detection-container h3 {
@@ -79,4 +80,7 @@
   font-size: 1.2rem;
   color: #555;
   font-family: 'Arial', sans-serif;
+}
+.blue{
+  color:blue;
 }

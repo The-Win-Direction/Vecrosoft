@@ -6,7 +6,6 @@
   .image-container {
     position: relative;
     display: inline-block;
-    margin-bottom: 1.5rem;
    
   }
   
@@ -47,13 +46,13 @@
   }
   
   .description-container h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #333;
     margin-bottom: 0.5rem;
   }
   
   .description-container h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #555;
   }
   

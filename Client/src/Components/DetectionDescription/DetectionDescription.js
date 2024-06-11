@@ -1,7 +1,4 @@
 
-
-
-// DetectionDescription.js
 import React from 'react';
 import './DetectionDescription.css';
 import LensImage from '../../../src/Assets/Images/lens.png';  
@@ -13,8 +10,8 @@ function DetectionDescription() {
         <img src={LeafImage} alt="Leaf Disease" className="leaf-image" />
         <img src={LensImage} alt="Lens" className="lens-image" />
       </div>
-      <h1>Disease Detection Through Leaf</h1>
-      <h2>100% Automatically and Free</h2>
+      <h1>Disease <span className='blue'>Detection</span> Through Leaf</h1>
+      <h2>100% Automatically and <span className='blue'>Free </span></h2>
     </div>
   );
 }

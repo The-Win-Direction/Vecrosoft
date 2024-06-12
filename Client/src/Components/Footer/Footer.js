@@ -7,12 +7,12 @@ import github from '../../Assets/Images/github.png';
 function Footer (){
   return (<>
     <div className='footer-margin-top'></div>
-    <div class="container_footer">
-      <div class="slogan">
+    <div className="container_footer">
+      <div className="slogan">
         <p>Urbar baari kisanko gahana<br/>
           Swastha kheti hamro c.hahana</p>
       </div>
-      <div class="images">
+      <div className="images">
    <img src={linkedin} alt="Linkedinimage"/>
    <img src={fb} alt="Fbimage"/>
    <img src={gmail} alt="gmailimage"/>

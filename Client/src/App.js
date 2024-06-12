@@ -9,7 +9,7 @@ import Chat from './Pages/Chat/Chat';
 import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import { Routes, Route } from "react-router-dom";
-
+import Error from './Pages/Error/Error';
 function App() {
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
         <Route path='/Chat' element={<Chat />} />
         <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='/SignIn' element={<SignIn/>}/>
+        <Route path='*/' element={<Error/>}/>
         
        
       

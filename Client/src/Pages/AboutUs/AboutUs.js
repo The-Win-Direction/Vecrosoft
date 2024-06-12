@@ -1,7 +1,10 @@
 import React from 'react';
 import Team from '../../Components/Team/Team';
 import './about_us.css';
-import Footer from '../../Components/Footer/Footer'
+import Footer from '../../Components/Footer/Footer';
+import WhatWeDo from '../../Components/WhatWeDo/WhatWeDo';
+import OurValues from '../../Components/OurValues/OurValues';
+import LookingAhead from '../../Components/LookingAhead/LookingAhead';
 
 function AboutUs() {
   return (
@@ -11,6 +14,9 @@ function AboutUs() {
         <p>Learn more about our journey, values, and the team behind our success.</p>
       </header>
       {/* Other sections of the About Us page */}
+      <WhatWeDo />
+      <OurValues />
+      <LookingAhead />
       <Team />
       <Footer/>
     </div>

@@ -1,6 +1,7 @@
-const express = require("express")
+const express = require("express");
 const app = express();
-const router =require("./Routes/router")
+const cookieParser=require("cookie-parser");
+const router =require("./Routes/router");
 const PORT = 4000;
 const cors=require("cors");
 
@@ -9,6 +10,7 @@ const connectDB = require("./db/conn");
 connectDB();
     
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
 app.use(router);
 app.listen(PORT, () => {

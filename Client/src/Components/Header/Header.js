@@ -1,38 +1,41 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../../Assets/Images/logo.png';
+import logo from "../../Assets/Images/logo.png"
 
 const Header = () => {
-    const location = useLocation();
-    const hideNav = location.pathname === '/SignIn' || location.pathname === '/SignUp';
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    return (
-        <>
-        <header className="header">
-            <div className="header-top">
-                <div className="logo-box">
-                    <img src={logo} alt="Vecrosoft Logo" />
-                    <h1>Vecrosoft</h1>
-                </div>
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  return (
+    <header className="header">
+      <div className="header-left">
+        <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        <span className="site-title">Vecrosoft</span>
+      </div>
+      <nav className="nav">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/article" className="nav-link">Article</Link>
+        <Link to="/ai" className="nav-link">Detect</Link>
+        <Link to="/chat" className="nav-link">Chat</Link>
+
+      </nav>
+      <div className="header-right">
+        <div className="dropdown">
+          <button className="dropbtn" onClick={toggleDropdown}>Create ▼</button>
+          {dropdownOpen && (
+            <div className="dropdown-content">
+              <Link to="/create-article">Article</Link>
+              <Link to="/create-post">Post</Link>
             </div>
-            {!hideNav && (
-                <div className="navbar">
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/AboutUs">About Us</Link>
-                        <Link to="/Ai">AI</Link>
-                        <Link to="/Chat">Chat</Link>
-                        <Link to="/Article">Articles</Link>
-                    </nav>
-                </div>
-            )}
-        </header>
-        <div className='margin_bottom'>
-
+          )}
         </div>
-        </>
-    );
+      </div>
+    </header>
+  );
 };
 
 export default Header;

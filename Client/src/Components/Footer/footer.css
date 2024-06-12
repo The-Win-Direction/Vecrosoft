@@ -1,39 +1,64 @@
-.footer-margin-top{
-    margin-top: 6rem;
-}
-
-.container_footer{
-text-align: center;
-width: 100%;
-background-color: rgb(111, 234, 234);
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-position: fixed;
-bottom: 0;
-
-
-}
-.images{
+.footer {
+    background-color:aliceblue;
+    padding: 2rem 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.container_footer img{
-    height:40px;
-    width:40px;
-    border-radius:50%;
-
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-.slogan p{
-text-align: center;
-font-size:medium;
-font-weight: bold;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  
-}
-
-
-
-
+    justify-content: space-around;
+    color: #333;
+    height:13rem;
+    padding-top: 5rem;
+  }
+  .footer-left{
+    display: flex;
+    flex-direction: column;
+  }
+    
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    
+  }
+  
+  .footer-left h3 {
+    font-size: 1rem;
+    
+  }
+  
+  .footer-left p {
+    font-size: 0.9rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    /* margin-bottom: 1rem; */
+  }
+  
+  .social-icons a {
+    color: #333;
+    font-size: 2.5rem;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff;
+  }
+  
+  .footer-links {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+  
+  .footer-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .footer-links a:hover {
+    color: #007bff;
+  }
+  

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -50,8 +51,11 @@ const Home = () => {
   };
 
   return (
+   <div>
+    <Sidebar/>
     <div className="home">
       <Post post={post} />
+    </div>
     </div>
   );
 };

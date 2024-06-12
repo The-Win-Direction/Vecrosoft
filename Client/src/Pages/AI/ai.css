@@ -1,49 +1,12 @@
-.container {
-    background-color: rgb(170, 241, 241);
-    width: 50rem;
-    margin: 0 auto;
-    margin-top: 8rem;
-    padding: 2rem;
-    border-radius: 1rem;
-  }
-  
-  .image-drag {
-    height: 4rem;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: 1.5rem;
-    border-radius: 1rem;
-    border: solid black 0.1rem;
-    transition: background-color 0.3s;
-  }
-  
-  .image-drag.dragging {
-    background-color: #f0f0f0;
-  }
-  
-  .image-drag .browse-button {
-    height: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-  }
-  
-  .preview {
-    margin-bottom: 1rem;
-  }
-  
-  .preview-image {
-    max-width: 100%;
-    max-height: 20rem;
-    border: solid black 0.1rem;
-    border-radius: 0.5rem;
-    display: block;
-    margin: 0 auto;
-  }
-  
+.ai-main-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+.detection-container-with-samples{
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+
+}

@@ -1,31 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ArticlePost.css';
+import { Link } from 'react-router-dom';
 
-const ArticlePost = ({ title, author, publishedDate, content, imageUrl }) => {
+const ArticlePost = ({ article }) => {
   return (
     <div className="article-post">
-      <h2 className="article-title">{title}</h2>
-      <p className="article-author"><strong>{/* By: */} </strong>{author}</p>
-      <p className="article-date"><strong>{/* Published On:  */}</strong>{publishedDate}</p>
-      {imageUrl ? (
-        <div className="article-content-with-image">
-          <img src={imageUrl} alt="Article" className="article-image" />
-          <p className="article-content">{content}</p>
-        </div>
-      ) : (
-        <p className="article-content">{content}</p>
-      )}
+      <img src={article.imageUrl} alt={article.topic} className="article-image" />
+      <div className="article-details">
+        <h3>{article.topic}</h3>
+        <p><strong>Author:</strong> {article.author}</p>
+        <p><strong>Published Date:</strong> {article.date}</p>
+        <Link to={`/article/${article.id}`} className="read-article-button">Read Article</Link>
+      </div>
     </div>
   );
 };
-
+ 
 ArticlePost.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  publishedDate: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string,
+  article: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    topic: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ArticlePost;

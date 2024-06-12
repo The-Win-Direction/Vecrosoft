@@ -1,70 +1,120 @@
-.header{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #efebeb;
+    padding: 10px 20px;
     position: fixed;
-    top:0;
-    width:100%;
-}
-
-.header-top {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(157, 220, 220);
-    height: 1.5rem;
-}
-
-.logo-box {
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
+  }
+  
+  .header-left {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.logo-box img {
+  }
+  
+  .logo {
+    width: 40px;
     height: 40px;
-    /* margin-right: 10px; */
-}
-
-.logo-box h1 {
-    margin: 0;
-    color: green;
-}
-
-.navbar {
-    /* background-color: #333; */
-    padding: 10px 0;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    margin-right:8rem ;
-    /* gap: 10px; Adjusts the space between the boxes */
-}
-
-nav a {
-    /* display: inline-block; */
-    background-color: rgb(185, 210, 245);
-    color: black;
-    width:7rem;
-    height:rem;
-    text-align: center;
-    margin-left: 7rem;
-    border-radius: 0.6rem;
+  }
+  
+  .site-title {
+    font-size: 2rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    color: rgb(14, 202, 14);
+  }
+  
+  .nav {
+    display: flex;
+    gap: 4rem;
+  }
+  
+  .nav a {
     text-decoration: none;
-    transition: background-color 0.3s ease;
-
-}
-
-nav a:hover {
-    background-color: rgb(135, 227, 135);
-}
-.margin_bottom{
-    margin-bottom: 8rem;
-
-}
+    font-size: 1.4rem;
+    color: black;
+    padding: 5px 10px;
+    position: relative;
+    display: inline-block;
+  }
+  .nav a:hover{
+    color: blue;
+  }
+  
+  .nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background:blue; 
+    color:blue;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .nav a:hover::after {
+    color:blue;
+    width: 100%;
+    left: 0;
+    background: blue;
+  }
+  
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid blue;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 4rem;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 7rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown .dropbtn:focus + .dropdown-content,
+  .dropdown-content:hover {
+    display: block;
+  }
+  
+  .dropbtn:focus {
+    outline: none;
+  }
+  
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: white;
+  }
+  

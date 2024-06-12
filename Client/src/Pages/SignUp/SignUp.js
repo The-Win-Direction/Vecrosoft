@@ -12,7 +12,7 @@ const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         try {
             const res = await axios.post('http://localhost:4000/SignUp', {
                 fname,

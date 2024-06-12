@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './about_us.css';
 import about from '../../Assets/Images/about.png';
 
@@ -11,6 +12,30 @@ function AboutUs() {
       [question]: !prevVisibleAnswers[question]
     }));
   };
+  const history = useNavigate();
+  const validUser = async () => {
+    let token = localStorage.getItem("userdatatoken");
+    //console.log(token);
+    const res = await fetch("http://localhost:4000/Validation", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    if ((data.status == 401 || !data)) {
+      history("*");
+
+    }else{
+      history("/about-us")
+    }
+  };
+
+  useEffect(() => {
+    validUser();
+  }, []);
 
   return (
     <div className="about-us">

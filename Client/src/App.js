@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home/Home';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Article from './Pages/Article/Article';
@@ -10,6 +9,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import Chat from './Pages/Chat/Chat'
 import SignIn from './Pages/SignIn/SignIn';
 import SideBar from './Components/SideBar/SideBar';
+import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 
 function App() {
@@ -28,10 +28,10 @@ function App() {
               <Route path='/chat' element={<Chat />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/sign-in' element={<SignIn />} />
+              <Route path="/article/:articleId" element={<FullArticle/>} />
             </Routes>
           </div>
         </div>
-        {/* <Footer /> */}
       </div>
    
   );

@@ -16,7 +16,7 @@ const ArticlePost = ({ article }) => {
     </div>
   );
 };
-
+ 
 ArticlePost.propTypes = {
   article: PropTypes.shape({
     id: PropTypes.number.isRequired,

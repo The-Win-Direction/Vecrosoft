@@ -6,6 +6,7 @@ import DetectionDescription from '../../../src/Components/DetectionDescription/D
 import SampleImages from '../../Components/SampleImages/SampleImages';
 import FeatureDescription from '../../Components/FeatureDescription/FeatureDescription';
 import Testimonials from '../../Components/Testimonials/Testimonials';
+import Footer from '../../Components/Footer/Footer'
 
 
 function AI() {
@@ -20,6 +21,7 @@ function AI() {
   </div>
   <FeatureDescription/>
   <Testimonials />
+  <Footer />
   </div>
   );
 }

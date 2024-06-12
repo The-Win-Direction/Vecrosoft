@@ -9,7 +9,7 @@ background-color: rgb(111, 234, 234);
 display: flex;
 align-items: center;
 justify-content: space-evenly;
-position: fixed;
+/* position: fixed; */
 bottom: 0;
 
 

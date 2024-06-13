@@ -20,7 +20,6 @@
   }
   
   .looking-ahead-content {
-    /* max-width: 800px; */
     margin: 0 auto;
     font-size: 1.2rem;
     line-height: 1.6;
@@ -31,7 +30,6 @@
   
   .goals-list {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: space-around;
     gap: 2rem;
     margin-top: 2rem;

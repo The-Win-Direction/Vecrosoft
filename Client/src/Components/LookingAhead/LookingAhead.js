@@ -20,10 +20,10 @@ function LookingAhead() {
             <h3>Global Community</h3>
           </div>
           <div className="goal-item">
-            <FaComments className="icon" />
+            <FaComments className="icon" /> 
             <h3>User Feedback</h3>
           </div>
-          <div className="goal-item">
+          <div className="goal-item"> 
             <FaRobot className="icon" />
             <h3>AI Expansion</h3>
           </div>

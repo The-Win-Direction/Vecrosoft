@@ -7,8 +7,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-  }
-  
+
+    p{
+     padding: 0 10rem 0 10rem;
+     text-align: center;
+    }
+
   .looking-ahead-container h2 {
     font-size: 2.5rem;
     color: #333;
@@ -59,5 +63,7 @@
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 0.5rem;
+  }
+  
   }
   

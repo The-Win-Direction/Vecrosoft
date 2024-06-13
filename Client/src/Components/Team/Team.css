@@ -1,52 +1,54 @@
 .team-container {
-    padding: 2rem;
-    background-color: #f8f9fa;
-  }
-  
-  .team-container h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-  
-  .team-members {
-    display: flex;
-    justify-content: space-around;
-    /* flex-wrap: wrap; */
-  }
-  
-  .team-member {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: calc(20% - 2rem); /* Adjusts the width to fit 5 members in a row with margins */
-    text-align: center;
-  }
-  
-  .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-  }
-  
-  .team-member h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .position {
-    font-size: 1.2rem;
-    color: #777;
-    margin-bottom: 0.5rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-    color: #555;
-  }
-  
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin: 2rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-container h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.team-members {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: calc(20% - 2rem);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-image {
+  width: 60%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #666;
+}

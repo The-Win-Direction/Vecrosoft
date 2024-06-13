@@ -1,5 +1,5 @@
 .values-container {
-    padding: 2rem;
+    padding: 1rem;
     background-color: #f9f9f9;
     text-align: center;
     margin: 2rem 0;
@@ -15,7 +15,7 @@
   
   .values-list {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     gap: 2rem;
   }

@@ -11,18 +11,14 @@ function AboutUs() {
   return (
     <div className="about-us-container">
       <header className="about-us-header">
-        <h1>About Us</h1>
         <p>Learn more about our journey, values, and the team behind our success.</p>
       </header>
-      {/* Other sections of the About Us page */}
-      {/* <WhatWeDo /> */}
+      <WhatWeDo/>
       <OurValues />
-     <WhatWeDo/>
       <Team />
-      <Testimonials/>
       <LookingAhead />
       <Footer/>
-    </div>
+    </div> 
   );
 }
 

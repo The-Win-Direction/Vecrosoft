@@ -15,7 +15,7 @@ function LookingAhead() {
             <FaSeedling className="icon" />
             <h3>Innovation</h3>
           </div>
-          <div className="goal-item">
+          <div className="goal-item"> 
             <FaGlobe className="icon" />
             <h3>Global Community</h3>
           </div>

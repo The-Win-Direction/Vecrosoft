@@ -14,11 +14,9 @@ import './App.css';
 
 function App() {   
   return (
-   
-      <div className="app-container">
+      <div className="app-container"> 
         <Header />
         <div className="content-container">
-          <div className="main-content">
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about-us' element={<AboutUs />} />
@@ -28,12 +26,9 @@ function App() {
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/sign-in' element={<SignIn />} />
               <Route path="/article/:articleId" element={<FullArticle/>} />
-              {/* <Route path='/SignUp' element={<SignUp/>}/>
-              <Route path='/SignIn' element={<SignIn/>}/> */}
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>
-        </div>
       </div>
    
   );

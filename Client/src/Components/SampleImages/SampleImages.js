@@ -17,7 +17,7 @@ function SampleImages() {
         <img src={sampleImage4} alt="Sample 4" className="sample-image" />
       </div>
     </div>
-  );
+  );  
 }
 
 export default SampleImages;

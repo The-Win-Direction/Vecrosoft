@@ -1,7 +1,10 @@
 :root {
   --main-bg-color: #3498db;
   --main-text-color: #2c3e50;
-  --main-padding: 16px;
+  --color-navbar: #efebeb;
+  --y: rgb(14, 202, 14);
+  --color-background: #ddd;
+
 }
 
 body {

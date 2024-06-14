@@ -1,60 +1,63 @@
 .description-container {
-    margin-top: 6rem;
-    text-align: center;
+  text-align: center;
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
 
-    .image-container {
-      position: relative;
-      display: inline-block;
-     
-    }
-    
-    .leaf-image {
-      max-width: 80%;
-      height: auto;
-      border-radius: 1rem;
-    }
-    
-    .lens-image {
-      position: absolute;
-      width: 15rem; 
-      height: 10rem; 
-      animation: scan 5s linear infinite;
-    }
-    
-    @keyframes scan {
-      0% {
-        top: 10%;
-        left: 10%;
-      }
-      25% {
-        top: 10%;
-        left: 70%;
-      }
-      50% {
-        top: 70%;
-        left: 70%;
-      }
-      75% {
-        top: 70%;
-        left: 10%;
-      }
-      100% {
-        top: 10%;
-        left: 10%;
-      }
-    }
-    
-    .description-container h1 {
-      font-size: 3rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    
-    .description-container h2 {
-      font-size: 1.8rem;
-      color: #555;
-    }
-    
   }
-  
-  
+
+  .leaf-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 1rem;
+  }
+
+  .lens-image {
+    position: absolute;
+    width: 15rem;
+    height: 10rem;
+    animation: scan 5s linear infinite;
+  }
+
+  .description-container h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .description-container h2 {
+    font-size: 1.8rem;
+    color: #555;
+  }
+
+}
+
+
+
+@keyframes scan {
+  0% {
+    top: 10%;
+    left: 10%;
+  }
+
+  25% {
+    top: 10%;
+    left: 70%;
+  }
+
+  50% {
+    top: 70%;
+    left: 70%;
+  }
+
+  75% {
+    top: 70%;
+    left: 10%;
+  }
+
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+}

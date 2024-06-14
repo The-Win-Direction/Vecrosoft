@@ -40,10 +40,10 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
-.content-container {
+/* .content-container {
   display: flex;
   flex-grow: 1;
   margin-top: 60px; 
@@ -52,6 +52,6 @@
 .main-content {
   flex-grow: 1;
   padding: 20px;
-}
+} */
 
 

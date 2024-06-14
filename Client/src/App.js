@@ -12,7 +12,7 @@ import SignIn from './Pages/SignIn/SignIn';
 import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 
-function App() {
+function App() {   
   return (
    
       <div className="app-container">

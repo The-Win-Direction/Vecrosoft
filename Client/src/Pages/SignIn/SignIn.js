@@ -8,7 +8,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,11 +27,10 @@ const SignIn = () => {
         }
       );
 
-      
       console.log(res);
       if (res.data.status === 201) {
         localStorage.setItem("userdatatoken", res.data.result.token);
-        history("/");
+        navigate("/");
         setEmail("");
         setPassword("");
         setMessage("");
@@ -77,6 +76,11 @@ const SignIn = () => {
               {showPassword ? "Hide" : "Show"}
             </button>
           </div>
+        </div>
+        <div className="signin-forgot-password">
+          <p>
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </p>
         </div>
         <button className="signin-button" type="submit">
           SignIn

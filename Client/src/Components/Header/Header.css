@@ -39,7 +39,7 @@
       display: inline-block;
     }
     .nav a:hover{
-      color: blue;
+      color: rgb(14, 202, 14) ;
     }
     
     .nav a::after {
@@ -50,16 +50,16 @@
       display: block;
       margin-top: 5px;
       right: 0;
-      background:blue; 
-      color:blue;
+      background:rgb(14, 202, 14); 
+      color:rgb(14, 202, 14);
       transition: width 0.2s ease, background-color 0.2s ease;
     }
     
     .nav a:hover::after {
-      color:blue;
+      color:rgb(14, 202, 14);
       width: 100%;
       left: 0;
-      background: blue;
+      background: rgb(14, 202, 14);
     }
     
     
@@ -73,7 +73,7 @@
       font-size: 16px;
       border: none;
       cursor: pointer;
-      border: 1px solid blue;
+      border: 1px solid rgb(14, 202, 14);
       border-radius: 5px;
       background-color: white;
       margin-right: 4rem;

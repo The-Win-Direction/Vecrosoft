@@ -12,7 +12,7 @@ function DetectionDescription() {
       </div>
       <h1>Disease <span className='blue'>Detection</span> Through Leaf</h1>
       <h2>100% Automatically and <span className='blue'>Free </span></h2>
-    </div>
+    </div> 
   );
 }
 

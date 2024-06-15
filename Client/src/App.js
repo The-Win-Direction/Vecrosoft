@@ -11,6 +11,7 @@ import Chat from './Pages/Chat/Chat'
 import SignIn from './Pages/SignIn/SignIn';
 import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
+import CreatePost from './Pages/CreatePost/CreatePost';
 
 function App() {
   return (
@@ -28,8 +29,7 @@ function App() {
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/sign-in' element={<SignIn />} />
               <Route path="/article/:articleId" element={<FullArticle/>} />
-              {/* <Route path='/SignUp' element={<SignUp/>}/>
-              <Route path='/SignIn' element={<SignIn/>}/> */}
+              <Route path="/create-post" element={<CreatePost/>} />
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>

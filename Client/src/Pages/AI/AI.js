@@ -9,7 +9,7 @@ import Testimonials from '../../Components/Testimonials/Testimonials';
 import Footer from '../../Components/Footer/Footer';
 
 
-function AI() { 
+function AI() {  
   return (
     <div>
     <div className="ai-main-container">

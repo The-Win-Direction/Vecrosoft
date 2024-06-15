@@ -1,8 +1,14 @@
-.about-us-header{
-    text-align: center;
+.about-us-container{
+    /* background-color: var(--color-background); */
+
+    .about-us-header{
+        text-align: center;
+    }
+    
+    
+    .about-us-header p{
+        font-size: 1.5rem;
+    }
 }
 
 
-.about-us-header p{
-    font-size: 1.5rem;
-}

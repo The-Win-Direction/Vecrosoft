@@ -1,8 +1,8 @@
 .values-container {
     padding: 1rem;
-    background-color: #f8f8f8;
+    /* background-color: var(--color-background); */
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
@@ -17,6 +17,9 @@
     /* flex-wrap: wrap; */
     justify-content: space-around;
     gap: 2rem;
+    margin:0 2rem 0 2rem;
+
+    
   }
   
   .value-item {
@@ -25,8 +28,7 @@
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: calc(45% - 2rem);
-    margin: 1rem 0;
-    text-align: left;
+    text-align: center;
   }
   
   .value-item .icon {

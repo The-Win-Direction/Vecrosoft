@@ -1,9 +1,9 @@
 import React from 'react';
-import './Team.css';
+import './Team.css'; 
 import { FaGithub, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import member1 from '../../Assets/Images/dipaPic.JPG';
 import member2 from '../../Assets/Images/dipakPic.jpg';
-import team3 from '../../Assets/Images/profilePic1.JPG';
+import member4 from '../../Assets/Images/anuradhaPic.jpg';
 import team4 from '../../Assets/Images/profilePic1.JPG';
 import team5 from '../../Assets/Images/profilePic1.JPG';
 
@@ -30,7 +30,7 @@ function Team() {
     {
       name: 'Menuka Paneru',
       role: '',
-      image: team3,
+      image: member1,
       github: '',
       facebook: '',
       linkedin: '',
@@ -39,7 +39,7 @@ function Team() {
     {
       name: 'Anuradha Bhatta',
       role: '',
-      image: team4,
+      image: member4,
       github: '',
       facebook: '',
       linkedin: '',
@@ -62,8 +62,10 @@ function Team() {
       <div className="team-members">
         {teamMembers.map((member, index) => (
           <div key={index} className="team-member">
+            <div className='image-name'>
             <img src={member.image} alt={member.name} className="team-member-image" />
             <h3>{member.name}</h3>
+            </div>
             <p>{member.role}</p>
             <div className="social-icons">
               <a href={member.github} target="_blank" rel="noopener noreferrer">

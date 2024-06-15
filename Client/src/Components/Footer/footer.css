@@ -6,7 +6,8 @@
     color: #333;
     height:13rem;
     padding-top: 5rem;
-  }
+
+    
   .footer-left{
     display: flex;
     flex-direction: column;
@@ -62,3 +63,4 @@
     color: #007bff;
   }
   
+  }

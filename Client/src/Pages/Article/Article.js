@@ -13,7 +13,7 @@ const Article = () => {
       <Route path="/" element={<ArticleList />} />
       <Route path=":articleId" element={<FullArticle />} />
     </Routes>
-    </div>
+    </div> 
   );
 };
 

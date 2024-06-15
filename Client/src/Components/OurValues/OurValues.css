@@ -1,0 +1,52 @@
+.values-container {
+    padding: 1rem;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin: 2rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+   h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .values-list {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    gap: 2rem;
+  }
+  
+  .value-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(45% - 2rem);
+    margin: 1rem 0;
+    text-align: left;
+  }
+  
+  .value-item .icon {
+    font-size: 2rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+  }
+  
+  .value-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .value-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  }
+  
+  

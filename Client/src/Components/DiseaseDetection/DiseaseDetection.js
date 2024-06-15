@@ -1,4 +1,3 @@
-// DiseaseDetection.js
 import React, { useState } from 'react';
 import './DiseaseDetection.css';
 

@@ -13,13 +13,11 @@ import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 import CreatePost from './Pages/CreatePost/CreatePost';
 
-function App() {
+function App() {   
   return (
-   
-      <div className="app-container">
+      <div className="app-container"> 
         <Header />
         <div className="content-container">
-          <div className="main-content">
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about-us' element={<AboutUs />} />
@@ -33,7 +31,6 @@ function App() {
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>
-        </div>
       </div>
    
   );

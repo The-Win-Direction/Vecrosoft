@@ -1,6 +1,6 @@
 .values-container {
     padding: 1rem;
-    /* background-color: #f8f8f8; */
+    /* background-color: var(--color-background); */
     text-align: center;
     margin: 2rem 2rem;
     border-radius: 1rem;

@@ -3,6 +3,8 @@ import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { articles }  from '../../Components/ArticleList/ArticleList';
+import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 
 const Home = () => {
 
@@ -54,6 +56,7 @@ const Home = () => {
    <div>
     <Sidebar/>
     <div className="home">
+    <ArticleCarousel articles={articles} />
       <Post post={post} />
     </div>
     </div>

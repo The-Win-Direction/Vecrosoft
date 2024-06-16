@@ -2,7 +2,7 @@ import React from 'react';
 import ArticlePost from '../../Components/ArticlePost/ArticlePost';
 import './ArticleList.css';
 
-const articles = [
+export const articles = [
   {
     id: 1,
     topic: 'The Rise of AI in Agriculture',

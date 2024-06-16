@@ -17,7 +17,7 @@ const SignUp = () => {
             const res = await axios.post('http://localhost:4000/SignUp', {
                 fname,
                 lname,
-                email,
+                email, 
                 password
             },{
                 headers: {

@@ -7,6 +7,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    margin:auto;
 }
 
 .signup-title {
@@ -43,8 +44,8 @@
 }
 
 .signup-input:focus {
-    border-color: #3498db;
-    outline: none;
+    border-color: ;
+    outline: none;  
 }
 
 .signup-password {
@@ -56,7 +57,7 @@
 .signup-show-password {
     background: none;
     border: none;
-    color: #3498db;
+    color: var(--color-green);
     font-size: 0.9rem;
     cursor: pointer;
     margin-left: 10px;
@@ -64,11 +65,11 @@
 }
 
 .signup-show-password:hover {
-    color: #2c81ba;
+    color: rgb(7, 180, 7);
 }
 
 .signup-button {
-    background-color: #3498db;
+    background-color: var(--color-green);
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -79,7 +80,7 @@
 }
 
 .signup-button:hover {
-    background-color: #2980b9;
+    background-color: rgb(7, 180, 7);
 }
 
 .signup-message {
@@ -96,11 +97,11 @@
 }
 
 .signup-signin-link a {
-    color: #3498db;
+    color: var(--color-green);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .signup-signin-link a:hover {
-    color: #2980b9;
+    color: rgb(7, 180, 7);
 }

@@ -6,6 +6,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    margin:auto;
 
     .signin-title {
         font-size: 2rem;
@@ -42,7 +43,7 @@
     }
     
     .signin-input:focus {
-        border-color: #3498db;
+        border-color: var(--color-green);
         outline: none;
     }
     
@@ -55,7 +56,7 @@
     .signin-show-password {
         background: none;
         border: none;
-        color: #3498db;
+        color: var(--color-green);
         font-size: 0.9rem;
         cursor: pointer;
         margin-left: 10px;
@@ -63,11 +64,11 @@
     }
     
     .signin-show-password:hover {
-        color: #2c81ba;
+        color: rgb(7, 180, 7);
     }
     
     .signin-button {
-        background-color: #3498db;
+        background-color: var(--color-green);
         color: #fff;
         border: none;
         padding: 10px 15px;
@@ -78,7 +79,7 @@
     }
     
     .signin-button:hover {
-        background-color: #2980b9;
+        background-color: rgb(7, 180, 7);
     }
     
     .signin-message {
@@ -95,13 +96,13 @@
     }
     
     .signin-signup-link a, .signin-forgot-password a {
-        color: #3498db;
+        color: var(--color-green);
         text-decoration: none;
         transition: color 0.3s ease;
     }
     
     .signin-signup-link a:hover, .signin-forgot-password a:hover {
-        color: #2980b9;
+        color: rgb(7, 180, 7);
     }
     
     .signin-forgot-password {

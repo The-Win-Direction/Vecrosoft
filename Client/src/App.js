@@ -11,6 +11,7 @@ import Chat from './Pages/Chat/Chat'
 import SignIn from './Pages/SignIn/SignIn';
 import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
+import './index.css';
 
 function App() {   
   return (

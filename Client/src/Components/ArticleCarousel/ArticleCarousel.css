@@ -2,8 +2,10 @@
 .carousel-container {
     display: flex;
     overflow-x: auto;
+    gap: 1rem;
     padding: 10px;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    scrollbar-width: none; 
+    width:50rem;
   }
   
   .carousel-container::-webkit-scrollbar {

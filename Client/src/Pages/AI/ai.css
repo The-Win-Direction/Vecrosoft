@@ -1,6 +1,6 @@
 .ai-main-container {
   display: flex;
-  align-items: center;
+  align-items: start;
   margin-top: 2rem;
   justify-content: space-evenly;
 

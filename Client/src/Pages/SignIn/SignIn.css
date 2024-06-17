@@ -6,7 +6,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin:auto;
+    margin: 5rem auto;
 
     .signin-title {
         font-size: 2rem;
@@ -48,8 +48,7 @@
     }
     
     .signin-password {
-        display: flex;
-        align-items: center;
+       
         width: 100%;
     }
     
@@ -61,6 +60,9 @@
         cursor: pointer;
         margin-left: 10px;
         transition: color 0.3s ease;
+        position: relative;
+        top:-2rem;
+        left:8rem;
     }
     
     .signin-show-password:hover {

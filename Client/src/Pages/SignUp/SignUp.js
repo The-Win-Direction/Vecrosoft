@@ -18,7 +18,7 @@ const SignUp = () => {
                 fname,
                 lname,
                 email, 
-                password
+                password 
             },{
                 headers: {
                     'Content-Type': 'application/json'

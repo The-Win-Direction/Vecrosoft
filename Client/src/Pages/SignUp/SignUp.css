@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin:auto;
+    margin: 4rem auto;
 }
 
 .signup-title {
@@ -44,14 +44,12 @@
 }
 
 .signup-input:focus {
-    border-color: ;
+    border-color:var(--color-green) ;
     outline: none;  
 }
 
 .signup-password {
-    display: flex;
-    align-items: center;
-    width: 100%;
+    width:100%;
 }
 
 .signup-show-password {
@@ -62,6 +60,9 @@
     cursor: pointer;
     margin-left: 10px;
     transition: color 0.3s ease;
+    position: relative;
+    top:-2rem;
+    left:8rem;
 }
 
 .signup-show-password:hover {

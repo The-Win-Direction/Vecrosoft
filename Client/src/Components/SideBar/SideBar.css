@@ -3,12 +3,12 @@
     padding: 20px;
     border-right: 1px solid #ddd;
     position: fixed;
-    /* top: 60px;  */
     left: 0;
-    /* height: calc(100vh - 60px);  */
     background-color: #f8f8f8;
-    padding: 20px;
-    overflow-y: auto;
+    padding-top: 1rem;
+    overflow-y: auto;  
+    height: 100vh;
+
 
 
     .search-bar {

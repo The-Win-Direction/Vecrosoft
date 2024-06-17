@@ -1,22 +1,12 @@
 /* ArticleCarousel.css */
-/* .carousel-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    padding: 10px;
-    scrollbar-width: none; 
-    width:48rem;
-  }
-  */
+
   .carousel-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
-    display: flex;
     overflow-x: auto;
     gap: 1rem;
-    padding: 10px;
+    padding-top: 1rem;
     scrollbar-width: none; 
     width:48rem;
   }
@@ -24,7 +14,6 @@
   .carousel-container {
     display: flex;
     overflow-x: auto;
-    padding: 10px;
     gap:1rem;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
   }

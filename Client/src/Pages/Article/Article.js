@@ -13,7 +13,7 @@ const Article = () => {
       <Route path=":articleId" element={<FullArticle />} />
     </Routes>
     </div> 
-  );
+  ); 
 };
 
 export default Article;

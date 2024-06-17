@@ -28,7 +28,7 @@ const ArticleCarousel = ({ articles }) => {
 
   const scrollLeft = () => {
     carouselRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-  };
+  }; 
 
   const scrollRight = () => {
     carouselRef.current.scrollBy({ left: 200, behavior: 'smooth' });
@@ -48,3 +48,4 @@ const ArticleCarousel = ({ articles }) => {
 };
 
 export default ArticleCarousel;
+ 

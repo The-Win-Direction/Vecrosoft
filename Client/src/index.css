@@ -26,9 +26,13 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace;    
     
-     
-    
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 

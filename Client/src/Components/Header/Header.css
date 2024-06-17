@@ -8,6 +8,8 @@
   top: 0;
   width:100vw; 
   padding:0 1rem;
+  z-index: 1000;
+  height: 3.5rem;
 
 }
 

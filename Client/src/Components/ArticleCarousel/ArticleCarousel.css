@@ -1,0 +1,55 @@
+/* ArticleCarousel.css */
+/* .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 10px;
+    scrollbar-width: none; 
+    width:48rem;
+  }
+  */
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 10px;
+    scrollbar-width: none; 
+    width:48rem;
+  }
+  
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap:1rem;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  
+  .carousel-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .left-arrow {
+    left: 0;
+  }
+  
+  .right-arrow {
+    right: 0;
+  }
+  

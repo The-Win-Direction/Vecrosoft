@@ -1,0 +1,13 @@
+.home{
+    /* display: flex; */
+    background-color: #f8f8f8;
+}
+.home-content{
+    border: 1px solid red;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -13,7 +13,7 @@ const Post = ({ post }) => {
 
   const increaseLikes = () => {
     if(!like){
-      setLikes(likes + 1);
+      setLikes(likes + 1); 
       setLike(!like)
     }
     else{

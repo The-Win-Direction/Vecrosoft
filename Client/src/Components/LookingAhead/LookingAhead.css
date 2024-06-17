@@ -1,13 +1,9 @@
 .looking-ahead-container {
     padding: 2rem;
-    /* background-color: var(--color-background); */
-    /* background-color: #fff; */
     text-align: center;
     margin: 2rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
 
     p{
      padding: 0 10rem 0 10rem;
@@ -25,8 +21,6 @@
     font-size: 1.2rem;
     line-height: 1.6;
     color: #555;
-    position: relative;
-    z-index: 1;
   }
   
   .goals-list {

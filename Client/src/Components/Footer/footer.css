@@ -4,12 +4,13 @@
     display: flex;
     justify-content: space-around;
     color: #333;
-    height:13rem;
-    padding-top: 5rem;
+    height:15rem;
+    padding-top: 4rem;
 
     
   .footer-left{
     display: flex;
+    gap:2rem;
     flex-direction: column;
   }
     

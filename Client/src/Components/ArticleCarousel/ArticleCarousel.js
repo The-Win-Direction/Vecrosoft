@@ -14,11 +14,15 @@ const ArticleCarousel = ({ articles }) => {
       setShowRightArrow(scrollLeft + clientWidth < scrollWidth);
     };
 
-    handleScroll();
-    carouselRef.current.addEventListener('scroll', handleScroll);
+    if (carouselRef.current) {
+      handleScroll();
+      carouselRef.current.addEventListener('scroll', handleScroll);
+    }
 
     return () => {
-      carouselRef.current.removeEventListener('scroll', handleScroll);
+      if (carouselRef.current) {
+        carouselRef.current.removeEventListener('scroll', handleScroll);
+      }
     };
   }, []);
 

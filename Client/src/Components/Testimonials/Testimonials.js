@@ -8,7 +8,7 @@ import './Testimonials.css';
 import about from '../../../src/Assets/Images/about.png'
 
 function Testimonials() {
-  return (
+  return ( 
     <div className="testimonials-container">
       <h2>They love us. You will too.</h2>
       <div className="testimonial-boxes">
@@ -37,7 +37,7 @@ function Testimonials() {
           <div className="profile">
             <img src={about} alt="Profile 3" className="profile-pic" />
             <div className="profile-info">
-              <span className="profile-name">Alice Johnson</span>
+              <span className="profile-name">Menuka Paneru</span>
               <span className="profile-profession">Plant Pathologist</span>
             </div>
           </div>

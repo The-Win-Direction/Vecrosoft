@@ -4,9 +4,8 @@ import { FaGithub, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import member1 from '../../Assets/Images/RishiSirPic.jpg';
 import member2 from '../../Assets/Images/dipakPic.jpg';
 import member3 from '../../Assets/Images/dipaPic.JPG';
-
-import member4 from '../../Assets/Images/anuradhaPic.jpg';
-import team4 from '../../Assets/Images/profilePic1.JPG';
+import member4 from '../../Assets/Images/menukaPic.jpg';
+import member5 from '../../Assets/Images/anuradhaPic.jpg';
 import team5 from '../../Assets/Images/profilePic1.JPG';
 
 function Team() {
@@ -42,7 +41,7 @@ function Team() {
     {
       name: 'Menuka Paneru',
       role: 'App Developer',
-      image: member3,
+      image: member4,
       github: 'nnn',
       facebook: 'nn',
       linkedin: 'nn',
@@ -51,7 +50,7 @@ function Team() {
     {
       name: 'Anuradha Bhatta',
       role: '',
-      image: member4,
+      image: member5,
       github: 'nn',
       facebook: 'n',
       linkedin: 'nn',

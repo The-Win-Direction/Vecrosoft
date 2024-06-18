@@ -44,13 +44,23 @@ exports.signInApi = async (req, res) => {
       if (!isMatch) {
         return res.status(422).json({ message: "Invalid details" });
       } else {
+
+      /*   user.tokens = user.tokens.filter(tokenDoc => {
+            try {
+              jwt.verify(tokenDoc.token, keysecret);
+              return true;
+            } catch (err) {
+              return false;
+            }
+          }); */
+      
         const token = await user.generateAuthToken();
         //console.log(token);
 
-        res.cookie("usercookie", token, {
+        /* res.cookie("usercookie", token, {
           expires: new Date(Date.now() + 9000000),
           httpOnly: true,
-        });
+        }); */
         const result = {
           user,
           token,
@@ -60,7 +70,7 @@ exports.signInApi = async (req, res) => {
     } else {
       res
         .status(401)
-        .json({ status: 401, message: "invalid details try again" });
+        .json({ status: 401, message: "invalid details" });
     }
   } catch (error) {
     console.error(error.message);

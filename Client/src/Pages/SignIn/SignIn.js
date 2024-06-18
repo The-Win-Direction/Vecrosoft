@@ -30,10 +30,15 @@ const SignIn = () => {
       console.log(res);
       if (res.data.status === 201) {
         localStorage.setItem("userdatatoken", res.data.result.token);
+       
         navigate("/");
         setEmail("");
         setPassword("");
         setMessage("");
+      }else{
+        
+             
+        setMessage("invalid details",res.data.message);
       }
     } catch (error) {
       if (error.response && error.response.data) {

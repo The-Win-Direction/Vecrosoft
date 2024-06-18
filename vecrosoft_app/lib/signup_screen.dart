@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:vecrosoft_app/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -17,6 +19,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       _obscureText = !_obscureText;
     });
+  }
+
+  Future<void> _handleSignUp() async {
+    final url = 'http://localhost:4000/api/sign-up'; // Your API URL
+    final response = await http.post(Uri.parse(url), body: {
+      'fname': _firstNameController.text,
+      'lname': _lastNameController.text,
+      'email': _emailController.text,
+      'password': _passwordController.text,
+    });
+
+    if (response.statusCode == 201) {
+      // Signup successful
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    } else {
+      // Handle signup error
+      final responseData = json.decode(response.body);
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Sign Up Error'),
+          content: Text(responseData['message']),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override
@@ -90,9 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
-                    // Handle sign up logic here
-                  },
+                  onPressed: _handleSignUp, // Call _handleSignUp function
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   child: Text('SIGN UP'),

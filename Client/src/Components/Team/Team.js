@@ -1,8 +1,10 @@
 import React from 'react';
 import './Team.css'; 
 import { FaGithub, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import member1 from '../../Assets/Images/dipaPic.JPG';
+import member1 from '../../Assets/Images/RishiSirPic.jpg';
 import member2 from '../../Assets/Images/dipakPic.jpg';
+import member3 from '../../Assets/Images/dipaPic.JPG';
+
 import member4 from '../../Assets/Images/anuradhaPic.jpg';
 import team4 from '../../Assets/Images/profilePic1.JPG';
 import team5 from '../../Assets/Images/profilePic1.JPG';
@@ -14,7 +16,7 @@ function Team() {
       role: 'Supervisor||Mentor',
       image: member1,
       github: 'https://github.com/dipajoshi', 
-      facebook: '',
+      facebook: 'https://www.facebook.com/deadlock.r',
       linkedin: 'https://linkedin.com/in/dipajoshi',
       email: 'mailto:dipa.joshi@example.com',
     },
@@ -23,24 +25,24 @@ function Team() {
       role: 'Full Stack Developer',
       image: member2,
       github: 'https://github.com/dipakrajgiri',
-      facebook: '',
+      facebook: 'nn',
       linkedin: 'https://linkedin.com/in/dipakrajgiri',
       email: 'mailto:dipak.rajgiri@example.com',
     },
     {
       name: 'Dipa Joshi',
       role: 'Project Manager || Frontend Developer',
-      image: member1,
+      image: member3,
       github: 'https://github.com/dipajoshi', 
-      facebook: '',
+      facebook: 'nn',
       linkedin: 'https://linkedin.com/in/dipajoshi',
       email: 'mailto:dipa.joshi@example.com',
     },
    
     {
       name: 'Menuka Paneru',
-      role: 'ggg',
-      image: member1,
+      role: 'App Developer',
+      image: member3,
       github: 'nnn',
       facebook: 'nn',
       linkedin: 'nn',
@@ -48,7 +50,7 @@ function Team() {
     },
     {
       name: 'Anuradha Bhatta',
-      role: 'h',
+      role: '',
       image: member4,
       github: 'nn',
       facebook: 'n',

@@ -18,14 +18,12 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  border: 1px solid red;
-  /* width:60rem; */
 }
 
 .team-member {
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px var(--color-green);
   background-color: #fff;
   transition: transform 0.3s, box-shadow 0.3s;
   flex: 1 1 calc(33.333% - 10rem);
@@ -33,6 +31,10 @@
   max-width: calc(33.333% - 10rem);
   margin: 1rem;
   height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .team-member:hover {

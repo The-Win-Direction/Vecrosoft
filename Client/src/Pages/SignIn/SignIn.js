@@ -14,8 +14,8 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post( 
-        "http://localhost:4000/SignIn",
+      const res = await axios.post(
+        "http://localhost:4000/api/sign-in",
         {
           email,
           password,

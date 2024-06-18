@@ -1,0 +1,13 @@
+.home{
+    /* display: flex; */
+    background-color: #f8f8f8;
+
+}
+.home-content{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

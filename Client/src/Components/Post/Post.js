@@ -12,28 +12,28 @@ const Post = ({ post }) => {
   };
 
   const increaseLikes = () => {
-    if(!like){
+    if (!like) {
       setLikes(likes + 1);
-      setLike(!like)
-    }
-    else{
+      setLike(!like);
+    } else {
       setLikes(likes - 1);
-      setLike(!like)
+      setLike(!like);
     }
-  };  
+  };
 
   return (
     <div className="post">
       <div className="post-header">
         <img src={post.profilePic} alt={`${post.username}'s profile`} className="profile-pic" />
-        <span>{post.username}</span>
+        <span className="username">{post.username}</span>
       </div>
-      <p><strong>Caption:</strong> {post.caption}</p>
-      <img src={post.imageUrl} alt="Post" className="post-image" />
-      <p>{post.paragraph}</p>
+      <p className="caption"><strong>Caption:</strong> {post.caption}</p>
+      <img src={post.imageUrl} alt="Post" className="post-image " />
       <div className="post-info">
-        <button onClick={increaseLikes}>Like {likes}</button>
-        <button onClick={toggleComments}>
+        <button className={`like-button ${like ? 'liked' : ''}`} onClick={increaseLikes}>
+          {like ? '❤️' : '♡'} {likes}
+        </button>
+        <button className="comment-button" onClick={toggleComments}>
           {commentsVisible ? 'Hide Comments' : 'Show Comments'} ({post.comments.length})
         </button>
       </div>

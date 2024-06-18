@@ -12,6 +12,7 @@ import SignIn from './Pages/SignIn/SignIn';
 import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 import CreatePost from './Pages/CreatePost/CreatePost';
+import './index.css';
 
 function App() {   
   return (

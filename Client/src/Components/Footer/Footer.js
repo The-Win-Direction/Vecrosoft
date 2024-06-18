@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa';
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-left">
+      <div className="footer-left"> 
         <h3>Urbar baari kisanko gahana<br/>
         Swastha kheti hamro chahana</h3>
         <p>&copy; 2024 Vecrosoft. All rights reserved.</p>

@@ -11,7 +11,7 @@ const Home = () => {
   const validUser = async () => {
     let token = localStorage.getItem("userdatatoken");
     //console.log(token);
-    const res = await fetch("http://localhost:4000/Validation", {
+    const res = await fetch("http://localhost:4000/api/validation", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ const Home = () => {
     });
     const data = await res.json();
     console.log(data);
-    if ((data.status == 401 || !data)) {
+    if ((data.status ===401 || !data)) {
       history("*");
 
     }else{

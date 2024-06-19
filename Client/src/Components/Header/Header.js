@@ -36,7 +36,7 @@ const Header = () => {
               <Link to="/create-article">Article</Link>
               <Link to="/create-post">Post</Link>
             </div>
-          )}
+          )} 
         </div>
         <div className="profile" onClick={toggleProfileDropdown}>
           <img src={profilePic} alt="Profile" className="profile-pic" />

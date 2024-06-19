@@ -22,6 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
+    print("successful");
     final url = 'http://localhost:4000/api/sign-up'; // Your API URL
     final response = await http.post(Uri.parse(url), body: {
       'fname': _firstNameController.text,
@@ -31,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
 
     if (response.statusCode == 201) {
-      // Signup successful
+      Signup successful
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => LoginScreen()),

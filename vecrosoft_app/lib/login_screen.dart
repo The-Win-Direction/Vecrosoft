@@ -33,6 +33,8 @@ class _LoginScreenState extends State<LoginScreen> {
         context,
         MaterialPageRoute(builder: (context) => DashBoardScreen()),
       );
+      
+      return json.decode(response.body);
     } else {
       // Handle login error
       final responseData = json.decode(response.body);

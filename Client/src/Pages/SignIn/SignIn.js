@@ -14,8 +14,8 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post( 
-        "http://localhost:4000/SignIn",
+      const res = await axios.post(
+        "http://localhost:4000/api/sign-in",
         {
           email,
           password,
@@ -30,10 +30,15 @@ const SignIn = () => {
       console.log(res);
       if (res.data.status === 201) {
         localStorage.setItem("userdatatoken", res.data.result.token);
+       
         navigate("/");
         setEmail("");
         setPassword("");
         setMessage("");
+      }else{
+        
+             
+        setMessage("invalid details",res.data.message);
       }
     } catch (error) {
       if (error.response && error.response.data) {

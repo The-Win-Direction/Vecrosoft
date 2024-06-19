@@ -7,15 +7,14 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-left"> 
-        <h3>Urbar baari kisanko gahana<br/>
-        Swastha kheti hamro chahana</h3>
+        <h3>उर्वर बारी किसानको गहना,<br/>
+        स्वस्थ खेती हाम्रो चाहना।</h3>
         <p>&copy; 2024 Vecrosoft. All rights reserved.</p>
       </div>
       <div className="footer-right">
-        <div className="social-icons">
-          <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-          <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+        <div className="contact ">
+          <a href="/contact-us" className='contact-us'>Contact us</a>
+        
           <a href="mailto:your-email@example.com"><FaEnvelope /></a>
         </div>
         <div className="footer-links">

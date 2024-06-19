@@ -1,29 +1,34 @@
 import React from 'react';
 import './footer.css';
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from 'react-icons/fa'; 
-
+import { Link } from 'react-router-dom';
+import logo from "../../Assets/Images/logo.png";
+import { FaEnvelope } from 'react-icons/fa';
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-left"> 
-        <h3>Urbar baari kisanko gahana<br/>
-        Swastha kheti hamro chahana</h3>
-        <p>&copy; 2024 Vecrosoft. All rights reserved.</p>
+      <div className="footer-container">
+        <div className="footer-section footer-logo">
+          <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        </div>
+        <div className="footer-section footer-content">
+          <h3>उर्वर बारी किसानको गहना,<br /> स्वस्थ खेती हाम्रो चाहना।</h3>
+        </div>
+        <div className="footer-section footer-links">
+          <div className="contact">
+            <Link to="/contact-us" className='contact-us'>Contact us</Link>
+            <a href="mailto:your-email@example.com" className='email-icon'><FaEnvelope /></a>
+          </div>
+          <div className="links">
+            <Link to="/terms-of-service">Terms of Service</Link>
+            <Link to="/general-terms-and-conditions">General Terms and Conditions</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/cookie-policy">Cookie Policy</Link>
+          </div>
+        </div>
       </div>
-      <div className="footer-right">
-        <div className="social-icons">
-          <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-          <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-          <a href="mailto:your-email@example.com"><FaEnvelope /></a>
-        </div>
-        <div className="footer-links">
-          <a href="/terms-of-service">Terms of Service</a>
-          <a href="/general-terms-and-conditions">General Terms and Conditions</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/cookie-policy">Cookie Policy</a>
-        </div>
+      <div className="footer-copyright">
+        <p>&copy; 2024 Vecrosoft. All rights reserved.</p>
       </div>
     </footer>
   );

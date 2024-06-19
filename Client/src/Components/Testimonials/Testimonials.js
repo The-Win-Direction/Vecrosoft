@@ -39,7 +39,7 @@ function Testimonials() {
             <div className="profile-info">
               <span className="profile-name">Menuka Paneru</span>
               <span className="profile-profession">Plant Pathologist</span>
-            </div>
+            </div> 
           </div>
         </div>
       </div>

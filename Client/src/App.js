@@ -12,6 +12,7 @@ import SignIn from './Pages/SignIn/SignIn';
 import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 import CreatePost from './Pages/CreatePost/CreatePost';
+import ContactUs from './Pages/ContactUs/ContactUs';
 import './index.css';
 
 function App() {   
@@ -29,6 +30,7 @@ function App() {
               <Route path='/sign-in' element={<SignIn />} />
               <Route path="/article/:articleId" element={<FullArticle/>} />
               <Route path="/create-post" element={<CreatePost/>} />
+              <Route path="/contact-us" element={<ContactUs/>} />
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>

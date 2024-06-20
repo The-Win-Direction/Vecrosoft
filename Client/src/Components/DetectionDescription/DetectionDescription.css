@@ -1,7 +1,7 @@
 
 .description-container {
   text-align: center;
-  margin: 2rem;
+  /* margin: 2rem; */
 
   .image-container {
     position: relative;
@@ -10,8 +10,9 @@
   }
 
   .leaf-image {
-    max-width: 80%;
-    height: auto;
+    max-width: 100%;
+    width:40rem;
+    height: 22rem;
     border-radius: 1rem;
   }
   .lens-image {
@@ -27,8 +28,8 @@
 
 @keyframes scan {
   0% {
-    top: 10%;
-    left: 10%;
+    top: 15%;
+    left: 30%;
   }
 
   25% {
@@ -43,12 +44,12 @@
 
   75% {
     top: 70%;
-    left: 10%;
+    left: 30%;
   }
 
   100% {
-    top: 10%;
-    left: 10%;
+    top: 15%;
+    left: 30%;
   }
 }
 

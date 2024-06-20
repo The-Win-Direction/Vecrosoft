@@ -1,0 +1,24 @@
+.prediction-result-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    margin: 2rem auto;
+  }
+  
+  .preview-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    border: solid #ddd 0.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+  
+  .prediction-text {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  

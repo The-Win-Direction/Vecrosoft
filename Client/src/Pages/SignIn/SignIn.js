@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -30,21 +32,30 @@ const SignIn = () => {
       console.log(res);
       if (res.data.status === 201) {
         localStorage.setItem("userdatatoken", res.data.result.token);
-       
-        navigate("/");
+
         setEmail("");
         setPassword("");
         setMessage("");
-      }else{
-        
-             
-        setMessage("invalid details",res.data.message);
+        toast.success("Sign in successful!");
+        navigate("/");
+      } else {
+        toast.error("Invalid details");
+        setMessage("Invalid details");
       }
     } catch (error) {
       if (error.response && error.response.data) {
-        setMessage(error.response.data.message);
+        const errorMsg = error.response.data.message;
+        setMessage(errorMsg);
+        if (errorMsg.includes("password")) {
+          toast.error("Wrong password");
+        } else if (errorMsg.includes("email")) {
+          toast.error("Wrong email");
+        } else {
+          toast.error(errorMsg);
+        }
       } else {
-        setMessage("An error occurred. Please try again.", error);
+        toast.error("An error occurred. Please try again.");
+        setMessage("An error occurred. Please try again.");
       }
     }
   };

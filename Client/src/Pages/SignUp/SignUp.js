@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const [fname, setFname] = useState("");
@@ -10,9 +12,23 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long.");
+      return;
+    }
     try {
       const res = await axios.post(
         "http://localhost:4000/api/sign-up",
@@ -35,12 +51,20 @@ const SignUp = () => {
       setPassword("");
 
       console.log(res.data.message);
+      toast.success(res.data.message);
       setMessage(res.data.message);
+
+      // Delay navigation to allow toast to show
+      setTimeout(() => {
+        navigate("/");
+      }, 1000); 
     } catch (error) {
       if (error.response && error.response.data) {
+        toast.error(error.response.data.error);
         setMessage(error.response.data.error);
       } else {
-        setMessage("An error occurred. Please try again.", error);
+        toast.error("An error occurred. Please try again.");
+        setMessage("An error occurred. Please try again.");
       }
       console.error("Error during SignUp:", error);
     }

@@ -12,7 +12,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate(); // Hook for navigation
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,7 +54,10 @@ const SignUp = () => {
       toast.success(res.data.message);
       setMessage(res.data.message);
 
-      navigate("/");
+      // Delay navigation to allow toast to show
+      setTimeout(() => {
+        navigate("/");
+      }, 2000); // 2 seconds delay
     } catch (error) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.error);
@@ -139,7 +142,6 @@ const SignUp = () => {
           <Link to="/Sign-in">SignIn here!</Link>
         </p>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -57,7 +57,7 @@ const SignUp = () => {
       // Delay navigation to allow toast to show
       setTimeout(() => {
         navigate("/");
-      }, 2000); // 2 seconds delay
+      }, 1000); 
     } catch (error) {
       if (error.response && error.response.data) {
         toast.error(error.response.data.error);

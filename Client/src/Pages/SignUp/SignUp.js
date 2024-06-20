@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
-import {  toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 
 const SignUp = () => {
   const [fname, setFname] = useState("");
@@ -14,6 +12,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); 
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,12 +53,14 @@ const SignUp = () => {
       console.log(res.data.message);
       toast.success(res.data.message);
       setMessage(res.data.message);
+
+      navigate("/");
     } catch (error) {
       if (error.response && error.response.data) {
-        alert(error.response.data.error);
+        toast.error(error.response.data.error);
         setMessage(error.response.data.error);
       } else {
-        alert("An error occurred. Please try again.");
+        toast.error("An error occurred. Please try again.");
         setMessage("An error occurred. Please try again.");
       }
       console.error("Error during SignUp:", error);
@@ -138,6 +139,7 @@ const SignUp = () => {
           <Link to="/Sign-in">SignIn here!</Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -5,18 +5,20 @@
   text-align: center;
 }
 
-.contact-us-description,
-.contact-us-additional {
+.contact-us-description {
   font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 20px;
+ 
+}
+
+.contact-us-additional{
+  font-size: 1.75rem;
 }
 
 .contact-us-image {
   width: 25rem;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin:2rem 0;
 }
 
 @media (max-width: 768px) {

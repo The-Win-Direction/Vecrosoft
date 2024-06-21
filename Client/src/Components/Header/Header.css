@@ -196,4 +196,14 @@
   .dropdown .nav-icon {
     margin-left: 0.5rem;
   }
+
+  .dropbtn {
+    
+    border: none;
+    background-color: var(--color-navbar);
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: var(--color-navbar);
+  }
 }

@@ -53,14 +53,16 @@ const Home = () => {
   
     };
 
-  return (
-   <div className="home">
-    <Sidebar/>
-    <div className="home-content">
-    <ArticleCarousel articles={articles} />
-    <Post post={post} />
-    </div>
-    </div>
-  );
+    return (
+      <div className="home">
+        <div className="sidebar-container">
+          <Sidebar />
+        </div>
+        <div className="home-content">
+          <ArticleCarousel articles={articles} />
+          <Post post={post} />
+        </div>
+      </div>
+    );
 };
 export default Home;

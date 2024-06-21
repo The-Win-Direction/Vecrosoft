@@ -27,7 +27,7 @@ const Post = ({ post }) => {
         <img src={post.profilePic} alt={`${post.username}'s profile`} className="profile-pic" />
         <span className="username">{post.username}</span>
       </div>
-      <p className="caption"><strong>Caption:</strong> {post.caption}</p>
+      <p className="caption"> {post.caption}</p>
       <img src={post.imageUrl} alt="Post" className="post-image " />
       <div className="post-info">
         <button className={`like-button ${like ? 'liked' : ''}`} onClick={increaseLikes}>

@@ -18,7 +18,7 @@ const ArticleCarousel = ({ articles }) => {
       handleScroll();
       carouselRef.current.addEventListener('scroll', handleScroll);
     }
-
+ 
     return () => {
       if (carouselRef.current) {
         carouselRef.current.removeEventListener('scroll', handleScroll);

@@ -4,7 +4,7 @@ import './Header.css';
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faSearch, faComments, faPlus, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,7 +12,7 @@ const Header = () => {
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen); 
-  };
+  }; 
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
@@ -41,11 +41,19 @@ const Header = () => {
           <span className="nav-text">Chat</span>
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
-        </nav>
-        <div className='nav header-right'>
+        <Link to="/about-us" className="nav-link">
+          <span className="nav-text">About</span>
+          <FontAwesomeIcon icon={faInfoCircle} className="nav-icon" />
+        </Link>
+        <Link to="/contact-us" className="nav-link">
+          <span className="nav-text">Contact</span>
+          <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />
+        </Link>
+      </nav>
+      <div className='nav header-right'>
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
-            <span className="nav-text">Create</span>
+            <span className="nav-text">Create▼</span>
             <FontAwesomeIcon icon={faPlus} className="nav-icon" />
           </button>
           {dropdownOpen && (
@@ -66,8 +74,7 @@ const Header = () => {
             </div>
           )}
         </div> 
-        </div>
-      
+      </div>
     </header>
   );
 };

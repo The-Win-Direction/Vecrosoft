@@ -14,12 +14,15 @@ import './App.css';
 import CreatePost from './Pages/CreatePost/CreatePost';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import PredictionResult from './Pages/PredictionResult/PredictionResult';
+import ParentComponent from './Components/ParentHeader/ParentComponent';
 import './index.css';
+import ParentComponentHeader from './Components/ParentHeader/ParentComponent';
 
 function App() {   
   return (
       <div className="app-container"> 
-        <Header />
+        {/* <Header /> */}
+        <ParentComponentHeader/>
         <div className="content-container">
             <Routes>
               <Route path='/' element={<Home />} />

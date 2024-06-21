@@ -59,7 +59,6 @@
   transition: width 0.2s ease, background-color 0.2s ease;
 }
 
-
 .nav-link:hover::after {
   color: var(--color-green);
   width: 100%;
@@ -80,14 +79,13 @@
 }
 
 .dropbtn {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
   border: none;
   color: black;
   cursor: pointer;
   border: 1px solid rgb(14, 202, 14);
   border-radius: 5px;
-  background-color: white;
 }
 
 .dropdown-content {
@@ -167,6 +165,14 @@
   display: block;
 }
 
+.menu-bar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* Mobile Styles */
 .nav-icon {
   display: none;
@@ -189,11 +195,30 @@
     display: inline-block;
     font-size: 1.4rem;
   }
+
   .nav-link::after {
     display: none;
   }
 
   .dropdown .nav-icon {
     margin-left: 0.5rem;
+  }
+
+  .dropbtn {
+    border: none;
+    background-color: var(--color-navbar);
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: var(--color-navbar);
+  }
+
+  .menu-bar {
+    display: inline-block;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 0.5rem;
   }
 }

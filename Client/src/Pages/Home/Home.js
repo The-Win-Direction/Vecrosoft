@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { articles }  from '../../Components/ArticleList/ArticleList';
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
+import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop'
 
 const Home = () => {
 
@@ -53,14 +54,19 @@ const Home = () => {
   
     };
 
-  return (
-   <div className="home">
-    <Sidebar/>
-    <div className="home-content">
-    <ArticleCarousel articles={articles} />
-    <Post post={post} />
-    </div>
-    </div>
-  );
+    return (
+      <div className="home">
+        <div className="sidebar-container">
+          <SidebarDekstop />
+        </div>
+        <div className="home-content">
+          <ArticleCarousel articles={articles} />
+          <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
+        </div>
+      </div>
+    );
 };
 export default Home;

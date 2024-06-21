@@ -2,21 +2,23 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ArticleList from '../../../src/Components/ArticleList/ArticleList';
 import FullArticle from '../../../src/Components/FullArticle/FullArticle';
-import Sidebar from '../../Components/SideBar/SideBar';
-import './Article.css';  // Make sure to import your CSS file
+import SidebarDesktop from '../../Components/SidebarDesktop/SidebarDesktop';
+import './Article.css';
 
 const Article = () => {
   return (
-    <div className='article-container'>
+    <div className='article-container-main'>
       <div className='sidebar-container'>
-        <Sidebar />
+        <SidebarDesktop />
+      </div> 
+      <div className='content-container'>
+        <Routes>
+          <Route path="/" element={<ArticleList />} />
+          <Route path=":articleId" element={<FullArticle />} />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<ArticleList />} />
-        <Route path=":articleId" element={<FullArticle />} />
-      </Routes>
-    </div> 
-  ); 
+    </div>
+  );
 };
 
 export default Article;

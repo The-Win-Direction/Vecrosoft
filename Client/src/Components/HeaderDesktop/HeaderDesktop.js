@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
+import './HeaderDesktop.css';
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faSearch, faComments, faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Header = ({ toggleSidebar }) => {
+const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
@@ -41,12 +41,6 @@ const Header = ({ toggleSidebar }) => {
           <span className="nav-text">Chat</span>
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
-        <Link to="/about" className="nav-link">
-          <span className="nav-text">About</span>
-        </Link>
-        <Link to="/contact" className="nav-link">
-          <span className="nav-text">Contact</span>
-        </Link>
       </nav>
       <div className='nav header-right'>
         <div className="dropdown">
@@ -72,12 +66,9 @@ const Header = ({ toggleSidebar }) => {
             </div>
           )}
         </div> 
-        <button className="menu-bar" onClick={toggleSidebar}>
-          <FontAwesomeIcon icon={faBars} />
-        </button>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default HeaderDesktop;

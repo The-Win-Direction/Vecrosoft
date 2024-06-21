@@ -4,9 +4,10 @@ import './Header.css';
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faSearch, faComments, faPlus, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import ParentComponent from '../ParentHeaderSidebar/ParentHeaderSidebar';
+import { faHome, faNewspaper, faSearch, faComments, faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
@@ -41,13 +42,11 @@ const Header = () => {
           <span className="nav-text">Chat</span>
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
-        <Link to="/about-us" className="nav-link">
+        <Link to="/about" className="nav-link">
           <span className="nav-text">About</span>
-          <FontAwesomeIcon icon={faInfoCircle} className="nav-icon" />
         </Link>
-        <Link to="/contact-us" className="nav-link">
+        <Link to="/contact" className="nav-link">
           <span className="nav-text">Contact</span>
-          <FontAwesomeIcon icon={faEnvelope} className="nav-icon" />
         </Link>
       </nav>
       <div className='nav header-right'>
@@ -74,6 +73,9 @@ const Header = () => {
             </div>
           )}
         </div> 
+        <button className="menu-bar" onClick={toggleSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
       </div>
     </header>
   );

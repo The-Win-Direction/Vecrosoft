@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import './SideBar.css';
 import { FaSearch, FaBookmark, FaAd, FaInfoCircle, FaEllipsisH } from 'react-icons/fa';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen }) => {
   return (
+          <div className={`sidebar ${isOpen ? 'open' : ''}`}>
     <div className="sidebar">
       <div className="search-bar">
         <input type="text" placeholder="Search..." />
@@ -16,6 +17,8 @@ const Sidebar = () => {
         <Link to="/about-us" className="sidebar-link"><FaInfoCircle /> About Us</Link>
         <Link to="/see-more" className="sidebar-link"><FaEllipsisH /> See More</Link>
       </nav>
+
+    </div>
     </div>
   );
 };

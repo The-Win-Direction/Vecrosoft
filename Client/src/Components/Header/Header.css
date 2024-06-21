@@ -29,12 +29,12 @@
 
 .nav {
   display: flex;
-  gap: 2.2rem;
+  gap: 4rem;
 }
 
 .nav-link {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: black;
   padding: 5px 10px;
   position: relative;
@@ -165,6 +165,14 @@
   display: block;
 }
 
+.menu-bar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 /* Mobile Styles */
 .nav-icon {
   display: none;
@@ -187,6 +195,7 @@
     display: inline-block;
     font-size: 1.4rem;
   }
+
   .nav-link::after {
     display: none;
   }
@@ -202,5 +211,14 @@
 
   .dropdown:hover .dropbtn {
     background-color: var(--color-navbar);
+  }
+
+  .menu-bar {
+    display: inline-block;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 0.5rem;
   }
 }

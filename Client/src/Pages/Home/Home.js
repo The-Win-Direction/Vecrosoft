@@ -61,6 +61,9 @@ const Home = () => {
         <div className="home-content">
           <ArticleCarousel articles={articles} />
           <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
         </div>
       </div>
     );

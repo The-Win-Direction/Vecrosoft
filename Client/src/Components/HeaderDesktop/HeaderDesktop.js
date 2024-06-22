@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './HeaderDesktop.css';
+
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,8 @@ const HeaderDesktop = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
+  const { pathname } = useLocation();
+
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen); 
   }; 
@@ -18,35 +21,37 @@ const HeaderDesktop = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
   };
 
-  return (
-    <header className="header">
+  return ( 
+    <header className="header-desktop">
       <div className="header-left">
         <img src={logo} alt="Vecrosoft Logo" className="logo" />
         <span className="site-title">Vecrosoft</span>
       </div>
       <nav className="nav">
-        <Link to="/" className="nav-link">
+      <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
+        {/* <Link to="/" className="nav-link"> */}
           <span className="nav-text">Home</span>
-          <FontAwesomeIcon icon={faHome} className="nav-icon" />
         </Link>
         <Link to="/article" className="nav-link">
           <span className="nav-text">Article</span>
-          <FontAwesomeIcon icon={faNewspaper} className="nav-icon" />
         </Link>
         <Link to="/ai" className="nav-link">
           <span className="nav-text">Detect</span>
-          <FontAwesomeIcon icon={faSearch} className="nav-icon" />
         </Link>
         <Link to="/chat" className="nav-link">
           <span className="nav-text">Chat</span>
-          <FontAwesomeIcon icon={faComments} className="nav-icon" />
+        </Link>
+        <Link to="/about-us" className="nav-link">
+          <span className="nav-text">About</span>
+        </Link>
+        <Link to="/contact-us" className="nav-link">
+          <span className="nav-text">Contact</span>
         </Link>
       </nav>
       <div className='nav header-right'>
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
             <span className="nav-text">Create▼</span>
-            <FontAwesomeIcon icon={faPlus} className="nav-icon" />
           </button>
           {dropdownOpen && (
             <div className="dropdown-content">

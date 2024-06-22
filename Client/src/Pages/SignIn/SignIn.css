@@ -2,12 +2,13 @@
   
   .signin-page {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: space-evenly;
     align-items: center;
     padding: 2rem;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     background-color: var(--color-background);
+    background-color: #B5E5FF;
+    height:92vh;
 
 
   

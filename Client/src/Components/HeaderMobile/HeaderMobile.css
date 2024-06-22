@@ -16,13 +16,13 @@
   }
   
   .logo {
-    width: 2.5rem; /* Reduced size */
-    height: 2.5rem; /* Reduced size */
-    margin-right: 0.5rem; /* Adjust margin between logo and sidebar */
+    width: 2.5rem; 
+    height: 2.5rem; 
+    margin-right: 0.5rem; 
   }
   
   .sidebar-link {
-    margin-right: 1rem; /* Adjust margin for sidebar link */
+    margin-right: 1rem; 
   }
   
   .menu-bar {

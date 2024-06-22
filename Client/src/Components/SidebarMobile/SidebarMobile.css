@@ -3,10 +3,10 @@
   .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Hidden by default */
+    left: -100%; /* Hidden by default */
     width: 100%;
     height: 100%;
-    /* background-color: #fff; */
+    background-color:var(--color-background);
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     transition: left 0.3s ease;
     z-index: 1001;

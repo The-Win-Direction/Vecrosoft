@@ -1,31 +1,38 @@
-/* HeaderMobile.css */
+.header-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #efebeb;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 0 0.4rem;
+  z-index: 1000;
+  height: 3.5rem;
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #efebeb;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    padding: 0 1rem;
-    z-index: 1000;
-    height: 3.5rem;
-  }
-  
   .header-left {
     display: flex;
     align-items: center;
   }
   
   .logo {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.5rem; 
+    height: 2.5rem; 
+    margin-right: 0.5rem; 
+  }
+  
+ 
+  
+  .menu-bar {
+    font-size: 1.6rem;
+    color: black;
+    cursor: pointer;
   }
   
   .nav {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    gap:0.8rem;
   }
   
   .nav-link {
@@ -38,9 +45,10 @@
     align-items: center;
   }
   
-  .nav-link:hover {
+  .nav-link:hover, .menu-bar:hover {
     color: var(--color-green);
   }
+
   
   .nav a::after {
     display: none;
@@ -49,27 +57,19 @@
   .header-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-right: 1rem;
-  }
-  
-  .menu-bar {
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
-  
+  }  
+
   .profile {
     position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-right: 1rem;
   }
   
   .profile-pic {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
   }
   
@@ -99,3 +99,5 @@
     display: block;
   }
   
+}
+

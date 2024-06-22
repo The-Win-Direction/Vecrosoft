@@ -1,59 +1,50 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './HeaderDesktop.css';
+
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderDesktop = () => {
+  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen); 
-  }; 
+    setDropdownOpen(!dropdownOpen);
+  };
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
   };
 
   return (
-    <header className="header">
+    <header className="header-desktop">
       <div className="header-left">
         <img src={logo} alt="Vecrosoft Logo" className="logo" />
         <span className="site-title">Vecrosoft</span>
       </div>
       <nav className="nav">
-        <Link to="/" className="nav-link">
-          <span className="nav-text">Home</span>
-          <FontAwesomeIcon icon={faHome} className="nav-icon" />
-        </Link>
-        <Link to="/article" className="nav-link">
-          <span className="nav-text">Article</span>
-          <FontAwesomeIcon icon={faNewspaper} className="nav-icon" />
-        </Link>
-        <Link to="/ai" className="nav-link">
-          <span className="nav-text">Detect</span>
-          <FontAwesomeIcon icon={faSearch} className="nav-icon" />
-        </Link>
-        <Link to="/chat" className="nav-link">
-          <span className="nav-text">Chat</span>
-          <FontAwesomeIcon icon={faComments} className="nav-icon" />
-        </Link>
+        <NavLink to="/" active={location.pathname === '/'}>Home</NavLink>
+        <NavLink to="/article" active={location.pathname === '/article'}>Article</NavLink>
+        <NavLink to="/ai" active={location.pathname === '/ai'}>Detect</NavLink>
+        <NavLink to="/chat" active={location.pathname === '/chat'}>Chat</NavLink>
+        <NavLink to="/about-us" active={location.pathname === '/about-us'}>About</NavLink>
+        <NavLink to="/contact-us" active={location.pathname === '/contact-us'}>Contact</NavLink>
       </nav>
       <div className='nav header-right'>
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
             <span className="nav-text">Create▼</span>
-            <FontAwesomeIcon icon={faPlus} className="nav-icon" />
           </button>
           {dropdownOpen && (
             <div className="dropdown-content">
               <Link to="/create-article">Article</Link>
               <Link to="/create-post">Post</Link>
             </div>
-          )} 
+          )}
         </div>
         <div className="profile" onClick={toggleProfileDropdown}>
           <img src={profilePic} alt="Profile" className="profile-pic" />
@@ -65,10 +56,16 @@ const HeaderDesktop = () => {
               <Link to="/logout">Log Out</Link>
             </div>
           )}
-        </div> 
+        </div>
       </div>
     </header>
   );
 };
+
+const NavLink = ({ to, active, children }) => (
+  <Link to={to} className={`nav-link ${active ? 'active' : ''}`}>
+    <span className="nav-text">{children}</span>
+  </Link>
+);
 
 export default HeaderDesktop;

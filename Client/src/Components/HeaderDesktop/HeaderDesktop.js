@@ -8,45 +8,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderDesktop = () => {
+  const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
-  const { pathname } = useLocation();
-
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen); 
-  }; 
+    setDropdownOpen(!dropdownOpen);
+  };
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
   };
 
-  return ( 
+  return (
     <header className="header-desktop">
       <div className="header-left">
         <img src={logo} alt="Vecrosoft Logo" className="logo" />
         <span className="site-title">Vecrosoft</span>
       </div>
       <nav className="nav">
-      <Link to="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
-        {/* <Link to="/" className="nav-link"> */}
-          <span className="nav-text">Home</span>
-        </Link>
-        <Link to="/article" className="nav-link">
-          <span className="nav-text">Article</span>
-        </Link>
-        <Link to="/ai" className="nav-link">
-          <span className="nav-text">Detect</span>
-        </Link>
-        <Link to="/chat" className="nav-link">
-          <span className="nav-text">Chat</span>
-        </Link>
-        <Link to="/about-us" className="nav-link">
-          <span className="nav-text">About</span>
-        </Link>
-        <Link to="/contact-us" className="nav-link">
-          <span className="nav-text">Contact</span>
-        </Link>
+        <NavLink to="/" active={location.pathname === '/'}>Home</NavLink>
+        <NavLink to="/article" active={location.pathname === '/article'}>Article</NavLink>
+        <NavLink to="/ai" active={location.pathname === '/ai'}>Detect</NavLink>
+        <NavLink to="/chat" active={location.pathname === '/chat'}>Chat</NavLink>
+        <NavLink to="/about-us" active={location.pathname === '/about-us'}>About</NavLink>
+        <NavLink to="/contact-us" active={location.pathname === '/contact-us'}>Contact</NavLink>
       </nav>
       <div className='nav header-right'>
         <div className="dropdown">
@@ -58,7 +44,7 @@ const HeaderDesktop = () => {
               <Link to="/create-article">Article</Link>
               <Link to="/create-post">Post</Link>
             </div>
-          )} 
+          )}
         </div>
         <div className="profile" onClick={toggleProfileDropdown}>
           <img src={profilePic} alt="Profile" className="profile-pic" />
@@ -70,10 +56,16 @@ const HeaderDesktop = () => {
               <Link to="/logout">Log Out</Link>
             </div>
           )}
-        </div> 
+        </div>
       </div>
     </header>
   );
 };
+
+const NavLink = ({ to, active, children }) => (
+  <Link to={to} className={`nav-link ${active ? 'active' : ''}`}>
+    <span className="nav-text">{children}</span>
+  </Link>
+);
 
 export default HeaderDesktop;

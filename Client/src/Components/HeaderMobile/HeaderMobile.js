@@ -4,7 +4,7 @@ import './HeaderMobile.css';
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faSearch, faComments, faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faSearch, faComments, faBars, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderMobile = ({ toggleSidebar }) => {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -16,10 +16,10 @@ const HeaderMobile = ({ toggleSidebar }) => {
   return (
     <header className="header-mobile">
       <div className="header-left">
-        <button className="menu-bar" onClick={toggleSidebar}>
+      <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        <div className="menu-bar " onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faBars} />
-        </button>
-        <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        </div> 
       </div>
       <nav className="nav">
         <Link to="/" className="nav-link">
@@ -33,6 +33,9 @@ const HeaderMobile = ({ toggleSidebar }) => {
         </Link>
         <Link to="/chat" className="nav-link">
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
+        </Link>
+        <Link to="/create-post" className="nav-link">
+          <FontAwesomeIcon icon={faPlusSquare} className="nav-icon" />
         </Link>
       </nav>
       <div className='nav header-right'>

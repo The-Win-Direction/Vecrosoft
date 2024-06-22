@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  padding: 0 1rem;
+  padding: 0 0.4rem;
   z-index: 1000;
   height: 3.5rem;
 
@@ -21,9 +21,7 @@
     margin-right: 0.5rem; 
   }
   
-  .sidebar-link {
-    margin-right: 1rem; 
-  }
+ 
   
   .menu-bar {
     font-size: 1.6rem;
@@ -32,9 +30,9 @@
   }
   
   .nav {
-    flex: 1;
     display: flex;
     justify-content: center;
+    gap:0.8rem;
   }
   
   .nav-link {
@@ -47,9 +45,10 @@
     align-items: center;
   }
   
-  .nav-link:hover {
+  .nav-link:hover, .menu-bar:hover {
     color: var(--color-green);
   }
+
   
   .nav a::after {
     display: none;
@@ -58,55 +57,19 @@
   .header-right {
     display: flex;
     align-items: center;
-  }
-  
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropbtn {
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%;
-    right: 0;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 1rem;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
+  }  
+
   .profile {
     position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-right: 1rem;
   }
   
   .profile-pic {
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
   }
   

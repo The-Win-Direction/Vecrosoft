@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import {  toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
+import vecrosoftLogo from '../../Assets/Images/logo.png'; 
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -61,55 +63,71 @@ const SignIn = () => {
   };
 
   return (
-    <div className="signin-container">
-      <h2 className="signin-title">SignIn</h2>
-      <form className="signin-form" onSubmit={handleSubmit}>
-        <div className="signin-field">
-          <label className="signin-label">Email:</label>
-          <input
-            className="signin-input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="signin-page">
+      <div className="signin-left">
+        <h2 className="signin-title">Hello, Welcome Back...</h2>
+        <div className="vecrosoft-logo">
+          <img src={vecrosoftLogo} alt="Vecrosoft" />
+          <p>Vecrosoft</p>
         </div>
-        <div className="signin-field">
-          <label className="signin-label">Password:</label>
-          <div className="signin-password">
-            <input
-              className="signin-input"
-              type={showPassword ? "text" : "password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button
-              className="signin-show-password"
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
+      </div>
+      <div className="signin-right">
+        <h2 className="signin-title">Sign In</h2>
+        <form className="signin-form" onSubmit={handleSubmit}>
+          <div className="signin-field">
+            {/* <label className="signin-label">Email:</label> */}
+            <div className="signin-input-wrapper">
+              <FaEnvelope className="signin-icon" />
+              <input
+                className="signin-input"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
           </div>
-        </div>
-        <div className="signin-forgot-password">
+          <div className="signin-field">
+            {/* <label className="signin-label">Password:</label> */}
+            <div className="signin-input-wrapper">
+              <FaLock className="signin-icon" />
+              <input
+                className="signin-input"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                className="signin-show-password"
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
+          <div className="signin-forgot-password">
+            <p>
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </p>
+          </div>
+          <button className="signin-button" type="submit">
+            Sign In
+          </button>
+        </form>
+        {message && <p className="signin-message">{message}</p>}
+
+        <div className="signin-signup-link">
           <p>
-            <Link to="/forgot-password">Forgot Password?</Link>
+            Don't have an account? &nbsp;
+            <Link to="/sign-up">Sign Up here!</Link>
           </p>
         </div>
-        <button className="signin-button" type="submit">
-          SignIn
-        </button>
-      </form>
-      {message && <p className="signin-message">{message}</p>}
-
-      <div className="signin-signup-link">
-        <p>
-          Don't have an account? &nbsp;
-          <Link to="/sign-up">SignUp here!</Link>
-        </p>
       </div>
+      
     </div>
   );
 };

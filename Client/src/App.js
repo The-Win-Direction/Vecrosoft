@@ -17,6 +17,11 @@ import PredictionResult from './Pages/PredictionResult/PredictionResult';
 import ParentComponent from './Components/ParentHeader/ParentComponent';
 import './index.css';
 import ParentComponentHeader from './Components/ParentHeader/ParentComponent';
+import TermsOfService from './Pages/TermsOfService/TermsOfService';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+import GeneralTermsAndConditions from './Pages/GeneralTermsAndConditions/GeneralTermsAndConditions';
+
+
 
 function App() {   
   return (
@@ -36,6 +41,9 @@ function App() {
               <Route path="/create-post" element={<CreatePost/>} />
               <Route path="/contact-us" element={<ContactUs/>} />
               <Route path="/prediction" element={<PredictionResult />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/general-terms-and-conditions" element={<GeneralTermsAndConditions />} />
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>

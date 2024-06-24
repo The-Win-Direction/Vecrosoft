@@ -6,14 +6,14 @@ import { FaSearch, FaBookmark, FaAd, FaInfoCircle, FaEllipsisH, FaUser } from 'r
 const SidebarDesktop = () => {
   return (
     <div className="sidebar-dekstop-container">
-      <div className="search-bar">
+      <div className="search-bar"> 
         <input type="text" placeholder="Search..." />
         <button className="search-button"><FaSearch /></button>
       </div>
       <nav className="sidebar-nav">
-        <Link to="/" className="sidebar-link"><FaInfoCircle /> About Us</Link>
+        <Link to="/about-us" className="sidebar-link"><FaInfoCircle /> About Us</Link>
         <Link to="/saved" className="sidebar-link"><FaBookmark /> Saved</Link>
-        <Link to="/saved" className="sidebar-link"><FaUser /> Contact</Link>
+        <Link to="/contact-us" className="sidebar-link"><FaUser /> Contact</Link>
         <Link to="/ads" className="sidebar-link"><FaAd /> Ads</Link>
         <Link to="/see-more" className="sidebar-link"><FaEllipsisH /> See More</Link>
       </nav>

@@ -1,0 +1,110 @@
+
+.signup-form-container { 
+    background-color: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px var(--color-green);
+    border-radius: 10px;
+    text-align: center;
+    width:28rem;
+    margin-top: 4rem;
+
+    .signup-title {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+    
+    .signup-field {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .signup-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    
+    .signup-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+    
+    .signup-input:focus {
+        border-color:var(--color-green) ;
+        outline: none;  
+    }
+    
+    .signup-password {
+        width:100%;
+    }
+    
+    .signup-show-password {
+        background: none;
+        border: none;
+        color: var(--color-green);
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: color 0.3s ease;
+        position: relative;
+        top:-2rem;
+        left:8rem;
+    }
+    
+    .signup-show-password:hover {
+        color: rgb(7, 180, 7);
+    }
+    
+    .signup-button {
+        background-color: var(--color-green);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .signup-button:hover {
+        background-color: rgb(7, 180, 7);
+    }
+    
+    .signup-message {
+        margin-top: 20px;
+        color: #e74c3c;
+    }
+    
+    .signup-signin-link {
+        margin-top: 20px;
+    }
+    
+    .signup-signin-link p {
+        color: #555;
+    }
+    
+    .signup-signin-link a {
+        color: var(--color-green);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .signup-signin-link a:hover {
+        color: rgb(7, 180, 7);
+    }
+    
+}
+

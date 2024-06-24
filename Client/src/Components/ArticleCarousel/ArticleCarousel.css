@@ -1,20 +1,18 @@
-/* ArticleCarousel.css */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  scrollbar-width: none;
+  width: 100%;
+  max-width: 48rem;
 
-  .carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    gap: 1rem;
-    padding-top: 1rem;
-    scrollbar-width: none; 
-    width:48rem;
-  }
-  
   .carousel-container {
     display: flex;
     overflow-x: auto;
-    gap:1rem;
+    gap: 0.5rem;
     scrollbar-width: none; /* Hide scrollbar for Firefox */
   }
   
@@ -26,10 +24,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 3rem  ;
+    height: 3rem; 
+    border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    text-align: center;
     border: none;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 0.5rem;
     cursor: pointer;
     z-index: 1;
   }
@@ -42,3 +45,27 @@
     right: 0;
   }
   
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      padding-top: 0.5rem;
+      gap: 0.15rem;
+    }
+  
+    .arrow {
+      padding: 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      gap: 0.15rem;
+    }
+  
+    .arrow {
+      padding: 3px;
+    }
+  }
+  
+}
+

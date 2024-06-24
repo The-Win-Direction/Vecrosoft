@@ -7,7 +7,7 @@ function OurValues() {
     <div className="values-container">
       <h2>Our Values</h2>
       <div className="values-list">
-        <div className="value-item">
+        <div className="value-item"> 
           <FaLightbulb className="icon" /> 
           <h3>Innovation</h3>
           <p>We continuously strive to incorporate the latest technologies and methodologies to provide the most effective solutions for the agricultural community.</p>

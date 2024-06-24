@@ -11,7 +11,7 @@ function DetectionDescription() {
         <img src={LensImage} alt="Lens" className="lens-image" />
       </div>
       <h1>Disease <span className='highlight'>Detection</span> Through Leaf</h1>
-      <h2>100% Automatically and <span className='highlight'>Free</span></h2>
+      <h2>100% Automatically and <span className='highlight'>Free</span></h2> 
     </div>  
   );
 }

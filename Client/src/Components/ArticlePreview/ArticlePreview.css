@@ -1,9 +1,8 @@
 /* ArticlePreview.css */
 .article-preview {
-    /* width: 200px; */
-    padding: 1rem;
+    padding: 0.8rem;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.2s;
@@ -13,8 +12,8 @@
       .preview-image {
         width: 9rem;
         height: 5rem;
-        border-radius: 8px;
-        margin-bottom: 10px;
+        border-radius: 0.5rem;
+        margin-bottom: 0.1rem;
       }
       
       .preview-title {
@@ -30,7 +29,7 @@
       
   }
   .article-preview:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
   
   

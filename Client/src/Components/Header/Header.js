@@ -4,15 +4,15 @@ import './Header.css';
 import logo from "../../Assets/Images/logo.png";
 import profilePic from "../../Assets/Images/dipaPic.JPG"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faSearch, faComments, faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen); 
-  };
+  }; 
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
@@ -41,11 +41,17 @@ const Header = () => {
           <span className="nav-text">Chat</span>
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
-        </nav>
-        <div className='nav header-right'>
+        <Link to="/about" className="nav-link">
+          <span className="nav-text">About</span>
+        </Link>
+        <Link to="/contact" className="nav-link">
+          <span className="nav-text">Contact</span>
+        </Link>
+      </nav>
+      <div className='nav header-right'>
         <div className="dropdown">
           <button className="dropbtn" onClick={toggleDropdown}>
-            <span className="nav-text">Create</span>
+            <span className="nav-text">Create▼</span>
             <FontAwesomeIcon icon={faPlus} className="nav-icon" />
           </button>
           {dropdownOpen && (
@@ -66,8 +72,10 @@ const Header = () => {
             </div>
           )}
         </div> 
-        </div>
-      
+        <button className="menu-bar" onClick={toggleSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+      </div>
     </header>
   );
 };

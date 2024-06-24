@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vecrosoft_app/ai_screen.dart';
-import 'package:vecrosoft_app/articles_screen.dart';
 import 'package:vecrosoft_app/chat_screen.dart';
-import 'package:vecrosoft_app/user_details_screen.dart';
 
 class DashBoardScreen extends StatelessWidget {
   @override
@@ -19,16 +17,6 @@ class DashBoardScreen extends StatelessWidget {
             mainAxisSpacing: 100,
             crossAxisSpacing: 50,
             children: <Widget>[
-              DashboardButton(
-                label: 'Articles',
-                icon: Icons.article,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ArticlesScreen()),
-                  );
-                },
-              ),
               DashboardButton(
                 label: 'Chat Bot',
                 icon: Icons.chat_rounded,
@@ -49,17 +37,7 @@ class DashBoardScreen extends StatelessWidget {
                   );
                 },
               ),
-              DashboardButton(
-                label: 'User Details',
-                icon: Icons.verified_user_rounded,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => UserDetailsScreen()),
-                  );
-                },
-              ),
+
               // Add more DashboardButton widgets for other sections as needed
             ],
           ),

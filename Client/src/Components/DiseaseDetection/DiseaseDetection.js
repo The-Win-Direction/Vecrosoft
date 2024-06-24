@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './DiseaseDetection.css';
 
 function DiseaseDetection() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [prediction, setPrediction] = useState("");
+  const navigate = useNavigate();
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -36,7 +38,9 @@ function DiseaseDetection() {
       setPrediction("Predicting... Please wait.");
       // Simulate prediction logic
       setTimeout(() => {
-        setPrediction("Prediction result: This is an example result.");
+        const simulatedPrediction = "Prediction result: This is an example result.";
+        setPrediction(simulatedPrediction);
+        navigate('/prediction', { state: { imageUrl: selectedImage, prediction: simulatedPrediction } });
       }, 2000);
     } else {
       setPrediction("No image selected.");

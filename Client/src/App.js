@@ -13,12 +13,16 @@ import FullArticle from './Components/FullArticle/FullArticle';
 import './App.css';
 import CreatePost from './Pages/CreatePost/CreatePost';
 import ContactUs from './Pages/ContactUs/ContactUs';
+import PredictionResult from './Pages/PredictionResult/PredictionResult';
+import ParentComponent from './Components/ParentHeader/ParentComponent';
 import './index.css';
+import ParentComponentHeader from './Components/ParentHeader/ParentComponent';
 
 function App() {   
   return (
       <div className="app-container"> 
-        <Header />
+        {/* <Header /> */}
+        <ParentComponentHeader/>
         <div className="content-container">
             <Routes>
               <Route path='/' element={<Home />} />
@@ -31,6 +35,7 @@ function App() {
               <Route path="/article/:articleId" element={<FullArticle/>} />
               <Route path="/create-post" element={<CreatePost/>} />
               <Route path="/contact-us" element={<ContactUs/>} />
+              <Route path="/prediction" element={<PredictionResult />} />
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>

@@ -10,7 +10,7 @@ function WhatWeDo() {
     <div className="what-we-do-container">
       <h2>What We Do</h2>
 
-      <div className='what-we-do-content'>
+      <div className='what-we-do-content'> 
         <div className='our-mission'>
           <div className='mission-images'>
           <img src={missionPic1} alt="networking-image" className="mission-pic" />

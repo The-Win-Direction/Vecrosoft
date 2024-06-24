@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:vecrosoft_app/dashboard.dart';
 import 'package:vecrosoft_app/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,6 +18,57 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       _obscureText = !_obscureText;
     });
+  }
+
+  Future<void> _handleLogin() async {
+    final url = 'https://localhost:4000/api/sign-in'; // Your API URL
+    try {
+      final response = await http.post(Uri.parse(url), body: {
+        'email': _emailController.text,
+        'password': _passwordController.text,
+      });
+
+      if (response.statusCode == 201) {
+        // Login successful
+        final responseData = json.decode(response.body);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DashBoardScreen()),
+        );
+      } else {
+        // Handle login error
+        final responseData = json.decode(response.body);
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Error'),
+            content: Text(responseData['message']),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle any exceptions that may occur
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Error'),
+          content: Text(
+              'An error occurred while logging in. Please try again later.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override
@@ -73,14 +127,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
+                // ElevatedButton(
+                //   onPressed: _handleLogin, // Call _handleLogin function
+                //   style:
+                //       ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                //   child: Text('Continue'),
+                // ),
+
                 ElevatedButton(
-                  onPressed: () {
-                    // Handle login logic here
+                  onPressed: () async {
+                    try {
+                      await _handleLogin();
+                      // Handle successful sign up
+                    } catch (e) {
+                      // Handle error
+                    }
                   },
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: Text('Continue'),
+                  child: Text('CONTINUE'),
                 ),
+
                 SizedBox(height: 10),
                 TextButton(
                   onPressed: () {

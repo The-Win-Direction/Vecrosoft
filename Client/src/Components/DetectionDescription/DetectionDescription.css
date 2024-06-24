@@ -1,34 +1,25 @@
+
 .description-container {
   text-align: center;
-  
+  /* margin: 2rem; */
+
   .image-container {
     position: relative;
     display: inline-block;
-
+    margin-bottom: 1.5rem;
   }
 
   .leaf-image {
-    max-width: 80%;
-    height: auto;
+    max-width: 100%;
+    width:30rem;
+    height: 22rem;
     border-radius: 1rem;
   }
-
   .lens-image {
     position: absolute;
     width: 15rem;
     height: 10rem;
     animation: scan 5s linear infinite;
-  }
-
-  .description-container h1 {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-
-  .description-container h2 {
-    font-size: 1.8rem;
-    color: #555;
   }
 
 }
@@ -37,13 +28,13 @@
 
 @keyframes scan {
   0% {
-    top: 10%;
-    left: 10%;
+    top: 15%;
+    left: 30%;
   }
 
   25% {
     top: 10%;
-    left: 70%;
+    left: 60%;
   }
 
   50% {
@@ -53,11 +44,56 @@
 
   75% {
     top: 70%;
-    left: 10%;
+    left: 30%;
   }
 
   100% {
-    top: 10%;
-    left: 10%;
+    top: 15%;
+    left: 30%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .description-container {
+    .leaf-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .lens-image {
+      width: 10rem;
+      height: 7rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .description-container {
+    .leaf-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .lens-image {
+      width: 8rem;
+      height: 5rem;
+    }
+
+    /* h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    } */
   }
 }

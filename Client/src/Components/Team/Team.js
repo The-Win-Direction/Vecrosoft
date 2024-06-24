@@ -1,20 +1,21 @@
 import React from 'react';
 import './Team.css'; 
 import { FaGithub, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import member1 from '../../Assets/Images/dipaPic.JPG';
+import member1 from '../../Assets/Images/RishiSirPic.jpg';
 import member2 from '../../Assets/Images/dipakPic.jpg';
-import member4 from '../../Assets/Images/anuradhaPic.jpg';
-import team4 from '../../Assets/Images/profilePic1.JPG';
+import member3 from '../../Assets/Images/dipaPic.JPG';
+import member4 from '../../Assets/Images/menukaPic.jpg';
+import member5 from '../../Assets/Images/anuradhaPic.jpg';
 import team5 from '../../Assets/Images/profilePic1.JPG';
 
 function Team() {
-  const teamMembers = [
+  const teamMembers = [ 
     {
-      name: 'Dipa Joshi',
-      role: 'Project Manager || Frontend Developer',
+      name: 'Rishi Marseni',
+      role: 'Supervisor||Mentor',
       image: member1,
-      github: 'https://github.com/dipajoshi',
-      facebook: '',
+      github: 'https://github.com/dipajoshi', 
+      facebook: 'https://www.facebook.com/deadlock.r',
       linkedin: 'https://linkedin.com/in/dipajoshi',
       email: 'mailto:dipa.joshi@example.com',
     },
@@ -23,36 +24,46 @@ function Team() {
       role: 'Full Stack Developer',
       image: member2,
       github: 'https://github.com/dipakrajgiri',
-      facebook: '',
+      facebook: 'nn',
       linkedin: 'https://linkedin.com/in/dipakrajgiri',
       email: 'mailto:dipak.rajgiri@example.com',
     },
     {
+      name: 'Dipa Joshi',
+      role: 'Project Manager || Frontend Developer',
+      image: member3,
+      github: 'https://github.com/dipajoshi', 
+      facebook: 'nn',
+      linkedin: 'https://linkedin.com/in/dipajoshi',
+      email: 'mailto:dipa.joshi@example.com',
+    },
+   
+    {
       name: 'Menuka Paneru',
-      role: '',
-      image: member1,
-      github: '',
-      facebook: '',
-      linkedin: '',
-      email: '',
+      role: 'App Developer',
+      image: member4,
+      github: 'nnn',
+      facebook: 'nn',
+      linkedin: 'nn',
+      email: 'nn',
     },
     {
       name: 'Anuradha Bhatta',
       role: '',
-      image: member4,
-      github: '',
-      facebook: '',
-      linkedin: '',
-      email: '',
+      image: member5,
+      github: 'nn',
+      facebook: 'n',
+      linkedin: 'nn',
+      email: 'm',
     },
     {
       name: 'Dhiraj Pant',
-      role: '',
+      role: 'gg',
       image: team5,
-      github: '',
-      facebook: '',
-      linkedin: '',
-      email: '',
+      github: 'm',
+      facebook: 'm',
+      linkedin: 'm',
+      email: ',',
     },
   ];
 
@@ -63,23 +74,31 @@ function Team() {
         {teamMembers.map((member, index) => (
           <div key={index} className="team-member">
             <div className='image-name'>
-            <img src={member.image} alt={member.name} className="team-member-image" />
-            <h3>{member.name}</h3>
+              <img src={member.image} alt={member.name} className="team-member-image" />
+              <h3>{member.name}</h3>
             </div>
             <p>{member.role}</p>
             <div className="social-icons">
-              <a href={member.github} target="_blank" rel="noopener noreferrer">
-                <FaGithub />
-              </a>
-              <a href={member.facebook} target="_blank" rel="noopener noreferrer">
-                <FaFacebook />
-              </a>
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                <FaLinkedin />
-              </a>
-              <a href={member.email} target="_blank" rel="noopener noreferrer">
-                <FaEnvelope />
-              </a>
+              {member.github && (
+                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                  <FaGithub />
+                </a>
+              )}
+              {member.facebook && (
+                <a href={member.facebook} target="_blank" rel="noopener noreferrer">
+                  <FaFacebook />
+                </a>
+              )}
+              {member.linkedin && (
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin />
+                </a>
+              )}
+              {member.email && (
+                <a href={member.email} target="_blank" rel="noopener noreferrer">
+                  <FaEnvelope />
+                </a>
+              )}
             </div>
           </div>
         ))}

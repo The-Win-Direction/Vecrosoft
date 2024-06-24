@@ -1,15 +1,50 @@
+
+/* Desktop Layout */
 .ai-main-container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 2rem;
   justify-content: space-evenly;
-
-
 }
-.detection-container-with-samples{
+
+.detection-container-with-samples {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
+
+/* Responsive Design for Smaller Devices */
+@media (max-width: 768px) {
+  .ai-main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detection-container-with-samples {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detection-container-with-samples {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .description-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .description-container h2 {
+    font-size: 1rem;
+  }
+}
+

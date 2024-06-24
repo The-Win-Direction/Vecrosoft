@@ -13,7 +13,7 @@ function LookingAhead() {
         <div className="goals-list"> 
           <div className="goal-item">
             <FaSeedling className="icon" />
-            <h3>Innovation</h3>
+            <h3>Innovation</h3> 
           </div>
           <div className="goal-item"> 
             <FaGlobe className="icon" />

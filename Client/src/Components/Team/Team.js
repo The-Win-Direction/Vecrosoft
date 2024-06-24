@@ -6,7 +6,7 @@ import member2 from '../../Assets/Images/dipakPic.jpg';
 import member3 from '../../Assets/Images/dipaPic.JPG';
 import member4 from '../../Assets/Images/menukaPic.jpg';
 import member5 from '../../Assets/Images/anuradhaPic.jpg';
-import team5 from '../../Assets/Images/profilePic1.JPG';
+import member6 from '../../Assets/Images/dhirajPic.jpg';
 
 function Team() {
   const teamMembers = [ 
@@ -59,7 +59,7 @@ function Team() {
     {
       name: 'Dhiraj Pant',
       role: 'gg',
-      image: team5,
+      image: member6,
       github: 'm',
       facebook: 'm',
       linkedin: 'm',

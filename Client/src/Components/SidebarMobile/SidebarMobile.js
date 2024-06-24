@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SidebarMobile.css';
-import { FaSearch, FaBookmark, FaAd, FaInfoCircle, FaEllipsisH } from 'react-icons/fa';
+import { FaSearch, FaBookmark, FaAd, FaInfoCircle, FaEllipsisH, FaUser, FaEnvelope } from 'react-icons/fa';
 
 const SidebarMobile = ({ isOpen, closeSidebar }) => {
   const handleLinkClick = () => {
@@ -18,6 +18,12 @@ const SidebarMobile = ({ isOpen, closeSidebar }) => {
           <button className="search-button"><FaSearch /></button>
         </div>
         <nav className="sidebar-nav">
+          <Link to="/about-us" className="sidebar-link" onClick={handleLinkClick}>
+            <FaUser /> About Us
+          </Link>
+          <Link to="/contact-us" className="sidebar-link" onClick={handleLinkClick}>
+            <FaEnvelope/> Contact
+          </Link>
           <Link to="/article" className="sidebar-link" onClick={handleLinkClick}>
             <FaBookmark /> Saved
           </Link>
@@ -25,7 +31,7 @@ const SidebarMobile = ({ isOpen, closeSidebar }) => {
             <FaAd /> Ads
           </Link>
           <Link to="/about-us" className="sidebar-link" onClick={handleLinkClick}>
-            <FaInfoCircle /> About Us
+            <FaInfoCircle /> Info
           </Link>
           <Link to="/" className="sidebar-link" onClick={handleLinkClick}>
             <FaEllipsisH /> See More

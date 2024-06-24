@@ -16,7 +16,7 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+ 
     try {
       const res = await axios.post(
         "http://localhost:4000/api/sign-in",
@@ -63,19 +63,25 @@ const SignIn = () => {
   };
 
   return (
+    
     <div className="signin-page">
       <div className="signin-left">
-        <h2 className="signin-title">Hello, Welcome Back...</h2>
+        <h2 className="signin-title"></h2>
         <div className="vecrosoft-logo">
           <img src={vecrosoftLogo} alt="Vecrosoft" />
-          <p>Vecrosoft</p>
+          <p>
+            {"Vecrosoft".split("").map((letter, index) => (
+              <span key={index} className="animated-letter">
+                {letter}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
       <div className="signin-right">
-        <h2 className="signin-title">Sign In</h2>
+        <h2 className="signin-title"> Welcome Back 😀</h2>
         <form className="signin-form" onSubmit={handleSubmit}>
           <div className="signin-field">
-            {/* <label className="signin-label">Email:</label> */}
             <div className="signin-input-wrapper">
               <FaEnvelope className="signin-icon" />
               <input
@@ -89,7 +95,6 @@ const SignIn = () => {
             </div>
           </div>
           <div className="signin-field">
-            {/* <label className="signin-label">Password:</label> */}
             <div className="signin-input-wrapper">
               <FaLock className="signin-icon" />
               <input
@@ -127,7 +132,6 @@ const SignIn = () => {
           </p>
         </div>
       </div>
-      
     </div>
   );
 };

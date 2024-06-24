@@ -17,7 +17,7 @@ import PredictionResult from './Pages/PredictionResult/PredictionResult';
 import ParentComponent from './Components/ParentHeader/ParentComponent';
 import './index.css';
 import ParentComponentHeader from './Components/ParentHeader/ParentComponent';
-
+import JoinCommunity from"./Components/JoinCommunity/JoinCommunity"
 function App() {   
   return (
       <div className="app-container"> 
@@ -36,6 +36,7 @@ function App() {
               <Route path="/create-post" element={<CreatePost/>} />
               <Route path="/contact-us" element={<ContactUs/>} />
               <Route path="/prediction" element={<PredictionResult />} />
+              <Route path="/joincommunity" element={<JoinCommunity/>} />
               <Route path='*/' element={<Error/>}/>
             </Routes>
           </div>

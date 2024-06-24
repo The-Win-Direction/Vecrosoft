@@ -57,10 +57,10 @@ exports.signInApi = async (req, res) => {
         const token = await user.generateAuthToken();
         //console.log(token);
 
-        /* res.cookie("usercookie", token, {
+        res.cookie("usercookie", token, {
           expires: new Date(Date.now() + 9000000),
           httpOnly: true,
-        }); */
+        });
         const result = {
           user,
           token,

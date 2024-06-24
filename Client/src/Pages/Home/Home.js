@@ -1,25 +1,17 @@
-import React, { useEffect ,useState} from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import React from "react";
 import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
 import { articles }  from '../../Components/ArticleList/ArticleList';
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
-const validUser=require("../../Services/authenticator");
 const Home = () => {
-  const navigate = useNavigate();
-
-/*   useEffect(() => {
-    validUser(navigate);
-  }, [navigate]);
-   */
+  
   
 
-  const [posts, setPosts] = useState([]);
+ /*  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  const [error, setError] = useState(null); */
+/* 
   useEffect(() => {
     const fetchPosts = async () => {
       const token = localStorage.getItem('userdatatoken');
@@ -49,7 +41,7 @@ const Home = () => {
 
     fetchPosts();
   }, []);
-
+ */
   
   const post = {
     id: 1,
@@ -76,8 +68,7 @@ const Home = () => {
     <Sidebar/>
     <div className="home-content">
     <ArticleCarousel articles={articles} />
-    <Post post={posts[0]} />
-   
+    <Post post={post} />
     </div>
     </div>
   );

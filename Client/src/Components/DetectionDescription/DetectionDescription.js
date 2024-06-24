@@ -1,8 +1,8 @@
-
 import React from 'react';
 import './DetectionDescription.css';
 import LensImage from '../../../src/Assets/Images/lens.png';  
 import LeafImage from '../../../src/Assets/Images/leaf-disease.png'; 
+
 function DetectionDescription() {
   return (
     <div className="description-container">
@@ -10,9 +10,9 @@ function DetectionDescription() {
         <img src={LeafImage} alt="Leaf Disease" className="leaf-image" />
         <img src={LensImage} alt="Lens" className="lens-image" />
       </div>
-      <h1>Disease <span className='blue'>Detection</span> Through Leaf</h1>
-      <h2>100% Automatically and <span className='blue'>Free </span></h2>
-    </div> 
+      <h1>Disease <span className='highlight'>Detection</span> Through Leaf</h1>
+      <h2>100% Automatically and <span className='highlight'>Free</span></h2>
+    </div>  
   );
 }
 

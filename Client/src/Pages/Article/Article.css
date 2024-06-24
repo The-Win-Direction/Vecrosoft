@@ -1,0 +1,14 @@
+
+  @media (max-width: 768px) {
+    .sidebar-container {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .articles-container {
+      margin-left: 0; 
+      padding: 1rem;  
+    }
+  }
+  

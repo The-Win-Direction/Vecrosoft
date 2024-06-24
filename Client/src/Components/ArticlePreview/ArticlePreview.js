@@ -14,7 +14,7 @@ const ArticlePreview = ({ article }) => {
     <div className="article-preview" onClick={handleClick}>
       <img src={article.imageUrl} alt={article.topic} className="preview-image" />
       <h3 className="preview-title">{article.topic.slice(0, 15)}...</h3>
-      <p className="preview-content">{article.content.slice(0, 70)}...</p>
+      <p className="preview-content">{article.content.slice(0, 100)}...</p>
     </div>
   );
 };

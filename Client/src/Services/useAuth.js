@@ -12,7 +12,7 @@ const useAuth = () => {
         navigate("/sign-in");
         setLoading(false);
         return;
-      }
+      } 
 
       try {
         const res = await fetch("http://localhost:4000/api/validation", {

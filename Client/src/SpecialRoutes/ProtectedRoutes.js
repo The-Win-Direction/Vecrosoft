@@ -13,4 +13,4 @@ const ProtectedRoute = () => {
   return token ? <Outlet /> : <Navigate to="/sign-in" />;
 };
 
-export default ProtectedRoute;
+export default ProtectedRoute; 

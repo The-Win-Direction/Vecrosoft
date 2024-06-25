@@ -49,7 +49,7 @@ function Team() {
     },
     {
       name: 'Anuradha Bhatta',
-      role: '',
+      role: 'Tester',
       image: member5,
       github: 'nn',
       facebook: 'n',
@@ -58,7 +58,7 @@ function Team() {
     },
     {
       name: 'Dhiraj Pant',
-      role: 'gg',
+      role: 'AI',
       image: member6,
       github: 'm',
       facebook: 'm',

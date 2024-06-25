@@ -45,9 +45,7 @@ function App() {
             <Route path="/general-terms-and-conditions" element={<GeneralTermsAndConditons />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
-
           </Route>
-
           <Route element={<GuestRoute />}>
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />

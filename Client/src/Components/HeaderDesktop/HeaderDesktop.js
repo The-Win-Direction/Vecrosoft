@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './HeaderDesktop.css';
 
 import logo from "../../Assets/Images/logo.png";
@@ -11,6 +11,12 @@ const HeaderDesktop = () => {
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const logOutClickHandler = (e) => {
+    console.log("jhdsjk");
+    localStorage.removeItem("userdatatoken");
+    navigate("/sign-in");
+  };
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -53,14 +59,14 @@ const HeaderDesktop = () => {
               <Link to="/profile">See Profile</Link>
               <Link to="/settings">Settings</Link>
               <Link to="/help">Help and Support</Link>
-              <Link to="/logout">Log Out</Link>
+               <span onClick={logOutClickHandler}>  Log Out  </span> 
             </div>
           )}
         </div>
       </div>
     </header>
   );
-};
+}; 
 
 const NavLink = ({ to, active, children }) => (
   <Link to={to} className={`nav-link ${active ? 'active' : ''}`}>

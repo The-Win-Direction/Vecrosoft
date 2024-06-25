@@ -20,10 +20,13 @@ import ParentComponent from "./Components/ParentHeader/ParentComponent";
 import "./index.css";
 import ParentComponentHeader from "./Components/ParentHeader/ParentComponent";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
+import TermsOfService from './Pages/TermsOfService/TermsOfService';
+import GeneralTermsAndConditons from './Pages/GeneralTermsAndConditions/GeneralTermsAndConditions';
+import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
+import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 function App() {
   return (
     <div className="app-container">
-      {/* <Header /> */}
       <ParentComponentHeader />
       <div className="content-container">
         <Routes>
@@ -38,6 +41,11 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/prediction" element={<PredictionResult />} />
             <Route path="/joincommunity" element={<JoinCommunity />} />
+            <Route path='/terms-of-service' element = {<TermsOfService/>} /> 
+            <Route path="/general-terms-and-conditions" element={<GeneralTermsAndConditons />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+
           </Route>
 
           <Route element={<GuestRoute />}>

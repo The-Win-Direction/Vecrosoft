@@ -18,7 +18,7 @@ function Footer() {
           <div className="contact">
             <Link to="/contact-us" className='contact-us'>Contact us</Link>
             <a href="mailto:your-email@example.com" className='email-icon'><FaEnvelope /></a>
-          </div>
+          </div> 
           <div className="links">
             <Link to="/terms-of-service">Terms of Service</Link>
             <Link to="/general-terms-and-conditions">General Terms and Conditions</Link>

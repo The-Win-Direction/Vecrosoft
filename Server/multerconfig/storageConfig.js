@@ -2,13 +2,31 @@ const multer = require("multer");
 
 
 // storage config
-const storage = multer.diskStorage({
+const profileStorage = multer.diskStorage({
     destination:(req,file,callback)=>{
-        callback(null,"./uploads")
+        callback(null,"./uploads/profile")
     },
     filename:(req,file,callback)=>{
         const filename = `image-${Date.now()}.${file.originalname}`
-        callback(numm,filename)
+        callback(null,filename)
+    }
+});
+const postStorage = multer.diskStorage({
+    destination:(req,file,callback)=>{
+        callback(null,"./uploads/post")
+    },
+    filename:(req,file,callback)=>{
+        const filename = `image-${Date.now()}.${file.originalname}`
+        callback(null,filename)
+    }
+});
+const articleStorage = multer.diskStorage({
+    destination:(req,file,callback)=>{
+        callback(null,"./uploads/article")
+    },
+    filename:(req,file,callback)=>{
+        const filename = `image-${Date.now()}.${file.originalname}`
+        callback(null,filename)
     }
 });
 
@@ -22,9 +40,16 @@ const filefilter = (req,file,callback)=>{
  }
 }
 
-const upload = multer({
-    storage:storage,
+exports.pofileUpload= multer({
+    storage:profileStorage,
     fileFilter:filefilter
 });
 
-module.exports = upload;
+exports.articleUpload = multer({
+    storage:articleStorage,
+    fileFilter:filefilter
+});
+exports.postUpload = multer({
+    storage:postStorage,
+    fileFilter:filefilter
+});

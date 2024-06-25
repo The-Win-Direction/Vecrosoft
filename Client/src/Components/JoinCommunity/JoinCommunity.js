@@ -1,10 +1,10 @@
 import React from 'react';
-import "./JoinCommunity.css";
+import './JoinCommunity.css';
 
 const JoinCommunity = () => {
   return (
     <div className='container_community'>
-      
+      jiifghdk
     </div>
   )
 }

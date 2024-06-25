@@ -33,11 +33,11 @@ function DiseaseDetection() {
     }
   };
 
-  const handlePredict = async () => {
+  const handlePredict = async () => { 
     if (selectedImage) {
       setPrediction("Predicting... Please wait.");
       // Simulate prediction logic
-      setTimeout(() => {
+      setTimeout(() => { 
         const simulatedPrediction = "Prediction result: This is an example result.";
         setPrediction(simulatedPrediction);
         navigate('/prediction', { state: { imageUrl: selectedImage, prediction: simulatedPrediction } });

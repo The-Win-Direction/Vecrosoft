@@ -33,7 +33,7 @@ const ParentComponent = ({ children }) => {
     setSidebarOpen(false);
   };
 
-  const isAuthPage = location.pathname === '/sign-up' || location.pathname === '/Sign-in';
+  const isAuthPage = location.pathname === '/sign-up' || location.pathname === '/sign-in';
 
   return (
     <div>

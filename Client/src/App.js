@@ -3,7 +3,6 @@ import Error from "./Pages/Error/Error";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./SpecialRoutes/ProtectedRoutes";
 import GuestRoute from "./SpecialRoutes/GuestRoutes";
-import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Article from "./Pages/Article/Article";
@@ -33,7 +32,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/article" element={<Article />} />
+            <Route path="/article" element={<Article />} /> 
             <Route path="/ai" element={<AI />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/article/:articleId" element={<FullArticle />} />

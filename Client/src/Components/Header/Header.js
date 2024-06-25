@@ -68,7 +68,7 @@ const Header = ({ toggleSidebar }) => {
               <Link to="/profile">See Profile</Link>
               <Link to="/settings">Settings</Link>
               <Link to="/help">Help and Support</Link>
-              <Link to="/logout">Log Out</Link>
+              <Link to="/logout"><span>Log Out</span></Link>
             </div>
           )}
         </div> 

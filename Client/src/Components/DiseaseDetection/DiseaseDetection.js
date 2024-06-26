@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DiseaseDetection.css';
+import axios from "axios";
 
 function DiseaseDetection() {
-  const [selectedImage, setSelectedImage] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [prediction, setPrediction] = useState("");
-  const navigate = useNavigate();
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -21,61 +25,59 @@ function DiseaseDetection() {
     event.preventDefault();
     setDragging(false);
     const file = event.dataTransfer.files[0];
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-    }
+    setFile(file);
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-    }
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
 
-  const handlePredict = async () => { 
-    if (selectedImage) {
-      setPrediction("Predicting... Please wait.");
-      // Simulate prediction logic
-      setTimeout(() => { 
-        const simulatedPrediction = "Prediction result: This is an example result.";
-        setPrediction(simulatedPrediction);
-        navigate('/prediction', { state: { imageUrl: selectedImage, prediction: simulatedPrediction } });
-      }, 2000);
-    } else {
-      setPrediction("No image selected.");
+    try {
+      const response = await axios.post('http://localhost:8000/predict/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      setPrediction(response.data);
+    } catch (error) {
+      console.error("There was an error uploading the file!", error);
     }
   };
 
   return (
-    <div className="disease-detection-container">
-      <h3>Choose an image</h3>
-      <div 
-        className={`image-drag ${dragging ? 'dragging' : ''}`} 
-        onDragOver={handleDragOver} 
-        onDragLeave={handleDragLeave} 
-        onDrop={handleDrop}
-      >
-        <p>Drag and drop image here</p>
-        <input 
-          type="file" 
-          accept="image/*" 
-          onChange={handleFileChange} 
-          style={{ display: 'none' }} 
-          id="file-input" 
-        />
-        <label htmlFor="file-input" className="browse-button">
-          Browse image
-        </label>
-      </div>
-      {selectedImage && (
-        <div className="preview">
-          <img src={selectedImage} alt="Selected" className="preview-image" />
+    <form onSubmit={handleSubmit}>
+      <div className="disease-detection-container">
+        <h3>Choose an image</h3>
+        <div
+          className={`image-drag ${dragging ? 'dragging' : ''}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          <p>Drag and drop image here</p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+            id="file-input"
+          />
+          <label htmlFor="file-input" className="browse-button">
+            Browse image
+          </label>
         </div>
-      )}
-      <button onClick={handlePredict} className="predict-button">Predict</button>
-      {prediction && <p className="prediction-result">{prediction}</p>}
-    </div>
+        {file && (
+          <div className="preview">
+            <img src={URL.createObjectURL(file)} alt="Selected" className="preview-image" />
+          </div>
+        )}
+        <button type="submit" className="predict-button">Predict</button>
+        {prediction && <p className="prediction-result"> Disease: {prediction.predicted_disease} Probability: {prediction.probability.toFixed(2)}</p>
+
+        }
+      </div>
+    </form>
   );
 }
 

@@ -4,16 +4,18 @@ from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 from PIL import Image
 from tensorflow import keras
+from dotenv import load_dotenv
 import json
 
 load_dotenv()
 
 app = FastAPI()
 
-# CORS setup
+origins = ["http://localhost:3000"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -23,8 +25,7 @@ app.add_middleware(
 model = keras.models.load_model("detection_model_mobilenetv2.h5")
 
 # Load class indices from JSON file
-with open("class_indices.json") as f:
-    class_indices = json.load(f)
+class_indices = json.load(open("class_indices.json"))
 
 # Function to preprocess image
 def preprocess_image(image):
@@ -37,19 +38,17 @@ def preprocess_image(image):
 # Function to predict diseases
 def predict_diseases(model, image, class_indices):
     preprocessed_img = preprocess_image(image)
-    predictions = model.predict(preprocessed_img)
-    predicted_class_index = np.argmax(predictions)
+    probs = model.predict(preprocessed_img)[0]
+    predicted_class_index = np.argmax(probs)
     predicted_class_name = class_indices[str(predicted_class_index)]
-    probability = predictions[0][predicted_class_index]
-    return predicted_class_name, probability
+    return predicted_class_name, float(probs[predicted_class_index])
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     image = Image.open(file.file)
     predicted_disease, probability = predict_diseases(model, image, class_indices)
-    response = {"predicted_disease": predicted_disease, "probability": probability}
-    return response
+    return {"predicted_disease": predicted_disease, "probability": probability}
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8080)

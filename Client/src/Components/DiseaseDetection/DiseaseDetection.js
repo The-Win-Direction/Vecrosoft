@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './DiseaseDetection.css';
 import axios from 'axios';
+import './DiseaseDetection.css';
 
 function DiseaseDetection() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [dragging, setDragging] = useState(false);
   const [prediction, setPrediction] = useState("");
-  
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -35,20 +33,20 @@ function DiseaseDetection() {
   };
 
   const handlePredict = async (e) => {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('image', selectedImage);
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('image', selectedImage);
 
-      try {
-          const response = await axios.post('http://127.0.0.1:8080/predict', formData, {
-              headers: {
-                  'Content-Type': 'multipart/form-data'
-              }
-          });
-          setPrediction(response.data.result);
-      } catch (error) {
-          console.error('Error uploading the file', error);
-      }
+    try {
+      const response = await axios.post('http://127.0.0.1:8080/predict/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      setPrediction(`Disease: ${response.data.predicted_disease}, Probability: ${response.data.probability.toFixed(2)}`);
+    } catch (error) {
+      console.error('Error uploading the file', error);
+    }
   };
 
   return (

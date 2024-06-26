@@ -19,7 +19,7 @@ function DiseaseDetection() {
 
   const handleDragLeave = () => {
     setDragging(false);
-  };
+  }; 
 
   const handleDrop = (event) => {
     event.preventDefault();

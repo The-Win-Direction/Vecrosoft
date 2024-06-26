@@ -15,7 +15,7 @@ function DiseaseDetection() {
 
   const handleDragLeave = () => {
     setDragging(false);
-  };
+  }; 
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ function DiseaseDetection() {
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
     }
-  };
+  }; 
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -34,7 +34,7 @@ function DiseaseDetection() {
   };
 
   const handlePredict = async () => { 
-    if (selectedImage) {
+    if (selectedImage) { 
       setPrediction("Predicting... Please wait.");
       // Simulate prediction logic
       setTimeout(() => { 
@@ -47,7 +47,7 @@ function DiseaseDetection() {
     }
   };
 
-  return (
+  return ( 
     <div className="disease-detection-container">
       <h3>Choose an image</h3>
       <div 
@@ -63,20 +63,20 @@ function DiseaseDetection() {
           onChange={handleFileChange} 
           style={{ display: 'none' }} 
           id="file-input" 
-        />
+        /> 
         <label htmlFor="file-input" className="browse-button">
           Browse image
         </label>
       </div>
-      {selectedImage && (
+      {selectedImage && (   
         <div className="preview">
           <img src={selectedImage} alt="Selected" className="preview-image" />
-        </div>
+        </div> 
       )}
       <button onClick={handlePredict} className="predict-button">Predict</button>
       {prediction && <p className="prediction-result">{prediction}</p>}
-    </div>
-  );
+    </div> 
+  ); 
 }
 
 export default DiseaseDetection;

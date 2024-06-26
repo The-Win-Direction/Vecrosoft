@@ -14,9 +14,8 @@ function Team() {
       name: 'Rishi Marseni',
       role: 'Supervisor||Mentor',
       image: member1,
-      github: 'https://github.com/dipajoshi', 
-      facebook: 'https://www.facebook.com/deadlock.r',
-      linkedin: 'https://linkedin.com/in/dipajoshi',
+      github: 'https://github.com/rk-marseni', 
+      linkedin: 'https://linkedin.com/',
       email: 'mailto:dipa.joshi@example.com',
     },
     {
@@ -24,7 +23,6 @@ function Team() {
       role: 'Full Stack Developer',
       image: member2,
       github: 'https://github.com/dipakrajgiri',
-      facebook: 'nn',
       linkedin: 'https://linkedin.com/in/dipakrajgiri',
       email: 'mailto:dipak.rajgiri@example.com',
     },
@@ -33,7 +31,6 @@ function Team() {
       role: 'Project Manager || Frontend Developer',
       image: member3,
       github: 'https://github.com/dipajoshi', 
-      facebook: 'nn',
       linkedin: 'https://linkedin.com/in/dipajoshi',
       email: 'mailto:dipa.joshi@example.com',
     },
@@ -43,7 +40,6 @@ function Team() {
       role: 'App Developer',
       image: member4,
       github: 'nnn',
-      facebook: 'nn',
       linkedin: 'nn',
       email: 'nn',
     },
@@ -52,7 +48,6 @@ function Team() {
       role: 'Tester',
       image: member5,
       github: 'nn',
-      facebook: 'n',
       linkedin: 'nn',
       email: 'm',
     },
@@ -61,7 +56,6 @@ function Team() {
       role: 'AI',
       image: member6,
       github: 'm',
-      facebook: 'm',
       linkedin: 'm',
       email: ',',
     },
@@ -84,11 +78,11 @@ function Team() {
                   <FaGithub />
                 </a>
               )}
-              {member.facebook && (
+              {/* {member.facebook && (
                 <a href={member.facebook} target="_blank" rel="noopener noreferrer">
                   <FaFacebook />
                 </a>
-              )}
+              )} */}
               {member.linkedin && (
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                   <FaLinkedin />

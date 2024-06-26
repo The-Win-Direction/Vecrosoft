@@ -14,7 +14,7 @@ root.render(
     </BrowserRouter>
     <ToastContainer
 position="top-center"
-autoClose={3999}
+autoClose={500}
 hideProgressBar={false}
 newestOnTop={false}
 closeOnClick

@@ -161,7 +161,7 @@
       right: 0;
     }
     
-    .profile-dropdown-content a {
+    .profile-dropdown-content a, .profile-dropdown-content span {
       color: black;
       padding: 1rem;
       text-decoration: none;

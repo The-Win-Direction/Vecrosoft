@@ -25,7 +25,7 @@ const Home = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:4000/api/get-posts', {
+        const response = await axios.get('https://vecrosoft-server.onrender.com/api/get-posts', {
           headers: {
             'Authorization': token,
           },

@@ -56,7 +56,7 @@ const HeaderDesktop = () => {
           <img src={profilePic} alt="Profile" className="profile-pic" />
           {profileDropdownOpen && (
             <div className="profile-dropdown-content">
-              <Link to="/profile">See Profile</Link>
+              <Link to="/your-profile">See Profile</Link>
               <Link to="/settings">Settings</Link>
               <Link to="/help">Help and Support</Link>
                <span onClick={logOutClickHandler}>  Log Out  </span> 

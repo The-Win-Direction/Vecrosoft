@@ -1,7 +1,7 @@
 .profile-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 52rem;
+    margin:  auto;
+    padding: 4rem 2rem;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -123,6 +123,62 @@
       
       .save-button:hover {
         background-color: var(--color-hover);
+      }
+
+      .profile-tabs {
+        display: flex;
+        justify-content: flex-start;
+        gap: 3rem;
+        margin-bottom: 1rem;
+      }
+      
+      .tab-button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        background-color: #f1f1f1;
+        color: #333;
+        font-size: 1rem;
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s, border-bottom 0.3s;
+      }
+
+      .tab-button:hover{
+        background-color: #ddd;
+      }
+      
+      .tab-button.active {
+        background-color: #fff;
+        border-bottom: 2px solid var(--color-green);
+        color: var(--color-green);
+      }
+      
+      .tab-content {
+        border-top: 1px solid #ddd;
+        padding-top: 1rem;
+      }
+      
+      .posts-section,
+      .articles-section {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .post-item,
+      .article-item {
+        margin-bottom: 1rem;
+      }
+      
+      .post-item h3,
+      .article-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .post-item p,
+      .article-item p {
+        font-size: 1rem;
+        color: #555;
       }
       
   }

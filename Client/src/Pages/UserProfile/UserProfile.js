@@ -4,7 +4,7 @@ import './UserProfile.css';
 
 const UserProfile = () => {
   const [user, setUser] = useState({
-    name: 'Your Name',
+    name: 'Your name',
     email: 'Your gmail',
     phone: '',
     address: '',
@@ -12,16 +12,24 @@ const UserProfile = () => {
     profilePic: '',
     signUpDate: '',
   });
-
   const [isEditing, setIsEditing] = useState(false);
+  const [activeTab, setActiveTab] = useState('posts'); // Default to "posts"
+  const [userPosts, setUserPosts] = useState([]);
+  const [userArticles, setUserArticles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/user');
-        setUser(response.data);
+        const userResponse = await axios.get('/api/user');
+        setUser(userResponse.data);
+        
+        const postsResponse = await axios.get('/api/user/posts');
+        setUserPosts(postsResponse.data);
+        
+        const articlesResponse = await axios.get('/api/user/articles');
+        setUserArticles(articlesResponse.data);
       } catch (error) {
-        console.error("Error fetching user data: ", error);
+        console.error("Error fetching data: ", error);
       }
     };
     fetchData();
@@ -69,7 +77,7 @@ const UserProfile = () => {
       <div className="profile-header">
         <div className="profile-info">
           <img src={user.profilePic || 'default-profile-pic.jpg'} alt="Profile" className="profile-pic" />
-          <h2>{user.name}</h2>
+          <h1>{user.name}</h1>
           <p>{user.email}</p>
         </div>
         {!isEditing && (
@@ -101,17 +109,55 @@ const UserProfile = () => {
           </div>
         </form>
       ) : (
-        <div className="profile-details">
-        <div>  <h2>General Information</h2>
-          <p><strong>Account Created:</strong> {user.signUpDate}</p>
-          <p><strong>Phone Number:</strong> {user.phone}</p>
-          <p><strong>Address:</strong> {user.address}</p>
-         </div> 
-         <div>
-          <h2>User Background</h2>
-          <p><strong>Profession:</strong> {user.profession}</p>
-        </div>
-        </div>
+        <>
+          <div className="profile-details">
+            <h2>General Information</h2>
+            <p><strong>Account Created:</strong> {user.signUpDate}</p>
+            <p><strong>Phone Number:</strong> {user.phone}</p>
+            <p><strong>Address:</strong> {user.address}</p>
+            
+            <h2>User Background</h2>
+            <p><strong>Profession:</strong> {user.profession}</p>
+          </div>
+          
+          <div className="profile-tabs">
+            <button
+              className={`tab-button ${activeTab === 'posts' ? 'active' : ''}`}
+              onClick={() => setActiveTab('posts')}
+            >
+              Posts
+            </button>
+            <button
+              className={`tab-button ${activeTab === 'articles' ? 'active' : ''}`}
+              onClick={() => setActiveTab('articles')}
+            >
+              Articles
+            </button>
+          </div>
+          
+          <div className="tab-content">
+            {activeTab === 'posts' && (
+              <div className="posts-section">
+                {userPosts.map(post => (
+                  <div key={post.id} className="post-item">
+                    <h3>{post.title}</h3>
+                    <p>{post.content}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            {activeTab === 'articles' && (
+              <div className="articles-section">
+                {userArticles.map(article => (
+                  <div key={article.id} className="article-item">
+                    <h3>{article.title}</h3>
+                    <p>{article.content}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

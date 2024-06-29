@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:vecrosoft_app/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -58,8 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text('Error'),
-          content: Text(
-              'An error occurred while signing up. Please try again later.'),
+          content: Text(e.toString()),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -70,6 +69,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
       );
     }
   }
+  //catch (e) {
+  //     // Handle any exceptions that may occur
+  //     showDialog(
+  //       context: context,
+  //       builder: (context) => AlertDialog(
+  //         title: Text('Error'),
+  //         content: Text(
+  //             'An error occurred while signing up. Please try again later.'),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () => Navigator.pop(context),
+  //             child: Text('OK'),
+  //           ),
+  //         ],
+  //       ),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

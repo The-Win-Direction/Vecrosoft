@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (response.statusCode == 201) {
         // Login successful
-        final responseData = json.decode(response.body);
+        // final responseData = json.decode(response.body);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => DashBoardScreen()),

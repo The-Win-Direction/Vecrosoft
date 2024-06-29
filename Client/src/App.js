@@ -23,6 +23,7 @@ import TermsOfService from './Pages/TermsOfService/TermsOfService';
 import GeneralTermsAndConditons from './Pages/GeneralTermsAndConditions/GeneralTermsAndConditions';
 import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
+import UserProfile from "./Pages/UserProfile/UserProfile";
 function App() {
   return (
     <div className="app-container">
@@ -45,6 +46,8 @@ function App() {
             <Route path="/general-terms-and-conditions" element={<GeneralTermsAndConditons />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
+            <Route path="/your-profile" element={<UserProfile />} /> 
+
           </Route>
           <Route element={<GuestRoute />}>
             <Route path="/sign-up" element={<SignUp />} />

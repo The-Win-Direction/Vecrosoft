@@ -31,7 +31,7 @@ const SignUp = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/sign-up",
+        "https://vecrosoft-server.onrender.com/api/sign-up",
         {
           fname,
           lname,

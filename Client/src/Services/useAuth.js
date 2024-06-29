@@ -15,7 +15,7 @@ const useAuth = () => {
       } 
 
       try {
-        const res = await fetch("http://localhost:4000/api/validation", {
+        const res = await fetch("https://vecrosoft-server.onrender.com/api/validation", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -57,7 +57,9 @@ exports.signInApi = async (req, res) => {
       
         const token = await user.generateAuthToken();
         //console.log(token);
-
+              if(!token){
+                res.status(500).json({ message: "Server error try again" });
+              }
        /*  res.cookie("usercookie", token, {
           expires: new Date(Date.now() + 9000000),
           httpOnly: true,

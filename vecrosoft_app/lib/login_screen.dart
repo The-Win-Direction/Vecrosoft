@@ -21,16 +21,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
-    final url = 'https://localhost:4000/api/sign-in'; // Your API URL
+    final url = 'http://10.0.2.2:4000/api/sign-in'; // My API URL
     try {
-      final response = await http.post(Uri.parse(url), body: {
-        'email': _emailController.text,
-        'password': _passwordController.text,
-      });
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'email': _emailController.text,
+          'password': _passwordController.text,
+        }),
+      );
 
       if (response.statusCode == 201) {
         // Login successful
-        // final responseData = json.decode(response.body);
+        //  final responseData = json.decode(response.body);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => DashBoardScreen()),
@@ -127,25 +131,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                // ElevatedButton(
-                //   onPressed: _handleLogin, // Call _handleLogin function
-                //   style:
-                //       ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                //   child: Text('Continue'),
-                // ),
-
                 ElevatedButton(
-                  onPressed: () async {
-                    try {
-                      await _handleLogin();
-                      // Handle successful sign up
-                    } catch (e) {
-                      // Handle error
-                    }
-                  },
-                  child: Text('CONTINUE'),
+                  onPressed: _handleLogin, // Call _handleLogin function
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: Text('Continue'),
                 ),
-
                 SizedBox(height: 10),
                 TextButton(
                   onPressed: () {
@@ -177,8 +168,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: LoginScreen()));
 }

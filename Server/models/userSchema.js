@@ -105,7 +105,7 @@ const usersSchema = new mongoose.Schema({
   },
   profile_pic_url: {
     type: String,
-    default: "Server/uploads/profile/default.png",
+    default: "/uploads/profile/default.png",
   },
   created_at: {
     type: Date,

@@ -21,11 +21,21 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
-    final url = 'http://localhost:4000/api/sign-in'; // Your API URL
-    final response = await http.post(Uri.parse(url), body: {
-      'email': _emailController.text,
-      'password': _passwordController.text,
-    });
+    final url = 'http://10.0.2.2:4000/api/sign-in'; // API URL
+
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({
+        'email': _emailController.text,
+        'password': _passwordController.text,
+      }),
+    );
+
+    // final response = await http.post(Uri.parse(url), body: {
+    //   'email': _emailController.text,
+    //   'password': _passwordController.text,
+    // });
 
     if (response.statusCode == 201) {
       // Login successful
@@ -145,8 +155,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: LoginScreen()));
 }

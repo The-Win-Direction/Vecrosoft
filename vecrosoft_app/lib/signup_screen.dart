@@ -22,28 +22,49 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
-    final url = 'http://localhost:4000/api/sign-up'; // Your API URL
-    final response = await http.post(Uri.parse(url), body: {
-      'fname': _firstNameController.text,
-      'lname': _lastNameController.text,
-      'email': _emailController.text,
-      'password': _passwordController.text,
-    });
-
-    if (response.statusCode == 201) {
-      // Signup successful
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+    final url = 'http://10.0.2.2:4000/api/sign-up'; // API URL
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'fname': _firstNameController.text,
+          'lname': _lastNameController.text,
+          'email': _emailController.text,
+          'password': _passwordController.text,
+        }),
       );
-    } else {
-      // Handle signup error
-      final responseData = json.decode(response.body);
+
+      if (response.statusCode == 201) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      } else {
+        // Handle signup error
+        final responseData = json.decode(response.body);
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Sign Up Error'),
+            content: Text(responseData['message']),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle any exceptions that may occur
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Sign Up Error'),
-          content: Text(responseData['message']),
+          title: Text('Error'),
+          content: Text(
+              'An error occurred while signing up. Please try again later.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -161,8 +182,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: SignUpScreen()));
 }

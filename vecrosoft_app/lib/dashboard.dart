@@ -27,13 +27,15 @@ class DashBoardScreen extends StatelessWidget {
                   );
                 },
               ),
+
               DashboardButton(
                 label: 'Disease Detection',
                 icon: Icons.color_lens_rounded,
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AIScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => PlantDiseaseClassifierScreen()),
                   );
                 },
               ),

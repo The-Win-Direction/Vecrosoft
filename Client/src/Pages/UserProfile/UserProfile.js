@@ -1,39 +1,62 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './UserProfile.css';
 
+const baseURL = "http://localhost:4000"; // Ensure the URL has the protocol (http://)
+
 const UserProfile = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
-    name: 'Your name',
-    email: 'Your gmail',
-    phone: '',
-    address: '',
+    _id: '',
+    fname: '',
+    lname: '',
+    email: '',
+    created_at: '',
+    updated_at: '',
+    bio: '',
+    phone_number: '',
     profession: '',
-    profilePic: '',
-    signUpDate: '',
+    profile_pic_url: '',
   });
   const [isEditing, setIsEditing] = useState(false);
-  const [activeTab, setActiveTab] = useState('posts'); // Default to "posts"
+  const [activeTab, setActiveTab] = useState('posts');
   const [userPosts, setUserPosts] = useState([]);
   const [userArticles, setUserArticles] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => { 
+    const fetchData = async () => {
+      let token = localStorage.getItem("userdatatoken");
+      if (!token) {
+        navigate("/sign-in");
+        return;
+      }
       try {
-        const userResponse = await axios.get('/api/user');
-        setUser(userResponse.data);
-        
-        const postsResponse = await axios.get('/api/user/posts');
-        setUserPosts(postsResponse.data);
-        
-        const articlesResponse = await axios.get('/api/user/articles');
-        setUserArticles(articlesResponse.data);
+        const userResponse = await axios.get(`${baseURL}/api/profile`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+          }
+        });
+        const userData = userResponse.data.user;
+        setUser({
+          _id: userData._id,
+          fname: userData.fname,
+          lname: userData.lname,
+          email: userData.email,
+          created_at: userData.created_at,
+          updated_at: userData.updated_at,
+          bio: userData.bio,
+          phone_number: userData.phone_number,
+          profession: userData.profession,
+          profile_pic_url: `${baseURL}${userData.profile_pic_url}`,
+        });
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,21 +69,41 @@ const UserProfile = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Validate that the file is an image
+      if (!file.type.startsWith('image/')) {
+        alert("Please select a valid image file.");
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         setUser((prevUser) => ({
           ...prevUser,
-          profilePic: reader.result,
+          profile_pic_url: reader.result,
         }));
       };
       reader.readAsDataURL(file);
     } 
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('phone_number', user.phone_number);
+    formData.append('bio', user.bio);
+    formData.append('profession', user.profession);
+    if (user.profile_pic_url.startsWith('data:')) {
+      const blob = await fetch(user.profile_pic_url).then(res => res.blob());
+      formData.append('profile_pic_url', blob, 'profile_pic.png');
+    }
+    let token = localStorage.getItem("userdatatoken");
     try {
-      await axios.post('/api/user/update', user);
+      await axios.post(`${baseURL}/api/user/update`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': token
+        }
+      });
       setIsEditing(false);
       alert('Profile updated successfully!');
     } catch (error) {
@@ -76,8 +119,8 @@ const UserProfile = () => {
     <div className="profile-container">
       <div className="profile-header">
         <div className="profile-info">
-          <img src={user.profilePic || 'default-profile-pic.jpg'} alt="Profile" className="profile-pic" />
-          <h1>{user.name}</h1>
+          <img src={user.profile_pic_url} alt="Profile" className="profile-pic" />
+          <h1>{`${user.fname} ${user.lname}`}</h1>
           <p>{user.email}</p>
         </div>
         {!isEditing && (
@@ -87,17 +130,25 @@ const UserProfile = () => {
        
       {isEditing ? (
         <form onSubmit={handleSubmit} className="profile-form">
-          <div className="form-group">
-            <label htmlFor="profilePic">Profile Picture</label>
-            <input type="file" id="profilePic" name="profilePic" onChange={handleImageChange} />
+           <div className="form-group">
+            <label htmlFor="fname">First name</label>
+            <input type='text' id="fname" name="fname" value={user.fname} onChange={handleChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" value={user.phone} onChange={handleChange} />
+            <label htmlFor="lname">Last name</label>
+            <input type='text' id="lname" name="lname" value={user.lname} onChange={handleChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="address">Address</label>
-            <input type="text" id="address" name="address" value={user.address} onChange={handleChange} />
+            <label htmlFor="profile_pic_url">Profile Picture</label>
+            <input type="file" id="profile_pic_url" name="profile_pic_url" onChange={handleImageChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone_number">Phone Number</label>
+            <input type="tel" id="phone_number" name="phone_number" value={user.phone_number} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="bio">Bio</label>
+            <textarea id="bio" name="bio" value={user.bio} onChange={handleChange} />
           </div>
           <div className="form-group">
             <label htmlFor="profession">Profession</label>
@@ -112,12 +163,12 @@ const UserProfile = () => {
         <>
           <div className="profile-details">
             <h2>General Information</h2>
-            <p><strong>Account Created:</strong> {user.signUpDate}</p>
-            <p><strong>Phone Number:</strong> {user.phone}</p>
-            <p><strong>Address:</strong> {user.address}</p>
+            <p><strong>Account Created:</strong> {new Date(user.created_at).toLocaleDateString()}</p>
+            <p><strong>Phone Number:</strong> {user.phone_number}</p>
             
             <h2>User Background</h2>
-            <p><strong>Profession:</strong> {user.profession}</p>
+            <p><strong>Bio:</strong> {user.bio || 'No bio provided'}</p>
+            <p><strong>Profession:</strong> {user.profession || 'Unspecified'}</p>
           </div>
           
           <div className="profile-tabs">

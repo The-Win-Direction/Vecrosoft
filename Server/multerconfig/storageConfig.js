@@ -31,15 +31,23 @@ const articleStorage = multer.diskStorage({
 });
 
 //filter
-const filefilter = (req,file,callback)=>{
- if(file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image.jpeg"){
+/* const filefilter = (req,file,callback)=>{
+ if(file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image.jpeg"||file.mimetype === "image/"){
     callback(null, true)
  } else{
     callback(null,false)
     return callback(new Error("Only .png .jpg and jpeg formatted Allowed"))
  }
-}
+} */
 
+const filefilter = (req, file, callback) => {
+    if (file.mimetype.startsWith("image/")) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+      return callback(new Error("Only image files are allowed"));
+    }
+  };
 exports.pofileUpload= multer({
     storage:profileStorage,
     fileFilter:filefilter

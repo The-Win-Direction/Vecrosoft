@@ -18,7 +18,7 @@ const UserProfile = () => {
   const [userArticles, setUserArticles] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => { 
       try {
         const userResponse = await axios.get('/api/user');
         setUser(userResponse.data);
@@ -54,7 +54,7 @@ const UserProfile = () => {
         }));
       };
       reader.readAsDataURL(file);
-    }
+    } 
   };
 
   const handleSubmit = async (e) => {
@@ -84,7 +84,7 @@ const UserProfile = () => {
           <button className="edit-button" onClick={() => setIsEditing(true)}>Edit Profile</button>
         )}
       </div>
-      
+       
       {isEditing ? (
         <form onSubmit={handleSubmit} className="profile-form">
           <div className="form-group">

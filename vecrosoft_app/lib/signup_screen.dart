@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:vecrosoft_app/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -22,14 +22,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
-    final url = 'https://localhost:4000/api/sign-up'; // Your API URL
+    final url = 'http://10.0.2.2:4000/api/sign-up'; // My API URL
     try {
-      final response = await http.post(Uri.parse(url), body: {
-        'fname': _firstNameController.text,
-        'lname': _lastNameController.text,
-        'email': _emailController.text,
-        'password': _passwordController.text,
-      });
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'fname': _firstNameController.text,
+          'lname': _lastNameController.text,
+          'email': _emailController.text,
+          'password': _passwordController.text,
+        }),
+      );
+
       if (response.statusCode == 201) {
         Navigator.push(
           context,
@@ -141,21 +146,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                // ElevatedButton(
-                //   onPressed: _handleSignUp, // Call _handleSignUp function
-                //   style:
-                //       ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                //   child: Text('SIGN UP'),
-                // ),
                 ElevatedButton(
-                  onPressed: () async {
-                    try {
-                      await _handleSignUp();
-                      // Handle successful sign up
-                    } catch (e) {
-                      // Handle error
-                    }
-                  },
+                  onPressed: _handleSignUp, // Call _handleSignUp function
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   child: Text('SIGN UP'),
                 ),
                 SizedBox(height: 10),
@@ -188,8 +182,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(home: SignUpScreen()));
 }

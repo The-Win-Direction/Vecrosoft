@@ -32,7 +32,8 @@ const SignIn = () => {
       );
 
       console.log(res);
-      if (res.data.status === 201) {
+      if (res.data.status === 201&& res.data.result.token) {
+        
         localStorage.setItem("userdatatoken", res.data.result.token);
 
         setEmail("");

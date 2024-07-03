@@ -14,6 +14,7 @@ const HeaderDesktop = () => {
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  
   const navigate = useNavigate();
   const logOutClickHandler = (e) => {
     console.log("jhdsjk");

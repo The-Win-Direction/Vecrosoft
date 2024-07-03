@@ -1,18 +1,52 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect  } from 'react';
+import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import './HeaderMobile.css';
+import axios from 'axios';
 import logo from "../../Assets/Images/logo.png";
-import profilePic from "../../Assets/Images/dipaPic.JPG"; 
+import defaultProfilePic from "../../Assets/Images/default.png"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faBars, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+const baseURL = "http://localhost:4000";
+
 
 const HeaderMobile = ({ toggleSidebar }) => {
+  const [profilePic, setProfilePic] = useState(defaultProfilePic);
+  const location = useLocation();
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [createDropdownOpen, setCreateDropdownOpen] = useState(false);
 
+  const navigate = useNavigate();
+  const logOutClickHandler = (e) => {
+    console.log("jhdsjk");
+    localStorage.removeItem("userdatatoken");
+    navigate("/sign-in");
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let token = localStorage.getItem("userdatatoken");
+      if (!token) {
+        navigate("/sign-in");
+        return;
+      }
+      try {
+        const userResponse = await axios.get(`${baseURL}/api/profile`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+          }
+        });
+        setProfilePic( `${baseURL}${userResponse.data.user.profile_pic_url}`)
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchData();
+  }, [navigate]);
+
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
-  };
+  }; 
 
   const toggleCreateDropdown = () => {
     setCreateDropdownOpen(!createDropdownOpen);

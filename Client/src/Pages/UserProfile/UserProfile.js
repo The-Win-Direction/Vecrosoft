@@ -82,7 +82,7 @@ const UserProfile = () => {
         }));
       };
       reader.readAsDataURL(file);
-    }
+    } 
   };
 
 
@@ -127,7 +127,7 @@ const UserProfile = () => {
           <button className="edit-button" onClick={() => setIsEditing(true)}>Edit Profile</button>
         )}
       </div>
-      
+       
       {isEditing ? (
         <form onSubmit={handleSubmit} className="profile-form">
            <div className="form-group">

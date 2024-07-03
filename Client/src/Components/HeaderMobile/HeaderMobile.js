@@ -8,16 +8,21 @@ import { faHome, faNewspaper, faSearch, faComments, faBars, faPlusSquare } from 
 
 const HeaderMobile = ({ toggleSidebar }) => {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [createDropdownOpen, setCreateDropdownOpen] = useState(false);
 
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
   };
 
+  const toggleCreateDropdown = () => {
+    setCreateDropdownOpen(!createDropdownOpen);
+  };
+
   return (
     <header className="header-mobile">
       <div className="header-left">
-      <img src={logo} alt="Vecrosoft Logo" className="logo" />
-        <div className="menu-bar " onClick={toggleSidebar}>
+        <img src={logo} alt="Vecrosoft Logo" className="logo" />
+        <div className="menu-bar" onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faBars} />
         </div> 
       </div>
@@ -34,19 +39,25 @@ const HeaderMobile = ({ toggleSidebar }) => {
         <Link to="/chat" className="nav-link">
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
-        <Link to="/create-post" className="nav-link">
+        <div className="create-dropdown" onClick={toggleCreateDropdown}>
           <FontAwesomeIcon icon={faPlusSquare} className="nav-icon" />
-        </Link>
+          {createDropdownOpen && (
+            <div className="create-dropdown-content">
+              <Link to="/create-article">Create Article</Link>
+              <Link to="/create-post">Create Post</Link>
+            </div>
+          )}
+        </div>
       </nav>
       <div className='nav header-right'>
         <div className="profile" onClick={toggleProfileDropdown}>
           <img src={profilePic} alt="Profile" className="profile-pic" />
           {profileDropdownOpen && (
             <div className="profile-dropdown-content">
-              <Link to="/profile">See Profile</Link>
+              <Link to="/your-profile">See Profile</Link>
               <Link to="/settings">Settings</Link>
               <Link to="/help">Help and Support</Link>
-              <Link to="/logout">Log Out</Link>
+              <Link to="/logout">Log Out</Link> 
             </div>
           )}
         </div>

@@ -35,6 +35,8 @@ const SignIn = () => {
       if (res.data.status === 201&& res.data.result.token) {
         
         localStorage.setItem("userdatatoken", res.data.result.token);
+       // const expirationTime = Date.now() + 24 * 60 * 60 * 1000; 
+        //localStorage.setItem("userdatatoken", JSON.stringify({ token: res.data.result.token, expirationTime }));
 
         setEmail("");
         setPassword("");

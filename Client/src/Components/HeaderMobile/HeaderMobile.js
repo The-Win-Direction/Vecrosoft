@@ -56,9 +56,7 @@ const HeaderMobile = ({ toggleSidebar }) => {
     <header className="header-mobile">
       <div className="header-left">
         <img src={logo} alt="Vecrosoft Logo" className="logo" />
-        <div className="menu-bar" onClick={toggleSidebar}>
-          <FontAwesomeIcon icon={faBars} />
-        </div> 
+       
       </div>
       <nav className="nav">
         <Link to="/" className="nav-link">
@@ -74,7 +72,7 @@ const HeaderMobile = ({ toggleSidebar }) => {
           <FontAwesomeIcon icon={faComments} className="nav-icon" />
         </Link>
         <div className="create-dropdown" onClick={toggleCreateDropdown}>
-          <FontAwesomeIcon icon={faPlusSquare} className="nav-icon" />
+          <FontAwesomeIcon icon={faPlusSquare} className="nav-icon nav-link" />
           {createDropdownOpen && (
             <div className="create-dropdown-content">
               <Link to="/create-article">Create Article</Link>
@@ -82,6 +80,9 @@ const HeaderMobile = ({ toggleSidebar }) => {
             </div>
           )}
         </div>
+        <div className="menu-bar" onClick={toggleSidebar}>
+          <FontAwesomeIcon icon={faBars}  className="nav-icon nav-link"/>
+        </div> 
       </nav>
       <div className='nav header-right'>
         <div className="profile" onClick={toggleProfileDropdown}>
@@ -93,6 +94,7 @@ const HeaderMobile = ({ toggleSidebar }) => {
               <Link to="/help">Help and Support</Link>
               <Link to="/logout">Log Out</Link> 
             </div>
+            
           )}
         </div>
       </div>

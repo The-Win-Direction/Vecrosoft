@@ -1,36 +1,38 @@
 .header-mobile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #efebeb;
   position: fixed;
   top: 0;
   width: 100vw;
-  padding: 0 0.2rem;
   z-index: 1000;
   height: 3.5rem;
-  gap:1rem;
-
-  .header-left {
+  
+  /* .header-left {
     display: flex;
     align-items: center;
-  }
-  
-  .logo {
-    width: 2.5rem; 
-    height: 2.5rem; 
-  }
-  
-  .menu-bar {
-    font-size: 1.6rem;
-    color: black;
-    cursor: pointer;
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: center;
-    gap:0.005rem;
+    } */
+    
+    .logo {
+      width: 2.5rem; 
+      height: 2.5rem; 
+    }
+    
+    .menu-bar {
+      color: black;
+      cursor: pointer;
+    }
+    
+    .nav {
+      
+      
+      display: flex;
+      
+      justify-content: space-evenly;
+      gap:0.8rem;
+    align-items: center; 
+    
   }
 
   .nav-icon{
@@ -41,8 +43,8 @@
   .nav-link {
     text-decoration: none;
     font-size: 1.4rem;
-    color: black;
-    padding: 5px 10px;
+    color: var(--color-green);
+    /* padding: 5px 10px; */
     position: relative;
     display: flex;
     align-items: center;
@@ -99,6 +101,7 @@
   .profile-pic {
     width: 2.4rem;
     height: 2.4rem;
+    border:solid var(--color-green);
     border-radius: 50%;
   }
   

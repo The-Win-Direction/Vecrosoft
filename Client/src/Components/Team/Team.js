@@ -9,7 +9,7 @@ import member5 from '../../Assets/Images/anuradhaPic.jpg';
 import member6 from '../../Assets/Images/dhirajPic.jpg';
 
 function Team() {
-  const teamMembers = [ 
+  const teamMembers = [  
     {
       name: 'Rishi Marseni',
       role: 'Supervisor||Mentor',
@@ -45,7 +45,7 @@ function Team() {
     },
     {
       name: 'Anuradha Bhatta',
-      role: 'Tester',
+      role: 'Designer',
       image: member5,
       github: 'nn',
       linkedin: 'nn',

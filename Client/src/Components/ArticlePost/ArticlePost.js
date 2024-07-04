@@ -14,7 +14,7 @@ const ArticlePost = ({ article }) => {
         <Link to={`/article/${article.id}`} className="read-article-button">Read Article</Link>
       </div>
     </div>
-  );
+  ); 
 };
  
 ArticlePost.propTypes = {

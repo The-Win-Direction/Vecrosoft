@@ -16,7 +16,7 @@ const HeaderMobile = ({ toggleSidebar }) => {
   const [createDropdownOpen, setCreateDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
-  const logOutClickHandler = (e) => {
+  const logOutClickHandler = (e) => { 
     console.log("jhdsjk");
     localStorage.removeItem("userdatatoken");
     navigate("/sign-in");

@@ -29,7 +29,7 @@ const Home = () => {
           },
         });
        
-        console.log(response);
+        //console.log(response.data.userId);
         setUser(response.data.userId)
         setPosts(response.data.posts);
       } catch (error) {

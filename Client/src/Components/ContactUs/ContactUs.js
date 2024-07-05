@@ -25,7 +25,7 @@ const ContactUs = () => {
           <FaEnvelope className="contact-icon" />
           <div>
             <h3>Email</h3>
-            <p>vecrosoft@gmail.com</p>
+            <p>projectvecrosoft@gmail.com</p>
           </div>
         </div>
       </div>

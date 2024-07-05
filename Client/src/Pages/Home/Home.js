@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';

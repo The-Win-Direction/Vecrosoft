@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const userDB = require("../models/userSchema");
 const postDB = require("../models/postSchema");
+const articleDB = require("../models/articleSchema");
 const upload = require("../multerconfig/storageConfig");
 //api
 //signUp
@@ -132,7 +133,7 @@ exports.getPostsApi = async (req, res) => {
       .populate("user_id", "fname lname profile_pic_url") 
       .populate("likes", "fname lname profile_pic_url") 
       .populate("comments.user_id", "fname lname profile_pic_url") 
-    console.log(posts,posts.length);
+   // console.log(posts,posts.length);
     
     res.status(200).json({ status: 200, posts ,userId:req.userId});
   } catch (error) {
@@ -242,7 +243,7 @@ exports.likePostApi = async (req, res) => {
   }
 };
 
-// Comment Post API
+// Comment API
 exports.commentPostApi = async (req, res) => {
   try {
     const postId = req.params.postId;
@@ -285,5 +286,55 @@ exports.whoAmIApi = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: 500, message: "Server error, try again" });
+  }
+};
+
+// create article api
+
+exports.createArticleApi = async (req, res) => {
+  try {
+    console.log("i am here");
+    const {  heading, author,content} = req.body;
+    const file = req.file;
+    console.log(content,author,heading, file);
+    if (!file) {
+      return res.status(400).json({ message: "Please upload a file" });
+    }
+
+    const imageUrl = `/uploads/article/${file.filename}`;
+    console.log(imageUrl);
+
+    const newArticle = new articleDB({
+      user_id: req.userId,
+      content: content,
+      heading:heading,
+      author:author,
+      createdDate: Date.now(),
+      imageUrl: imageUrl,
+      comments: [],
+      likes: [],
+    });
+
+    await newArticle.save();
+    res
+      .status(201)
+      .json({ message: "Article created successfully", article: newArticle });
+  } catch (err) {
+    res.status(500).json({ status: 500, message: "server error", err });
+  }
+};
+
+//get article api
+exports.getArticlesApi = async (req, res) => {
+  try {
+    const articles = await articleDB.find()
+      .populate("user_id", "fname lname profile_pic_url") // Populate user details
+      .populate("likes", "fname lname profile_pic_url") // Populate likes details
+      .populate("comments.user_id", "fname lname profile_pic_url"); // Populate comments details
+
+    res.status(200).json({ status: 200, articles, userId: req.userId });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: 500, message: "Server error" });
   }
 };

@@ -3,10 +3,10 @@ import axios from 'axios';
 import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
-import { articles }  from '../../Components/ArticleList/ArticleList';
+
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop'
-
+let articles=[];
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -56,7 +56,7 @@ const Home = () => {
         <SidebarDekstop />
       </div>
       <div className="home-content">
-        <ArticleCarousel articles={articles} />
+        {/* <ArticleCarousel articles={articles} /> */}
         {posts.map((post) => (
           <Post key={post._id} post={post} user={user} />
         ))}

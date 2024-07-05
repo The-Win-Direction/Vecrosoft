@@ -1,11 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './FullArticle.css';
-import { articles } from '../ArticleList/ArticleList';
-
+const baseURL = "http://localhost:4000";
 const FullArticle = () => {
-  const { articleId } = useParams();
-  const article = articles.find((article) => article.id === Number(articleId));
+  const location = useLocation();
+  const { article, user } = location.state || {};
 
   if (!article) {
     return <div>Article not found</div>;
@@ -13,11 +12,11 @@ const FullArticle = () => {
 
   return (
     <div className="full-article">
-      <h1>{article.topic}</h1>
+      <h1>{article.heading}</h1>
       <p><strong>Author:</strong> {article.author}</p>
-      <p><strong>Published Date:</strong> {article.date}</p>
-      <img src={article.imageUrl} alt={article.topic} className="article-image" />
-      <p>{article.content}</p>
+      <p><strong>Published Date:</strong> {new Date(article.createdDate).toLocaleDateString()}</p>
+      <img src={`${baseURL}${article.imageUrl}`} alt={article.heading} className="article-image" />
+      <pre>{article.content}</pre>
     </div>
   );
 };

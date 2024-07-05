@@ -3,7 +3,6 @@ import axios from 'axios';
 import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
-
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop'
 let articles=[];
@@ -49,6 +48,7 @@ const Home = () => {
   if (error) {
     return <div>{error}</div>;
   }
+
 
   return (
     <div className="home">

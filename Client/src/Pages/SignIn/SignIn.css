@@ -1,115 +1,239 @@
-.signin-container {
-    background: #ffffff;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin: 5rem auto;
 
-    .signin-title {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 2rem;
-    }
-    
-    .signin-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .signin-field {
-        display: flex;
-        flex-direction: column;
-        gap:0.3rem;
-        align-items: flex-start;
-    }
-    
-    .signin-label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #555;
-    }
-    
-    .signin-input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
-    }
-    
-    .signin-input:focus {
-        border-color: var(--color-green);
-        outline: none;
-    }
-    
-    .signin-password {
-       
-        width: 100%;
-    }
-    
-    .signin-show-password {
-        background: none;
-        border: none;
-        color: var(--color-green);
-        font-size: 0.9rem;
-        cursor: pointer;
-        margin-left: 10px;
-        transition: color 0.3s ease;
-        position: relative;
-        top:-2rem;
-        left:8rem;
-    }
-    
-    .signin-show-password:hover {
-        color: rgb(7, 180, 7);
-    }
-    
-    .signin-button {
-        background-color: var(--color-green);
-        color: #fff;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    .signin-button:hover {
-        background-color: rgb(7, 180, 7);
-    }
-    
-    .signin-message {
-        /* margin-top: 20px; */
-        color: #e74c3c;
-    }
-    
-    .signin-signup-link {
-        margin-top: 20px;
-    }
-    
-    .signin-signup-link p, .signin-forgot-password {
-        color: #555;
-    }
-    
-    .signin-signup-link a, .signin-forgot-password a {
-        color: var(--color-green);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .signin-signup-link a:hover, .signin-forgot-password a:hover {
-        color: rgb(7, 180, 7);
-    }
-    
-    .signin-forgot-password {
-        align-self: flex-start;
-        /* margin-top: 5px; */
-    }
+
+
+.signin-page {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #B5E5FF;
+  background-color: var(--color-navbar);
+  min-height: 100vh;
+  margin-top: -3.5rem;
+}
+
+.signin-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+.signin-right {
+  width: 100%;
+  max-width: 26rem;
+  background: #ffffff;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 8px var(--color-green);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.signin-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.signin-left .signin-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+}
+
+.vecrosoft-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vecrosoft-logo img {
+  width: 15rem;
+}
+
+
+.vecrosoft-logo p {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+}
+
+.animated-letter {
+  display: inline-block;
+  color: #333;
+  animation: letterAnimation 1s ease forwards;
+}
+
+.animated-letter:nth-child(1) { animation-delay: 0.2s; }
+.animated-letter:nth-child(2) { animation-delay: 0.4s; }
+.animated-letter:nth-child(3) { animation-delay: 0.6s; }
+.animated-letter:nth-child(4) { animation-delay: 0.8s; }
+.animated-letter:nth-child(5) { animation-delay: 1s; }
+.animated-letter:nth-child(6) { animation-delay: 1.2s; }
+.animated-letter:nth-child(7) { animation-delay: 1.4s; }
+.animated-letter:nth-child(8) { animation-delay: 1.6s; }
+.animated-letter:nth-child(9) { animation-delay: 1.8s; }
+
+@keyframes letterAnimation {
+  0% {
+    transform: scale(1);
+    color: #333;
+  }
+  50% {
+    transform: scale(1.2);
+    color: var(--color-green);
+  }
+  100% {
+    transform: scale(1);
+    color: var(--color-green);
+  }
+}
+
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.signin-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.signin-icon {
+  margin-right: 10px;
+  color: #555;
+}
+
+.signin-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.signin-input:focus {
+  border-color: var(--color-green);
+  outline: none;
+}
+
+.signin-show-password {
+  background: none;
+  border: none;
+  color: var(--color-green);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: auto;
+}
+
+.signin-show-password:hover {
+  color: var(--color-hover);
+}
+
+.signin-button {
+  background-color: var(--color-green);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+  background-color: var(--color-hover);
+}
+
+.signin-message {
+  color: #e74c3c;
+}
+
+.signin-signup-link {
+  margin-top: 20px;
+}
+
+.signin-signup-link p,
+.signin-forgot-password {
+  color: #555;
+}
+
+.signin-signup-link a,
+.signin-forgot-password a {
+  color: var(--color-green);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signin-signup-link a:hover,
+.signin-forgot-password a:hover {
+  color: var(--color-hover);
+}
+
+.signin-forgot-password {
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .signin-page {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+   .signin-left .signin-title h2{
+    font-size: 1rem;
+  }
+  .signin-left {
+    margin-bottom: 2rem;
+  }
+  .vecrosoft-logo img {
+    width: 5rem;
+  }
+
+  .signin-right {
+    padding: 2rem 1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-left .signin-title,
+  .signin-title {
+    font-size: 1.5rem;
+  }
+
+  .vecrosoft-logo img {
+    width: 5rem;
+  }
+  .signin-left .signin-title h2{
+    font-size: 1rem;
+  }
+  .vecrosoft-logo p {
+    font-size: 1.5rem;
+  }
+
+  .signin-input-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .signin-show-password {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
 }
 

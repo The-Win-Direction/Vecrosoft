@@ -1,60 +1,63 @@
-.sidebar {
-    width: 20rem;
-    padding: 20px;
-    border-right: 1px solid #ddd;
+/* 
+.sidebar-main{
+  .sidebar {
     position: fixed;
-    left: 0;
-    background-color: #f8f8f8;
-    padding-top: 1rem;
-    overflow-y: auto;  
-    height: 100vh;
-
-
-
-    .search-bar {
-      display: flex;
-      margin-bottom: 20px;
-    }
-    
-    .search-bar input {
-      flex-grow: 1;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px 0 0 4px;
-      outline: none;
-    }
-    
-    .search-button {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-left: none;
-      background-color: #fff;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-    }
-    
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .sidebar-link {
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 0;
-    }
-    
-    .sidebar-link:hover {
-      background-color: #e9e9e9;
-      padding-left: 10px;
-      border-radius: 4px;
-    }
-    
+    top: 0;
+    left: -250px; 
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    margin-top: 3.5rem;
   }
   
+  .sidebar-open {
+    left: 0; 
+  }
   
+  .search-bar {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .search-bar input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-bar .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    color: #333;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+} */

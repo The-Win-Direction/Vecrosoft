@@ -11,12 +11,12 @@ import Footer from '../../Components/Footer/Footer';
 
 function AI() {  
   return (
-    <div>
-    <div className="ai-main-container">
+    <div className='ai-main-container'>
+    <div className="ai-detect-container">
     <DetectionDescription />
     <div className='detection-container-with-samples'>
       <DiseaseDetection />
-      <SampleImages />
+      {/* <SampleImages /> */}
     </div>  
   </div>
   <FeatureDescription/> 

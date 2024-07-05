@@ -38,7 +38,7 @@ class _PlantDiseaseClassifierScreenState
   Future<void> _predictDisease() async {
     if (_imageFile == null) return;
 
-    final uri = Uri.parse('http://10.0.2.2:8000/predict/');
+    final uri = Uri.parse('http://10.0.2.2:8080/predict/');
     final request = http.MultipartRequest('POST', uri)
       ..headers.addAll({
         'Content-Type': 'multipart/form-data',
@@ -57,7 +57,8 @@ class _PlantDiseaseClassifierScreenState
         final decodedData = json.decode(responseData);
         setState(() {
           _predictionResult =
-              'Disease: ${decodedData['predicted_disease']}, Probability: ${double.parse(decodedData['probability']).toStringAsFixed(2)}';
+              //'Disease: ${decodedData['predicted_disease']}, Probability: ${double.parse(decodedData['probability']).toStringAsFixed(2)}';
+              'Disease: ${decodedData['predicted_disease']}, Probability: ${(decodedData['probability'] * 100).toStringAsFixed(2)}%';
         });
       } else {
         setState(() {

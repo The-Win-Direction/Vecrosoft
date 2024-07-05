@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./CreateArticle.css";
 
-const CreatePost = () => {
+const CreateArticle = () => {
   const [heading, setHeading] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
@@ -12,7 +12,6 @@ const CreatePost = () => {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
 
-    
     if (selectedFile && selectedFile.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -65,6 +64,14 @@ const CreatePost = () => {
     }
   };
 
+  const handleCancel = () => {
+    setHeading("");
+    setAuthor("");
+    setContent("");
+    setImage(null);
+    setImagePreview(null);
+  };
+
   return (
     <div className="form-container">
       <h2>Create Article</h2>
@@ -102,10 +109,13 @@ const CreatePost = () => {
             <img src={imagePreview} alt="Selected" className="image-preview" />
           )}
         </div>
-        <button type="submit">Create Article</button>
+        <div className="button-group">
+          <button type="submit">Create</button>
+          <button type="button" onClick={handleCancel} className="cancel-button">Cancel</button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default CreatePost;
+export default CreateArticle;

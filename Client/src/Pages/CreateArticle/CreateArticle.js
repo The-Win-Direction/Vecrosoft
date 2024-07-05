@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CreateArticle.css";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateArticle = () => {
   const [heading, setHeading] = useState("");
@@ -8,6 +11,8 @@ const CreateArticle = () => {
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -59,6 +64,12 @@ const CreateArticle = () => {
       setContent("");
       setImage(null);
       setImagePreview(null);
+
+      toast.success("Article created successfully!");
+      setTimeout(() => {
+        navigate("/article");
+      }, 1000); // Redirect after 1 seconds
+
     } catch (error) {
       console.error("Error creating post:", error);
     }

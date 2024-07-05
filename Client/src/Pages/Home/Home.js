@@ -1,39 +1,50 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
-import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { articles }  from '../../Components/ArticleList/ArticleList';
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
+import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop'
 
 const Home = () => {
+  
+  
 
-  const history=useNavigate();
-
-  const validUser = async () => {
-    let token = localStorage.getItem("userdatatoken");
-    //console.log(token);
-    const res = await fetch("http://localhost:4000/api/validation", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: token,
-      },
-    });
-    const data = await res.json();
-    console.log(data);
-    if ((data.status ===401 || !data)) {
-      history("*");
-
-    }else{
-      history("/")
-    }
-  };
-
+ /*  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); */
+/* 
   useEffect(() => {
-    validUser();
-  }, []);
+    const fetchPosts = async () => {
+      const token = localStorage.getItem('userdatatoken');
+      
+      if (!token) {
+        setError('User not authenticated');
+        setLoading(false);
+        return;
+      }
 
+      try {
+        const response = await axios.get('http://localhost:4000/api/get-posts', {
+          headers: {
+            'Authorization': token,
+          },
+        });
+     
+        setPosts(response.data.posts);
+      } catch (error) {
+        setError('Error fetching posts');
+      } finally {
+        setLoading(false);
+        
+      }
+
+    };
+
+    fetchPosts();
+  }, []);
+ */
+  
   const post = {
     id: 1,
     imageUrl:
@@ -53,14 +64,19 @@ const Home = () => {
   
     };
 
-  return (
-   <div className="home">
-    <Sidebar/>
-    <div className="home-content">
-    <ArticleCarousel articles={articles} />
-    <Post post={post} />
-    </div>
-    </div>
-  );
+    return (
+      <div className="home">
+        <div className="sidebar-container">
+          <SidebarDekstop />
+        </div>
+        <div className="home-content">
+          <ArticleCarousel articles={articles} />
+          <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
+          <Post post={post} />
+        </div>
+      </div>
+    );
 };
 export default Home;

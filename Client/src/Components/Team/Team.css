@@ -77,3 +77,18 @@
 .social-icons a:hover {
   color: #333;
 }
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .team-member {
+    flex: 1 1 calc(50% - 4rem);
+    max-width: calc(50% - 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex: 1 1 calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+  }
+}

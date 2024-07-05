@@ -1,7 +1,41 @@
+/* Container for articles */
 .articles-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
-  margin-left: 20rem; 
+  margin-left: 20rem;
+  transition: all 0.3s ease-in-out;
 }
+
+/* Media query for devices with max width of 1024px */
+@media (max-width: 1024px) {
+  .articles-container {
+    margin-left: 15rem;
+  }
+}
+
+/* Media query for devices with max width of 768px */
+@media (max-width: 768px) {
+  .articles-container {
+    margin-left: 10rem;
+  }
+}
+
+/* Media query for devices with max width of 600px */
+@media (max-width: 600px) {
+  .articles-container {
+    grid-template-columns: 1fr;
+    margin-left: 5rem;
+  }
+}
+
+/* Media query for devices with max width of 480px */
+@media (max-width: 480px) {
+  .articles-container {
+    grid-template-columns: 1fr;
+    margin-left: 2rem;
+    padding: 10px;
+  }
+}
+

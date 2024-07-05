@@ -76,7 +76,7 @@ function DiseaseDetection() {
         {prediction && <p className="prediction-result"> Disease: {prediction.predicted_disease} Probability: {prediction.probability.toFixed(2)}</p>
 
         }
-      </div>
+      </div> 
     </form>
   );
 }

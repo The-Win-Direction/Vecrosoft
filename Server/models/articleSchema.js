@@ -1,25 +1,36 @@
 const mongoose = require('mongoose');
 
-const articleCommentSchema = new mongoose.Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+
+const commentSchema = new mongoose.Schema({
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
+  },
   content: { type: String, required: true },
-  created_at: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now },
 });
 
 const articleSchema = new mongoose.Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  title: { type: String, required: true },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
+  },
+  heading: { type: String, required: true },
+  author: { type: String, required: true },
   content: { type: String, required: true },
-  created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
-  comments: [articleCommentSchema],
-  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  createdDate: { type: Date, default: Date.now },
+  imageUrl: { type: String},
+  comments: [commentSchema],
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "users" }],
 });
 
-articleSchema.pre('save', function(next) {
+articleSchema.pre("save", function (next) {
   this.updated_at = Date.now();
   next();
 });
 
-const Article = mongoose.model('Article', articleSchema);
-module.exports = Article;
+const articleDB = mongoose.model("articles", articleSchema);
+module.exports = articleDB;

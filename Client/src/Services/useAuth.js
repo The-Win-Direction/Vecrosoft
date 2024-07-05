@@ -24,12 +24,14 @@ const useAuth = () => {
         });
 
         const data = await res.json();
-
+         
         if (data.status === 401 || !data) {
+          localStorage.removeItem("userdatatoken");
           navigate("/sign-in");
         }
       } catch (error) {
         console.error("Validation error:", error);
+        localStorage.removeItem("userdatatoken");
         navigate("/sign-in");
       }
 

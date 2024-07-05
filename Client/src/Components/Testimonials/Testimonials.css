@@ -1,9 +1,6 @@
 .testimonials-container {
-  padding: 2rem;
   text-align: center;
-  margin-top: 5rem;
   border-radius: 25px;
-  margin-bottom: 10rem;
 
    h2 {
     font-size: 2rem;
@@ -79,3 +76,9 @@
   
 }
 
+@media (max-width: 480px){
+  .testimonials-container{
+    padding:1rem;
+  }
+
+}

@@ -4,7 +4,7 @@ const authenticate = require("../middleware/authenticate");
 const bcrypt = require("bcryptjs");
 const userDB = require("../models/userSchema");
 const controllers = require("../Controllers/userControllers");
-const { postUpload,pofileUpload } = require("../multerconfig/storageConfig");
+const { postUpload,pofileUpload, articleUpload } = require("../multerconfig/storageConfig");
 router.get("/api/hello", (req, res) => {
   res.send("Hello World");
 });
@@ -20,10 +20,18 @@ router.post(
   postUpload.single("image"),
   controllers.createPostApi
 );
+router.post(
+  "/api/create-article",
+  authenticate,
+  articleUpload.single("image"),
+  controllers.createArticleApi
+);
 
 router.get("/api/get-posts", authenticate, controllers.getPostsApi);
-router.post(  "/api/user/update",  authenticate,  pofileUpload.single("profile_pic_url"),controllers.updateProfileApi
+router.get("/api/get-articles", authenticate, controllers.getArticlesApi);
+router.post("/api/user/update",  authenticate,  pofileUpload.single("profile_pic_url"),controllers.updateProfileApi
 );
+
 
 router.post("/api/posts/:postId/like", authenticate, controllers.likePostApi);
 router.post("/api/posts/:postId/comment", authenticate, controllers.commentPostApi);

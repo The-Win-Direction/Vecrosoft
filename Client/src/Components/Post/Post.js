@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Post.css';
-const baseURL="http://localhost:4000"
+const baseURL="https://vecrosoft-server.onrender.com"
 const Post = ({ post ,user}) => {
   console.log(user);
   console.log(post);
@@ -23,7 +23,7 @@ const Post = ({ post ,user}) => {
     const token = localStorage.getItem("userdatatoken");
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/posts/${post._id}/like`,
+        `https://vecrosoft-server.onrender.com/api/posts/${post._id}/like`,
         {},
         {
           headers: {
@@ -45,7 +45,7 @@ const Post = ({ post ,user}) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/posts/${post._id}/comment`,
+        `https://vecrosoft-server.onrender.com/api/posts/${post._id}/comment`,
         { content: newComment },
         {
           headers: {

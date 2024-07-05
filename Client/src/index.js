@@ -20,7 +20,7 @@ newestOnTop={false}
 closeOnClick
 rtl={false}
 pauseOnFocusLoss
-draggable
+draggablez
 pauseOnHover
 theme="colored"
 />

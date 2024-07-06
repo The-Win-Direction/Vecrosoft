@@ -26,7 +26,6 @@ const ArticleList = () => {
           },
         });
 
-        //console.log(response);
         setUser(response.data.userId);
         setArticles(response.data.articles);
       } catch (error) {
@@ -47,10 +46,14 @@ const ArticleList = () => {
     return <div>{error}</div>;
   }
 
+  const handleDelete = (articleId) => {
+    setArticles(articles.filter(article => article._id !== articleId));
+  };
+
   return (
     <div className="articles-container">
       {articles.map(article => (
-        <ArticlePost key={article._id} article={article} user={user} />
+        <ArticlePost key={article._id} article={article} user={user} onDelete={handleDelete} />
       ))}
     </div>
   );

@@ -37,7 +37,7 @@ const CreateArticle = () => {
     if (!image) {
       alert("Please select an image.");
       return;
-    }
+    } 
 
     const formData = new FormData();
     formData.append("heading", heading);
@@ -49,7 +49,7 @@ const CreateArticle = () => {
       let token = localStorage.getItem("userdatatoken");
       console.log(token);
       const response = await axios.post(
-        "http://localhost:4000/api/create-article",
+        "https://vecrosoft-server.onrender.com/api/create-article",
         formData,
         {
           headers: {

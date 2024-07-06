@@ -57,7 +57,7 @@ const Post = ({ post, user, onDelete }) => {
     }
   };
 
-  const handleDelete = () => {
+  const handleDelete = () => { 
     onDelete(post._id);
   };
 

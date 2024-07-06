@@ -1,50 +1,59 @@
 
 /* Desktop Layout */
-.ai-main-container {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 2rem;
-  justify-content: space-evenly;
-}
-
-.detection-container-with-samples {
+.ai-main-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-}
+  gap:8rem;
 
-/* Responsive Design for Smaller Devices */
-@media (max-width: 768px) {
-  .ai-main-container {
+  .ai-detect-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+    justify-content: space-evenly;
+  }
+  
+  .detection-container-with-samples {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
   }
-
-  .detection-container-with-samples {
-    width: 100%;
-    margin-top: 1rem;
+  
+  /* Responsive Design for Smaller Devices */
+  @media (max-width: 768px) {
+    .ai-detect-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .detection-container-with-samples {
+      margin: 3rem;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .ai-main-container {
-    flex-direction: column;
-    align-items: center;
+  
+  @media (max-width: 480px) {
+    .ai-detect-container {
+      flex-direction: column;
+      align-items: center;
+      gap:3rem;
+    }
+  
+    /* .detection-container-with-samples {
+      width: 70%;
+      margin: 3rem;
+  
+    } */
+  
+    .description-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .description-container h2 {
+      font-size: 1rem;
+    }
   }
-
-  .detection-container-with-samples {
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .description-container h1 {
-    font-size: 1.5rem;
-  }
-
-  .description-container h2 {
-    font-size: 1rem;
-  }
+  
+  
 }
 

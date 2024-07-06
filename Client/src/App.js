@@ -13,6 +13,7 @@ import SignIn from "./Pages/SignIn/SignIn";
 import FullArticle from "./Components/FullArticle/FullArticle";
 import "./App.css";
 import CreatePost from "./Pages/CreatePost/CreatePost";
+import CreateArticle from "./Pages/CreateArticle/CreateArticle";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import PredictionResult from "./Pages/PredictionResult/PredictionResult";
 import ParentComponent from "./Components/ParentHeader/ParentComponent";
@@ -33,12 +34,12 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/article" element={<Article />} /> 
+            <Route path="/article/*" element={<Article />} /> 
             <Route path="/ai" element={<AI />} />
-            
             <Route path="/chat" element={<Chat />} />
             <Route path="/article/:articleId" element={<FullArticle />} />
             <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/create-article" element={<CreateArticle/>} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/prediction" element={<PredictionResult />} />
             <Route path="/joincommunity" element={<JoinCommunity />} />

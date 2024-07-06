@@ -16,10 +16,17 @@
       .profile-info {
         text-align: left;
       }
+
+      .profile-info .username{
+        font-weight: bold;
+        font-size: 1.5rem;
+        color:black;
+      }
       
       .profile-pic {
         display: block;
-        max-width: 150px;
+        height: 10rem;
+        width:  10rem;
         border-radius: 50%;
       }
       

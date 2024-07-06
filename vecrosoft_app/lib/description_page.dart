@@ -5,12 +5,16 @@ class TeamMemberDescriptionPage extends StatelessWidget {
   final String role;
   final String bio;
   final String imageUrl;
+  final String contactNumber;
+  final String email;
 
   TeamMemberDescriptionPage({
     required this.name,
     required this.role,
     required this.bio,
     required this.imageUrl,
+    required this.contactNumber,
+    required this.email,
   });
 
   @override
@@ -38,7 +42,7 @@ class TeamMemberDescriptionPage extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               'Role: $role',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Text(
@@ -49,6 +53,16 @@ class TeamMemberDescriptionPage extends StatelessWidget {
             Text(
               bio,
               style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Contact Number: $contactNumber',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Email: $email',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ],
         ),

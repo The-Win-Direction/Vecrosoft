@@ -5,9 +5,8 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
   background: white;
-  padding: 15px;
+  padding: 1rem;
   transition: transform 0.2s;
 
 
@@ -19,8 +18,6 @@
   }
 
   .delete-button {
-    /* top: 0.5rem;
-    right: 0.5rem; */
     background: transparent;
     border: none;
     font-size: 1.5rem;

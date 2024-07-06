@@ -25,6 +25,7 @@ import GeneralTermsAndConditons from './Pages/GeneralTermsAndConditions/GeneralT
 import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import UserProfile from "./Pages/UserProfile/UserProfile";
+import Ads from "./Pages/Ads/Ads";
 function App() {
   return (
     <div className="app-container">
@@ -48,6 +49,7 @@ function App() {
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
             <Route path="/your-profile" element={<UserProfile />} /> 
+            <Route path="/ads" element={<Ads />} /> 
 
           </Route>
           <Route element={<GuestRoute />}>

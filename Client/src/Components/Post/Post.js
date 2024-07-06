@@ -4,12 +4,16 @@ import axios from 'axios';
 import './Post.css';
 const baseURL="https://vecrosoft-server.onrender.com"
 const Post = ({ post ,user}) => {
+  console.log(user);
+  console.log(post);
+  console.log(post.likes.includes(user))
+  console.log(post.likes)
   const [likes, setLikes] = useState(post.likes.length);
-  const [like, setLike] = useState(post.likes.includes(user));
+  const [like, setLike] = useState(post.likes.some(like => like.user_id === user));
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [comments, setComments] = useState(post.comments);
   const [newComment, setNewComment] = useState('');
-
+    
   
   const toggleComments = () => {
     setCommentsVisible(!commentsVisible);
@@ -60,13 +64,16 @@ const Post = ({ post ,user}) => {
     <div className="post">
       <div className="post-header">
         <img src={`${baseURL}${post.user_id.profile_pic_url}`} alt={`${post.user_id.fname}'s profile`} className="profile-pic" />
-        <span className="username">{post.user_id.fname+" "+post.user_id.lname}</span>
-      </div>
+        <div className='display-flex'>
+        <div className="username">{post.user_id.fname+" "+post.user_id.lname}</div>
+        <p>{new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(post.createdDate))}</p>
+      </div></div>
+      
       <p className="caption"> {post.content}</p>
       <img src={`${baseURL}${post.imageUrl}`} alt="Post" className="post-image " />
       <div className="post-info">
         <button className={`like-button ${like ? 'liked' : ''}`} onClick={handleLike}>
-          {like ? '❤️' : '♡'} {likes}
+          {like ? '💚' : '🤍'} {likes}
         </button>
         <button className="comment-button" onClick={toggleComments}>
           {commentsVisible ? 'Hide Comments' : 'Show Comments'} ({comments.length})
@@ -83,16 +90,17 @@ const Post = ({ post ,user}) => {
             </div>
           ))}
           <form onSubmit={handleCommentSubmit}>
-            <input
+            <input 
               type="text"
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
-              placeholder="Add a comment..."
+              placeholder="Add a comment......."
+              className='write-comment'
             />
             <button type="submit">Comment</button>
           </form>
         </div>
-      )}
+      )} 
     </div>
   );
 };

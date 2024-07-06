@@ -2,16 +2,27 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
-  margin-top: 1rem ;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
   width: 100%;
+  margin-top: 0.5rem;
   max-width: 32rem;
 
   .post-header {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+
+
+    .display-flex{
+      p{
+        font-size: 0.8rem;
+        color: #333;
+      }
+    }
+    /* margin-bottom: 1rem; */
   }
   
   .profile-pic {
@@ -36,39 +47,42 @@
   
   .caption {
     font-size: 1.1rem;
-    margin: 1rem 0;
   }
   
   .post-image {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-top:0.05px solid #cccccc;
+    border-bottom: 0.05px solid #cccccc;
   }
   
   .post-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
   }
   
   .like-button,
   .comment-button {
     color: black;
     border: none;
-    padding: 0.625rem 0.9375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
     border-radius: 0.3125rem;
+    background-color: transparent;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
-  .like-button.liked {
-    background-color: var(--color-green);
+  .like-button {
+   /* font-size: 1.5rem; */
   }
   
   .like-button:hover,
   .comment-button:hover {
-    background-color: var(--color-green);
+    background-color:var(--color-navbar);
+   transform: scale(1.04);
+
   }
   
   .comments {
@@ -89,6 +103,16 @@
   
   .comment-content {
     color: #555;
+  }
+  .write-comment{
+    width:80%;
+    height:2.5rem;
+    display: flex;
+    margin: 0.5rem auto;
+    border-radius: 5rem;
+    text-align: center;
+    font-size: 1rem;
+
   }
   
   /* Responsive adjustments */

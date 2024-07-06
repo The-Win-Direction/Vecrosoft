@@ -11,7 +11,7 @@ const UserProfile = () => {
     _id: '',
     fname: '',
     lname: '',
-    email: '',
+    email: '', 
     created_at: '',
     updated_at: '',
     bio: '',
@@ -120,7 +120,7 @@ const UserProfile = () => {
       <div className="profile-header">
         <div className="profile-info">
           <img src={user.profile_pic_url} alt="Profile" className="profile-pic" />
-          <h1>{`${user.fname} ${user.lname}`}</h1>
+          <p className='username'>{`${user.fname} ${user.lname}`}</p>
           <p>{user.email}</p>
         </div>
         {!isEditing && (

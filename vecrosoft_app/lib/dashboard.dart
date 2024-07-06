@@ -35,7 +35,7 @@ class DashBoardScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PlantDiseaseClassifierScreen()),
+                        builder: (context) => DiseaseDetectionScreen()),
                   );
                 },
               ),

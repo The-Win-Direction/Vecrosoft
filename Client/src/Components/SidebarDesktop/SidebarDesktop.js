@@ -11,8 +11,6 @@ const SidebarDesktop = () => {
         <button className="search-button"><FaSearch /></button>
       </div>
       <nav className="sidebar-nav">
-        <Link to="/about-us" className="sidebar-link"><FaInfoCircle /> About Us</Link>
-        <Link to="/contact-us" className="sidebar-link"><FaUser /> Contact</Link>
         <Link to="/saved" className="sidebar-link"><FaBookmark /> Saved</Link>
         <Link to="/ads" className="sidebar-link"><FaAd /> Ads</Link>
         <Link to="/see-more" className="sidebar-link"><FaEllipsisH /> See More</Link>

@@ -1,4 +1,6 @@
 import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
@@ -29,6 +31,9 @@ model = keras.models.load_model(model_path)
 # Load class indices from JSON file
 class_indices_path = os.getenv("CLASS_INDICES_PATH", "class_indices.json")
 class_indices = json.load(open(class_indices_path))
+# Load class indices from JSON file with UTF-8 encoding
+with open("class_indices.json", encoding="utf-8") as f:
+    class_indices = json.load(f)
 
 # Function to preprocess image
 def preprocess_image(image):

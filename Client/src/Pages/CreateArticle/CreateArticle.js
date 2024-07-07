@@ -81,6 +81,7 @@ const CreateArticle = () => {
     setContent("");
     setImage(null);
     setImagePreview(null);
+    navigate("/");
   };
 
   return (

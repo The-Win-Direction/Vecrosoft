@@ -1,0 +1,44 @@
+.help-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .help-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .help-section {
+    margin-bottom: 2rem;
+  }
+  
+  .help-section h2 {
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  .help-section p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .help-section ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #555;
+  }
+  
+  .help-section ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .help-section ul li::marker {
+    color: #007bff;
+  }
+  

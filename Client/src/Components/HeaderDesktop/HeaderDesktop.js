@@ -83,8 +83,7 @@ const HeaderDesktop = () => {
           {profileDropdownOpen && (
             <div className="profile-dropdown-content">
               <Link to="/your-profile">See Profile</Link>
-              <Link to="/settings">Settings</Link>
-              <Link to="/help">Help and Support</Link>
+              <Link to="/help-and-support">Help and Support</Link>
                <span onClick={logOutClickHandler}>  Log Out  </span> 
             </div>
           )}

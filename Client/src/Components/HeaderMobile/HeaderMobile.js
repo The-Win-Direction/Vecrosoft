@@ -88,8 +88,7 @@ const HeaderMobile = ({ toggleSidebar }) => {
           {profileDropdownOpen && (
             <div className="profile-dropdown-content">
               <Link to="/your-profile">See Profile</Link>
-              <Link to="/settings">Settings</Link>
-              <Link to="/help">Help and Support</Link>
+              <Link to="/help-and-support">Help and Support</Link>
               <Link to="/logout" onClick={logOutClickHandler}>Log Out</Link>
             </div>
           )}

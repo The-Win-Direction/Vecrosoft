@@ -26,6 +26,7 @@ import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import UserProfile from "./Pages/UserProfile/UserProfile";
 import Ads from "./Pages/Ads/Ads";
+import HelpAndSupport from "./Pages/HelpAndSupport/HelpAndSupport";
 function App() {
   return (
     <div className="app-container">
@@ -50,6 +51,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
             <Route path="/your-profile" element={<UserProfile />} /> 
             <Route path="/ads" element={<Ads />} /> 
+            <Route path="/help-and-support" element={<HelpAndSupport />} /> 
 
           </Route>
           <Route element={<GuestRoute />}>

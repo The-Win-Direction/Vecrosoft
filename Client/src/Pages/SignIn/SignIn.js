@@ -12,11 +12,13 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
- 
+    setLoading(true);
+
     try {
       const res = await axios.post(
         "https://vecrosoft-server.onrender.com/api/sign-in",
@@ -32,11 +34,8 @@ const SignIn = () => {
       );
 
       console.log(res);
-      if (res.data.status === 201&& res.data.result.token) {
-        
+      if (res.data.status === 201 && res.data.result.token) {
         localStorage.setItem("userdatatoken", res.data.result.token);
-       // const expirationTime = Date.now() + 24 * 60 * 60 * 1000; 
-        //localStorage.setItem("userdatatoken", JSON.stringify({ token: res.data.result.token, expirationTime }));
 
         setEmail("");
         setPassword("");
@@ -62,14 +61,14 @@ const SignIn = () => {
         toast.error("An error occurred. Please try again.");
         setMessage("An error occurred. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    
     <div className="signin-page">
       <div className="signin-left">
-        <h2 className="signin-title"></h2>
         <div className="vecrosoft-logo">
           <img src={vecrosoftLogo} alt="Vecrosoft" />
           <p>
@@ -122,8 +121,14 @@ const SignIn = () => {
               <Link to="/forgot-password">Forgot Password?</Link>
             </p>
           </div>
-          <button className="signin-button" type="submit">
-            Sign In
+          <button className="signin-button" type="submit" disabled={loading}>
+            {loading ? (
+              <>
+                <span className="spinner"></span> Signing in...
+              </>
+            ) : (
+              "Sign In"
+            )}
           </button>
         </form>
         {message && <p className="signin-message">{message}</p>}

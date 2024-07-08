@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './DiseaseDetection.css';
 import axios from "axios";
+import './DiseaseDetection.css';
 
 function DiseaseDetection() {
   const [dragging, setDragging] = useState(false);
   const [prediction, setPrediction] = useState("");
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -19,7 +19,7 @@ function DiseaseDetection() {
 
   const handleDragLeave = () => {
     setDragging(false);
-  }; 
+  };
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -30,6 +30,8 @@ function DiseaseDetection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
+
     const formData = new FormData();
     formData.append('file', file);
 
@@ -42,6 +44,8 @@ function DiseaseDetection() {
       setPrediction(response.data);
     } catch (error) {
       console.error("There was an error uploading the file!", error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -72,11 +76,21 @@ function DiseaseDetection() {
             <img src={URL.createObjectURL(file)} alt="Selected" className="preview-image" />
           </div>
         )}
-        <button type="submit" className="predict-button">Predict</button>
-        {prediction && <p className="prediction-result"> Disease: {prediction.predicted_disease} Probability: {prediction.probability.toFixed(2)}</p>
-
-        }
-      </div> 
+        <button type="submit" className="predict-button" disabled={loading}>
+          {loading ? (
+            <>
+              <span className="spinner"></span> Predicting...
+            </>
+          ) : (
+            "Predict"
+          )}
+        </button>
+        {prediction && (
+          <p className="prediction-result">
+            Disease: {prediction.predicted_disease} Probability: {prediction.probability.toFixed(2)}
+          </p>
+        )}
+      </div>
     </form>
   );
 }

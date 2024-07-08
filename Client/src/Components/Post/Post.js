@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Post.css';
-
-const baseURL = "http://localhost:4000";
-
-const Post = ({ post, user, onDelete }) => {
+const baseURL="https://vecrosoft-server.onrender.com"
+const Post = ({ post ,user, onDelete}) => {
+  console.log(user);
+  console.log(post);
+  console.log(post.likes.includes(user))
+  console.log(post.likes)
   const [likes, setLikes] = useState(post.likes.length);
   const [like, setLike] = useState(post.likes.some(like => like.user_id === user));
   const [commentsVisible, setCommentsVisible] = useState(false);
@@ -20,7 +22,7 @@ const Post = ({ post, user, onDelete }) => {
     const token = localStorage.getItem("userdatatoken");
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/posts/${post._id}/like`,
+        `https://vecrosoft-server.onrender.com/api/posts/${post._id}/like`,
         {},
         {
           headers: {
@@ -42,7 +44,7 @@ const Post = ({ post, user, onDelete }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/posts/${post._id}/comment`,
+        `https://vecrosoft-server.onrender.com/api/posts/${post._id}/comment`,
         { content: newComment },
         {
           headers: {

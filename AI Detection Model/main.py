@@ -13,7 +13,8 @@ load_dotenv()
 
 app = FastAPI()
 
-origins = ["http://localhost:3000"]
+# Allow access from any origin
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,8 +25,12 @@ app.add_middleware(
 )
 
 # Load the trained model
-model = keras.models.load_model("detection_model_mobilenetv2.h5")
+model_path = os.getenv("MODEL_PATH", "detection_model_mobilenetv2.h5")
+model = keras.models.load_model(model_path)
 
+# Load class indices from JSON file
+class_indices_path = os.getenv("CLASS_INDICES_PATH", "class_indices.json")
+class_indices = json.load(open(class_indices_path))
 # Load class indices from JSON file with UTF-8 encoding
 with open("class_indices.json", encoding="utf-8") as f:
     class_indices = json.load(f)
@@ -54,4 +59,6 @@ async def predict(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    host = os.getenv("HOST", "0.0.0.0")
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host=host, port=port)

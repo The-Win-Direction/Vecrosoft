@@ -40,11 +40,11 @@ const CreatePost = () => {
     formData.append("caption", caption);
     formData.append("image", image);
 
-    try {
+    try { 
       let token = localStorage.getItem("userdatatoken");
       console.log(token);
       const response = await axios.post(
-        "http://localhost:4000/api/create-post",
+        "https://vecrosoft-server.onrender.com/api/create-post",
         formData,
         {
           headers: {

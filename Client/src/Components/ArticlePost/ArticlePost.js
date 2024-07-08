@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./ArticlePost.css";
 import { useNavigate } from "react-router-dom";
 
-const baseURL = "http://localhost:4000";
+const baseURL = "https://vecrosoft-server.onrender.com";
 
 const ArticlePost = ({ article, user, onDelete }) => {
   const navigate = useNavigate();

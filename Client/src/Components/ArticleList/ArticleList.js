@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ArticlePost from '../../Components/ArticlePost/ArticlePost';
 import './ArticleList.css';
+const baseURL = "http://localhost:4000";
+
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -20,7 +22,7 @@ const ArticleList = () => {
       }
 
       try {
-        const response = await axios.get('https://vecrosoft-server.onrender.com/api/get-articles', {
+        const response = await axios.get(`${baseURL}/api/get-articles1`, {
           headers: {
             'Authorization': token,
           },

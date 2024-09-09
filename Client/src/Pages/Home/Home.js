@@ -4,6 +4,7 @@ import Post from "../../Components/Post/Post";
 import "./Home.css";
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
+const baseURL = "http://localhost:4000";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -22,7 +23,7 @@ const Home = () => {
       }
 
       try {
-        const response = await axios.get('https://vecrosoft-server.onrender.com/api/get-posts', {
+        const response = await axios.get(`${baseURL}/api/get-posts`, {
           headers: {
             'Authorization': token,
           },

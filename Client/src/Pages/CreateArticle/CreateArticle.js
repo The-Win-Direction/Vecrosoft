@@ -4,6 +4,8 @@ import axios from "axios";
 import "./CreateArticle.css";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+const baseURL = "http://localhost:4000";
+
 
 const CreateArticle = () => {
   const [heading, setHeading] = useState("");
@@ -49,7 +51,7 @@ const CreateArticle = () => {
       let token = localStorage.getItem("userdatatoken");
       console.log(token);
       const response = await axios.post(
-        "https://vecrosoft-server.onrender.com/api/create-article",
+        `${baseURL}/api/create-article`,
         formData,
         {
           headers: {

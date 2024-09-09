@@ -4,6 +4,8 @@ import "./SignUpForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+const baseURL = "http://localhost:4000";
+
 
 const SignUp = () => {
   const [fname, setFname] = useState("");
@@ -14,6 +16,8 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Hook for navigation
+
+
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -35,8 +39,7 @@ const SignUp = () => {
       return;
     }
     try {
-      const res = await axios.post(
-        "https://vecrosoft-server.onrender.com/api/sign-up",
+      const res = await axios.post(`${baseURL}/api/sign-up`,
         {
           fname,
           lname,

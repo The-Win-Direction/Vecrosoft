@@ -63,7 +63,9 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const keysecret = "ProjectVecrosoftProjectVecrosoft";
+require('dotenv').config();
+const keysecret = process.env.KEY_SECRET;
+
 
 const usersSchema = new mongoose.Schema({
   fname: {

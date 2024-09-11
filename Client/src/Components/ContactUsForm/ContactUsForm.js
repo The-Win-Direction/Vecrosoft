@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactUsForm.css';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const ContactUsForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [formStatus, setFormStatus] = useState('');
+
+
+  const handleChange = (e) => {
+    setFormStatus('');
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let token = localStorage.getItem("userdatatoken");
+      const response = await fetch('http://localhost:4000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token,
+        },
+        body: JSON.stringify(formData),
+      });
+
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus('Email sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+      } else {
+        setFormStatus('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setFormStatus('An error occurred. Please try again.');
+    }
+  };
+
   return (
-    
     <div className="contact-us-form-container">
       <div className="contact-info">
         <div className="contact-item">
@@ -31,24 +77,45 @@ const ContactUsForm = () => {
       </div>
       <div className="contact-form">
         <h3>Send us a message</h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
-            {/* <label htmlFor="name">Name</label> */}
-            <input type="text" id="name" name="name" required  placeholder='Your Name'/>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder="Your Name"
+            />
           </div>
           <div className="form-group">
-            {/* <label htmlFor="email">Email</label> */}
-            <input type="email" id="email" name="email" required  placeholder='Your Email'/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="Your Email"
+            />
           </div>
           <div className="form-group">
-            {/* <label htmlFor="message">Message</label> */}
-            <textarea id="message" name="message" rows="5" required placeholder='Write Message'></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              placeholder="Write Message"
+            ></textarea>
           </div>
           <button type="submit">Send</button>
         </form>
+        {formStatus && <p>{formStatus}</p>}
       </div>
     </div>
-
   );
 };
 

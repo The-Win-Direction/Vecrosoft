@@ -4,12 +4,12 @@ import axios from 'axios';
 import './Post.css';
 const baseURL = "http://localhost:4000";
 const Post = ({ post ,user, onDelete}) => {
-  console.log(user);
-  console.log(post);
-  console.log(post.likes.includes(user))
-  console.log(post.likes)
+  // console.log(user);
+  // console.log(post);
+  // console.log(post.likes.some(like => like._id === user));
+  // console.log(post.likes)
   const [likes, setLikes] = useState(post.likes.length);
-  const [like, setLike] = useState(post.likes.some(like => like.user_id === user));
+  const [like, setLike] = useState(post.likes.some(like => like._id === user));
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [comments, setComments] = useState(post.comments);
   const [newComment, setNewComment] = useState('');

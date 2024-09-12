@@ -70,7 +70,7 @@ exports.signInApi = async (req, res) => {
         await user.save();
 
         const result = {
-          user,
+          userId:user._id,
           token,
         };
         res.status(201).json({ status: 201, result });

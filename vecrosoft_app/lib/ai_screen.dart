@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http; // For making HTTP requests
 import 'dart:convert'; // For JSON encoding and decoding
 import 'package:http_parser/http_parser.dart'; // For MediaType
 
-// void main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override

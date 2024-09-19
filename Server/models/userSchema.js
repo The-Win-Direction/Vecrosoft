@@ -63,7 +63,9 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const keysecret = "ProjectVecrosoftProjectVecrosoft";
+require('dotenv').config();
+const keysecret = process.env.KEY_SECRET;
+
 
 const usersSchema = new mongoose.Schema({
   fname: {
@@ -147,6 +149,8 @@ usersSchema.pre("save", function (next) {
 usersSchema.methods.generateAuthToken = async function () {
   try {
     let token = jwt.sign({ _id: this._id }, keysecret, { expiresIn: "1d" });
+    
+
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;

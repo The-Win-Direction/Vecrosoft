@@ -3,6 +3,10 @@ const userDB = require("../models/userSchema");
 const postDB = require("../models/postSchema");
 const articleDB = require("../models/articleSchema");
 const upload = require("../multerconfig/storageConfig");
+require('dotenv').config();
+const sendEmail=require("../Utils/sendemail");
+const keysecret = process.env.KEY_SECRET;
+
 //api
 //signUp
 exports.signUpApi = async (req, res) => {
@@ -36,7 +40,7 @@ exports.signInApi = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      return res.status(422).json({ message: "fill all details" });
+      return res.status(422).json({ message: "Please fill in all details" });
     }
 
     let user = await userDB.findOne({ email });
@@ -46,36 +50,37 @@ exports.signInApi = async (req, res) => {
       if (!isMatch) {
         return res.status(422).json({ message: "Invalid details" });
       } else {
-        /*  user.tokens = user.tokens.filter(tokenDoc => {
-            try {
-              jwt.verify(tokenDoc.token, keysecret);
-              return true;
-            } catch (err) {
-              return false;
-            }
-          })newPost */
+        // Clean up expired tokens
+        user.tokens = user.tokens.filter((tokenObj) => {
+          try {
+            jwt.verify(tokenObj.token, keysecret);
+            return true; 
+          } catch (err) {
+            return false; // Remove expired tokens
+          }
+        });
 
+        // Generate new token
         const token = await user.generateAuthToken();
-        //console.log(token);
         if (!token) {
-          res.status(500).json({ message: "Server error try again" });
+          res.status(500).json({ message: "Server error, try again" });
         }
-        /*  res.cookie("usercookie", token, {
-          expires: new Date(Date.now() + 9000000),
-          httpOnly: true,
-        });  */
+
+      
+        await user.save();
+
         const result = {
-          user,
+          userId:user._id,
           token,
         };
         res.status(201).json({ status: 201, result });
       }
     } else {
-      res.status(401).json({ status: 401, message: "invalid details" });
+      res.status(401).json({ status: 401, message: "Invalid details" });
     }
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ message: "Server error try again" });
+    res.status(500).json({ message: "Server error, try again" });
   }
 };
 
@@ -336,5 +341,27 @@ exports.getArticlesApi = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: 500, message: "Server error" });
+  }
+};
+
+
+
+//sendEmail
+exports.sendEmailAPI = async (req, res) => {
+  const { name, email, message } = req.body;
+  console.log("here 2");
+
+  // Email content
+  const subject = `Message from ${name}`;
+  const text = `A message from ${name} (${email}): ${message}`;
+  const html = `<p>A message from <strong>${name}</strong> (${email}):</p><p>${message}</p>`;
+
+  try {
+   // sendEmail('giridipak743@gmail.com', 'Test Subject', 'Test email body', '<a href="WWW.facebook.com">Test email body</a>');
+    await sendEmail('giridipak743@gmail.com', subject, text, html);
+    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ success: false, message: 'Error sending email.' });
   }
 };

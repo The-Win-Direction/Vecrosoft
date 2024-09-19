@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './FullArticle.css';
 
-const baseURL = "http://localhost:4000";
+const baseURL = "https://vecrosoft-server.onrender.com";
 
 const FullArticle = () => {
   const location = useLocation();

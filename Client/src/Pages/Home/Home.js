@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Sidebar from '../../Components/SideBar/SideBar';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
 import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
-import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop'
-let articles=[];
+import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
+const baseURL = "http://localhost:4000";
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
-  const[user,setUser]=useState("");
+  const [user, setUser] = useState("");
+
   useEffect(() => {
     const fetchPosts = async () => {
       const token = localStorage.getItem('userdatatoken');
@@ -22,14 +23,13 @@ const Home = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:4000/api/get-posts', {
+        const response = await axios.get(`${baseURL}/api/get-posts`, {
           headers: {
             'Authorization': token,
           },
         });
        
-        //console.log(response.data.userId);
-        setUser(response.data.userId)
+        setUser(response.data.userId);
         setPosts(response.data.posts);
       } catch (error) {
         setError('Error fetching posts');
@@ -41,6 +41,10 @@ const Home = () => {
     fetchPosts();
   }, []);
 
+  const handleDelete = (postId) => {
+    setPosts(posts.filter(post => post._id !== postId));
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -48,7 +52,6 @@ const Home = () => {
   if (error) {
     return <div>{error}</div>;
   }
-
 
   return (
     <div className="home">
@@ -58,7 +61,7 @@ const Home = () => {
       <div className="home-content">
         {/* <ArticleCarousel articles={articles} /> */}
         {posts.map((post) => (
-          <Post key={post._id} post={post} user={user} />
+          <Post key={post._id} post={post} user={user} onDelete={handleDelete} />
         ))}
       </div>
     </div>

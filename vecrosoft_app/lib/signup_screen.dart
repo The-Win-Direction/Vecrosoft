@@ -22,11 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
-<<<<<<< HEAD
-    final url = 'http://10.0.2.2:4000/api/sign-up'; // API URL
-=======
     final url = 'http://10.0.2.2:4000/api/sign-up'; // My API URL
->>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
     try {
       final response = await http.post(
         Uri.parse(url),

@@ -21,29 +21,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
-<<<<<<< HEAD
-    final url = 'http://10.0.2.2:4000/api/sign-in'; // API URL
-
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {'Content-Type': 'application/json'},
-      body: json.encode({
-        'email': _emailController.text,
-        'password': _passwordController.text,
-      }),
-    );
-
-    // final response = await http.post(Uri.parse(url), body: {
-    //   'email': _emailController.text,
-    //   'password': _passwordController.text,
-    // });
-
-    if (response.statusCode == 201) {
-      // Login successful
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => DashBoardScreen()),
-=======
     final url = 'http://10.0.2.2:4000/api/sign-in'; // My API URL
     try {
       final response = await http.post(
@@ -53,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
           'email': _emailController.text,
           'password': _passwordController.text,
         }),
->>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
       );
 
       if (response.statusCode == 201) {

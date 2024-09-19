@@ -30,15 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-<<<<<<< HEAD
-  http: ^0.13.3
-  image_picker: ^0.8.4+2
-=======
   http: ^1.2.1
   image_picker: ^0.8.4+4
   json_annotation: ^4.0.1
   url_launcher: ^6.0.10
->>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
 
   
 

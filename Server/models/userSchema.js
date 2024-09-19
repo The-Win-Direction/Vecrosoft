@@ -59,21 +59,23 @@ usersSchema.methods.generateAuthToken = async function () {
 const userDB = new mongoose.model("users", usersSchema);
 module.exports = userDB;
  */
-
 const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const keysecret = "ProjectVecrosoftProjectVecrosoft";
+require('dotenv').config();
+const keysecret = process.env.KEY_SECRET;
+
+
 const usersSchema = new mongoose.Schema({
   fname: {
     type: String,
-    requried: true,
+    required: true,
     trim: true,
   },
   lname: {
     type: String,
-    requried: true,
+    required: true,
     trim: true,
   },
   email: {
@@ -82,7 +84,7 @@ const usersSchema = new mongoose.Schema({
     unique: true,
     validate(value) {
       if (!validator.isEmail(value)) {
-        throw new error("Invalid email");
+        throw new Error("Invalid email");
       }
     },
   },
@@ -99,12 +101,37 @@ const usersSchema = new mongoose.Schema({
       },
     },
   ],
-  bio: { type: String },
-  profile_pic_url: { type: String },
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now },
+  bio: {
+    type: String,
+    default: "No bio provided",
+  },
+  profile_pic_url: {
+    type: String,
+    default: "/uploads/profile/default.png",
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
+  },
+  phone_number: {
+    type: String,
+   /*  validate(value) {
+      if (phone_number && !validator.isMobilePhone(value, "any")) {
+        throw new Error("Invalid phone number");
+      }
+    }, */
+    default: "N/A",
+  },
+  profession: {
+    type: String,
+    default: "Unspecified",
+  },
   /* followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], */
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }] */
 });
 
 usersSchema.pre("save", async function (next) {
@@ -114,21 +141,24 @@ usersSchema.pre("save", async function (next) {
   next();
 });
 
-
-/* usersSchema.pre("save", function (next) {
+usersSchema.pre("save", function (next) {
   this.updated_at = Date.now();
   next();
-}); */
+});
 
 usersSchema.methods.generateAuthToken = async function () {
   try {
     let token = jwt.sign({ _id: this._id }, keysecret, { expiresIn: "1d" });
+    
+
     this.tokens = this.tokens.concat({ token: token });
     await this.save();
     return token;
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 //model
-const userDB = new mongoose.model("users", usersSchema);
+const userDB = mongoose.model("users", usersSchema);
 module.exports = userDB;

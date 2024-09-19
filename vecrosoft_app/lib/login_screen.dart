@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
+<<<<<<< HEAD
     final url = 'http://10.0.2.2:4000/api/sign-in'; // API URL
 
     final response = await http.post(
@@ -42,15 +43,51 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => DashBoardScreen()),
+=======
+    final url = 'http://10.0.2.2:4000/api/sign-in'; // My API URL
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'email': _emailController.text,
+          'password': _passwordController.text,
+        }),
+>>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
       );
-    } else {
-      // Handle login error
-      final responseData = json.decode(response.body);
+
+      if (response.statusCode == 201) {
+        // Login successful
+        //  final responseData = json.decode(response.body);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DashBoardScreen()),
+        );
+      } else {
+        // Handle login error
+        final responseData = json.decode(response.body);
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Error'),
+            content: Text(responseData['message']),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle any exceptions that may occur
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Login Error'),
-          content: Text(responseData['message']),
+          title: Text('Error'),
+          content: Text(
+              'An error occurred while logging in. Please try again later.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),

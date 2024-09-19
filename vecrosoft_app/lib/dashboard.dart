@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vecrosoft_app/aboutus_screen.dart';
 import 'package:vecrosoft_app/ai_screen.dart';
-import 'package:vecrosoft_app/articles_screen.dart';
 import 'package:vecrosoft_app/chat_screen.dart';
-import 'package:vecrosoft_app/user_details_screen.dart';
+import 'package:vecrosoft_app/help_screen.dart';
+//import 'package:vecrosoft_app/main.dart';
 
 class DashBoardScreen extends StatelessWidget {
   @override
@@ -20,16 +21,6 @@ class DashBoardScreen extends StatelessWidget {
             crossAxisSpacing: 50,
             children: <Widget>[
               DashboardButton(
-                label: 'Articles',
-                icon: Icons.article,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ArticlesScreen()),
-                  );
-                },
-              ),
-              DashboardButton(
                 label: 'Chat Bot',
                 icon: Icons.chat_rounded,
                 onPressed: () {
@@ -39,6 +30,7 @@ class DashBoardScreen extends StatelessWidget {
                   );
                 },
               ),
+
               DashboardButton(
                 label: 'Disease Detection',
                 icon: Icons.color_lens_rounded,
@@ -46,21 +38,37 @@ class DashBoardScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
+<<<<<<< HEAD
                         builder: (context) => PlantDiseaseClassifierScreen()),
+=======
+                        builder: (context) => DiseaseDetectionScreen()),
+>>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
                   );
                 },
               ),
+
               DashboardButton(
-                label: 'User Details',
-                icon: Icons.verified_user_rounded,
+                label: 'Help Section',
+                icon: Icons.help_center,
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => UserDetailsScreen()),
+                    MaterialPageRoute(builder: (context) => HelpScreen()),
                   );
                 },
               ),
+
+              DashboardButton(
+                label: 'About Us',
+                icon: Icons.info,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutUsPage()),
+                  );
+                },
+              ),
+
               // Add more DashboardButton widgets for other sections as needed
             ],
           ),

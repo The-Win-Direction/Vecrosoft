@@ -4,6 +4,10 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
+<<<<<<< HEAD
+=======
+  url_launcher_windows
+>>>>>>> 30b4bd7fd366ac198b77a335ff7deb97e52b7a23
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

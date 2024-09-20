@@ -134,12 +134,12 @@ exports.getPostsApi = async (req, res) => {
   try {
     //
 
-    const posts = await postDB.find()
+    let posts = await postDB.find()
       .populate("user_id", "fname lname profile_pic_url") 
       .populate("likes", "fname lname profile_pic_url") 
       .populate("comments.user_id", "fname lname profile_pic_url") 
    // console.log(posts,posts.length);
-    
+    posts=posts.reverse();
     res.status(200).json({ status: 200, posts ,userId:req.userId});
   } catch (error) {
     console.error(error.message);
@@ -332,11 +332,12 @@ exports.createArticleApi = async (req, res) => {
 //get article api
 exports.getArticlesApi = async (req, res) => {
   try {
-    const articles = await articleDB.find()
+    let articles = await articleDB.find()
       .populate("user_id", "fname lname profile_pic_url") // Populate user details
       .populate("likes", "fname lname profile_pic_url") // Populate likes details
       .populate("comments.user_id", "fname lname profile_pic_url"); // Populate comments details
 
+     articles=articles.reverse();
     res.status(200).json({ status: 200, articles, userId: req.userId });
   } catch (error) {
     console.error(error.message);

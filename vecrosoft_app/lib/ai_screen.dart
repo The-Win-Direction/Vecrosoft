@@ -105,6 +105,11 @@ class _DiseaseDetectionScreenState extends State<DiseaseDetectionScreen> {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
+              // SizedBox(height: 20),
+              // ElevatedButton(
+              //   onPressed: _pickImage,
+              //   child: Text('Browse Image'),
+              // ),
               SizedBox(height: 20),
               _predictionResult != null
                   ? Text(

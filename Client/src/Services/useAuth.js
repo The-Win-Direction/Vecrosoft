@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+const baseURL="http://localhost:4000";
 const useAuth = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const useAuth = () => {
       } 
 
       try {
-        const res = await fetch("https://vecrosoft-server.onrender.com/api/validation", {
+        const res = await fetch(`${baseURL}/api/validation`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

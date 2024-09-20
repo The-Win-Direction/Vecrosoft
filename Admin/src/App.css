@@ -1,0 +1,12 @@
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+ .content-container {
+  margin-top: 3.5rem; 
+}
+
+
+

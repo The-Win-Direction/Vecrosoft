@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vecrosoft_app/aboutus_screen.dart';
 import 'package:vecrosoft_app/ai_screen.dart';
 import 'package:vecrosoft_app/chat_screen.dart';
+import 'package:vecrosoft_app/help_screen.dart';
+//import 'package:vecrosoft_app/main.dart';
 
 class DashBoardScreen extends StatelessWidget {
   @override
@@ -35,7 +38,29 @@ class DashBoardScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => PlantDiseaseClassifierScreen()),
+                        builder: (context) => DiseaseDetectionScreen()),
+                  );
+                },
+              ),
+
+              DashboardButton(
+                label: 'Help Section',
+                icon: Icons.help_center,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HelpScreen()),
+                  );
+                },
+              ),
+
+              DashboardButton(
+                label: 'About Us',
+                icon: Icons.info,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutUsPage()),
                   );
                 },
               ),

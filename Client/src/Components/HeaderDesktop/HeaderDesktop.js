@@ -6,7 +6,7 @@ import logo from "../../Assets/Images/logo.png";
 import defaultProfilePic from "../../Assets/Images/default.png"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
-const baseURL = "http://localhost:4000";
+const baseURL = "https://vecrosoft-server.onrender.com";
 
 
 const HeaderDesktop = () => {
@@ -83,8 +83,7 @@ const HeaderDesktop = () => {
           {profileDropdownOpen && (
             <div className="profile-dropdown-content">
               <Link to="/your-profile">See Profile</Link>
-              <Link to="/settings">Settings</Link>
-              <Link to="/help">Help and Support</Link>
+              <Link to="/help-and-support">Help and Support</Link>
                <span onClick={logOutClickHandler}>  Log Out  </span> 
             </div>
           )}

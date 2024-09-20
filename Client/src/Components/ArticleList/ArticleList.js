@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ArticlePost from '../../Components/ArticlePost/ArticlePost';
 import './ArticleList.css';
+const baseURL = "http://localhost:4000";
+
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -20,13 +22,12 @@ const ArticleList = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:4000/api/get-articles', {
+        const response = await axios.get(`${baseURL}/api/get-articles`, {
           headers: {
             'Authorization': token,
           },
         });
 
-        //console.log(response);
         setUser(response.data.userId);
         setArticles(response.data.articles);
       } catch (error) {
@@ -47,10 +48,14 @@ const ArticleList = () => {
     return <div>{error}</div>;
   }
 
+  const handleDelete = (articleId) => {
+    setArticles(articles.filter(article => article._id !== articleId));
+  };
+
   return (
     <div className="articles-container">
       {articles.map(article => (
-        <ArticlePost key={article._id} article={article} user={user} />
+        <ArticlePost key={article._id} article={article} user={user} onDelete={handleDelete} />
       ))}
     </div>
   );

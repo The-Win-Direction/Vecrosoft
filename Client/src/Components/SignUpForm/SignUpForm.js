@@ -4,6 +4,8 @@ import "./SignUpForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+const baseURL = "http://localhost:4000";
+
 
 const SignUp = () => {
   const [fname, setFname] = useState("");
@@ -12,7 +14,10 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Hook for navigation
+
+
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,17 +26,20 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
+
     if (!validateEmail(email)) {
       toast.error("Please enter a valid email address.");
+      setLoading(false); // Stop loading
       return;
     }
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters long.");
+      setLoading(false); // Stop loading
       return;
     }
     try {
-      const res = await axios.post(
-        "http://localhost:4000/api/sign-up",
+      const res = await axios.post(`${baseURL}/api/sign-up`,
         {
           fname,
           lname,
@@ -67,6 +75,8 @@ const SignUp = () => {
         setMessage("An error occurred. Please try again.");
       }
       console.error("Error during SignUp:", error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -127,8 +137,14 @@ const SignUp = () => {
             </button>
           </div>
         </div>
-        <button className="signup-button" type="submit">
-          SignUp
+        <button className="signup-button" type="submit" disabled={loading}>
+          {loading ? (
+            <>
+              <span className="spinner"></span> Signing up...
+            </>
+          ) : (
+            "Sign Up"
+          )}
         </button>
       </form>
       {message && (
@@ -142,8 +158,8 @@ const SignUp = () => {
           <Link to="/sign-in">SignIn here!</Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
-
   );
 };
 

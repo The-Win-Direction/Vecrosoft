@@ -10,7 +10,7 @@ import about from '../../../src/Assets/Images/about.png'
 function Testimonials() {
   return ( 
     <div className="testimonials-container">
-      <h2>They love us. You will too.</h2>
+      <h2>Testimonials</h2>
       <div className="testimonial-boxes">
         <div className="testimonial-box">
           <p>"This product has changed the way I manage my farm. It's incredibly accurate and easy to use!"</p>

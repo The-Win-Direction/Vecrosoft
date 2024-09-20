@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-//import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "./CreatePost.css";
+const baseURL = "http://localhost:4000";
+
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  // const { userId } = useParams();
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
 
-    // Check if selected file is an image
     if (selectedFile && selectedFile.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -39,11 +42,11 @@ const CreatePost = () => {
     formData.append("caption", caption);
     formData.append("image", image);
 
-    try {
+    try { 
       let token = localStorage.getItem("userdatatoken");
       console.log(token);
       const response = await axios.post(
-        "http://localhost:4000/api/create-post",
+        `${baseURL}/api/create-post`,
         formData,
         {
           headers: {
@@ -56,9 +59,23 @@ const CreatePost = () => {
       setImage(null);
       setImagePreview(null);
       setCaption("");
+
+      toast.success("Post created successfully!");
+        setTimeout(() => {
+        navigate("/");
+      }, 1000); // Redirect after 1 seconds
+
     } catch (error) {
       console.error("Error creating post:", error);
+      toast.error("Failed to create post.");
     }
+  };
+
+  const handleCancel = () => {
+    setCaption("");
+    setImage(null);
+    setImagePreview(null);
+    navigate("/");
   };
 
   return (
@@ -81,7 +98,10 @@ const CreatePost = () => {
             <img src={imagePreview} alt="Selected" className="image-preview" />
           )}
         </div>
-        <button type="submit">Create Post</button>
+        <div className="button-group">
+          <button type="submit">Create Post</button>
+          <button type="button" onClick={handleCancel} className="cancel-button">Cancel</button>
+        </div>
       </form>
     </div>
   );

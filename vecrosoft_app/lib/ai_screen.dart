@@ -1,72 +1,54 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io'; // For File
-import 'package:http/http.dart' as http; // For making HTTP requests
-import 'dart:convert'; // For JSON encoding and decoding
-import 'package:http_parser/http_parser.dart'; // For MediaType
+import 'package:http/http.dart' as http;
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class DiseaseDetectionScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: PlantDiseaseClassifierScreen(),
-    );
-  }
+  _DiseaseDetectionScreenState createState() => _DiseaseDetectionScreenState();
 }
 
-class PlantDiseaseClassifierScreen extends StatefulWidget {
-  @override
-  _PlantDiseaseClassifierScreenState createState() =>
-      _PlantDiseaseClassifierScreenState();
-}
-
-class _PlantDiseaseClassifierScreenState
-    extends State<PlantDiseaseClassifierScreen> {
-  PickedFile? _imageFile;
-  final ImagePicker _picker = ImagePicker();
+class _DiseaseDetectionScreenState extends State<DiseaseDetectionScreen> {
+  File? _imageFile;
   String? _predictionResult;
 
   Future<void> _pickImage() async {
-    final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
     setState(() {
-      _imageFile = pickedFile;
+      if (pickedFile != null) {
+        _imageFile = File(pickedFile.path);
+      }
     });
   }
 
   Future<void> _predictDisease() async {
     if (_imageFile == null) return;
 
-    final uri = Uri.parse('http://10.0.2.2:8000/predict/');
-    final request = http.MultipartRequest('POST', uri)
-      ..headers.addAll({
-        'Content-Type': 'multipart/form-data',
-      })
-      ..files.add(await http.MultipartFile.fromPath(
-        'file',
-        _imageFile!.path,
-        contentType:
-            MediaType('image', 'jpeg'), // Adjust content type as needed
-      ));
-
     try {
+      final request = http.MultipartRequest(
+        'POST',
+        Uri.parse('http://10.0.2.2:8080/predict/'),
+      );
+
+      request.headers['Content-Type'] = 'multipart/form-data';
+      request.files
+          .add(await http.MultipartFile.fromPath('file', _imageFile!.path));
+
       final response = await request.send();
-      if (response.statusCode == 200) {
-        final responseData = await response.stream.bytesToString();
-        final decodedData = json.decode(responseData);
-        setState(() {
-          _predictionResult =
-              'Disease: ${decodedData['predicted_disease']}, Probability: ${double.parse(decodedData['probability']).toStringAsFixed(2)}';
-        });
-      } else {
-        setState(() {
-          _predictionResult = 'Error: ${response.reasonPhrase}';
-        });
-      }
-    } catch (e) {
+      final responseData = await http.Response.fromStream(response);
+      final result = json.decode(responseData.body);
+
       setState(() {
-        _predictionResult = 'Error: $e';
+        _predictionResult =
+            'Predicted Disease: ${result['predicted_disease']}\n'
+            'Probability: ${result['probability'].toStringAsFixed(2)}';
+      });
+    } catch (error) {
+      setState(() {
+        _predictionResult = 'Error: Could not predict disease';
       });
     }
   }
@@ -87,9 +69,10 @@ class _PlantDiseaseClassifierScreenState
               Text(
                 'Choose an Image for Testing...',
                 style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(230, 12, 239, 20)),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(230, 12, 239, 20),
+                ),
               ),
               SizedBox(height: 20),
               GestureDetector(
@@ -113,11 +96,6 @@ class _PlantDiseaseClassifierScreenState
                       : Image.file(File(_imageFile!.path)),
                 ),
               ),
-              // SizedBox(height: 20),
-              // ElevatedButton(
-              //   onPressed: _pickImage,
-              //   child: Text('Browse Image'),
-              // ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _predictDisease,
@@ -127,6 +105,11 @@ class _PlantDiseaseClassifierScreenState
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
+              // SizedBox(height: 20),
+              // ElevatedButton(
+              //   onPressed: _pickImage,
+              //   child: Text('Browse Image'),
+              // ),
               SizedBox(height: 20),
               _predictionResult != null
                   ? Text(

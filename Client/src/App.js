@@ -1,6 +1,6 @@
 import React from "react";
 import Error from "./Pages/Error/Error";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./SpecialRoutes/ProtectedRoutes";
 import GuestRoute from "./SpecialRoutes/GuestRoutes";
 import Home from "./Pages/Home/Home";
@@ -25,6 +25,8 @@ import GeneralTermsAndConditons from './Pages/GeneralTermsAndConditions/GeneralT
 import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
 import PrivacyPolicy from './Pages/PrivacyPolicy/PrivacyPolicy';
 import UserProfile from "./Pages/UserProfile/UserProfile";
+import Ads from "./Pages/Ads/Ads";
+import HelpAndSupport from "./Pages/HelpAndSupport/HelpAndSupport";
 function App() {
   return (
     <div className="app-container">
@@ -48,6 +50,8 @@ function App() {
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} /> 
             <Route path="/your-profile" element={<UserProfile />} /> 
+            <Route path="/ads" element={<Ads />} /> 
+            <Route path="/help-and-support" element={<HelpAndSupport />} /> 
 
           </Route>
           <Route element={<GuestRoute />}>

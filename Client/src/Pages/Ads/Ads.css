@@ -1,0 +1,21 @@
+ .ads-container {
+    display: flex;
+    margin-left: 25rem;
+    /* flex-direction: column; */
+  }
+  
+  .ads-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .video-container {
+    margin-bottom: 20px;
+  }
+    
+  
+  video, iframe {
+    width: 50rem;
+    height: auto;
+  }
+   

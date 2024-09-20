@@ -5,15 +5,20 @@ import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://localhost:4000";
 
-const ArticlePost = ({ article, user }) => {
+const ArticlePost = ({ article, user, onDelete }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/article/${article._id}`, { state: { article, user } });
   };
 
+  const handleDelete = () => {
+    onDelete(article._id);
+  };
+
   return (
     <div className="article-post">
+      <button className="delete-button" onClick={handleDelete}>✖</button>
       <img
         src={`${baseURL}${article.imageUrl}`}
         alt={article.heading}
@@ -32,7 +37,7 @@ const ArticlePost = ({ article, user }) => {
         </button>
       </div>
     </div>
-  ); 
+  );
 };
 
 ArticlePost.propTypes = {
@@ -44,6 +49,7 @@ ArticlePost.propTypes = {
     imageUrl: PropTypes.string.isRequired,
   }).isRequired,
   user: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ArticlePost;

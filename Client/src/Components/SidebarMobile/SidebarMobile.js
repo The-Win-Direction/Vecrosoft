@@ -39,9 +39,6 @@ const SidebarMobile = ({ isOpen, closeSidebar }) => {
           <Link to="/saved" className="sidebar-link" onClick={handleLinkClick}>
             <FaBookmark /> Saved
           </Link>
-          <Link to="/ads" className="sidebar-link" onClick={handleLinkClick}>
-            <FaAd /> Ads
-          </Link>
           <Link to="/" className="sidebar-link" onClick={handleLinkClick}>
             <FaEllipsisH /> See More
           </Link>

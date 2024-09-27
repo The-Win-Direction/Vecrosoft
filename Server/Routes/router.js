@@ -36,5 +36,6 @@ router.post("/api/user/update",  authenticate,  pofileUpload.single("profile_pic
 router.post("/api/posts/:postId/like", authenticate, controllers.likePostApi);
 router.post("/api/posts/:postId/comment", authenticate, controllers.commentPostApi);
 
+router.post('/api/send-email', authenticate,controllers.sendEmailAPI);
 router.get("/api/who-ami", authenticate, controllers.whoAmIApi);
 module.exports = router;

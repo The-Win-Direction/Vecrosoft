@@ -1,6 +1,6 @@
 import React from "react";
 import Error from "./Pages/Error/Error";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./SpecialRoutes/ProtectedRoutes";
 import GuestRoute from "./SpecialRoutes/GuestRoutes";
 import Home from "./Pages/Home/Home";

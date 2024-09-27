@@ -22,7 +22,7 @@ const ArticleList = () => {
       }
 
       try {
-        const response = await axios.get(`${baseURL}/api/get-articles1`, {
+        const response = await axios.get(`${baseURL}/api/get-articles`, {
           headers: {
             'Authorization': token,
           },

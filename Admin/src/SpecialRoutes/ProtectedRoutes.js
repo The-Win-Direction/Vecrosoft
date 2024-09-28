@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
-import useAuth from "../Services/useAuth";
-import "../Pages/SignIn/SignIn.css"
-import vecrosoftLogo from '../Assets/Images/logo.png'; 
-const ProtectedRoute = () => {
-  const loading = useAuth();
-  const token = localStorage.getItem("userdatatoken");
+import useAdminAuth from "../Services/useAdminAuth";  
+import "../Pages/SignIn/SignIn.css";
+import vecrosoftLogo from '../Assets/Images/logo.png';
 
+const AdminProtectedRoute = () => {
+  const loading = useAdminAuth(); 
+  const adminToken = localStorage.getItem("admintoken");  
   if (loading) {
     return (
       <div className="signin-left">
@@ -25,7 +25,7 @@ const ProtectedRoute = () => {
     );
   }
 
-  return token ? <Outlet /> : <Navigate to="/sign-in" />;
+  return adminToken ? <Outlet /> : <Navigate to="/sign-in" />;
 };
 
-export default ProtectedRoute; 
+export default AdminProtectedRoute;

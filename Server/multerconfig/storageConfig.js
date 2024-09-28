@@ -1,63 +1,60 @@
 const multer = require("multer");
 
-
-// storage config
+// Storage config for profile
 const profileStorage = multer.diskStorage({
-    destination:(req,file,callback)=>{
-        callback(null,"./uploads/profile")
+    destination: (req, file, callback) => {
+        callback(null, "./uploads/profile");
     },
-    filename:(req,file,callback)=>{
-        const filename = `image-${Date.now()}.${file.originalname}`
-        callback(null,filename)
+    filename: (req, file, callback) => {
+        const filename = `image-${Date.now()}.${file.originalname}`;
+        callback(null, filename);
     }
 });
+
+// Storage config for posts
 const postStorage = multer.diskStorage({
-    destination:(req,file,callback)=>{
-        callback(null,"./uploads/post")
+    destination: (req, file, callback) => {
+        callback(null, "./uploads/post");
     },
-    filename:(req,file,callback)=>{
-        const filename = `image-${Date.now()}.${file.originalname}`
-        callback(null,filename)
+    filename: (req, file, callback) => {
+        const filename = `image-${Date.now()}.${file.originalname}`;
+        callback(null, filename);
     }
 });
+
+// Storage config for articles
 const articleStorage = multer.diskStorage({
-    destination:(req,file,callback)=>{
-        callback(null,"./uploads/article")
+    destination: (req, file, callback) => {
+        callback(null, "./uploads/article");
     },
-    filename:(req,file,callback)=>{
-        const filename = `image-${Date.now()}.${file.originalname}`
-        callback(null,filename)
+    filename: (req, file, callback) => {
+        const filename = `image-${Date.now()}.${file.originalname}`;
+        callback(null, filename);
     }
 });
 
-//filter
-/* const filefilter = (req,file,callback)=>{
- if(file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image.jpeg"||file.mimetype === "image/"){
-    callback(null, true)
- } else{
-    callback(null,false)
-    return callback(new Error("Only .png .jpg and jpeg formatted Allowed"))
- }
-} */
-
+// File filter to allow only images
 const filefilter = (req, file, callback) => {
     if (file.mimetype.startsWith("image/")) {
-      callback(null, true);
+        callback(null, true);
     } else {
-      callback(null, false);
-      return callback(new Error("Only image files are allowed"));
+        callback(null, false);
+        return callback(new Error("Only image files are allowed"));
     }
-  };
-exports.pofileUpload= multer({
-    storage:profileStorage,
-    fileFilter:filefilter
+};
+
+// Exporting the multer configurations
+exports.profileUpload = multer({
+    storage: profileStorage,
+    fileFilter: filefilter
 });
 
 exports.articleUpload = multer({
-    storage:articleStorage,
-    fileFilter:filefilter
+    storage: articleStorage,
+    fileFilter: filefilter
 });
+
 exports.postUpload = multer({
-    storage:postStorage,
-    fileFilter:filefilter
+    storage: postStorage,
+    fileFilter: filefilter
 });

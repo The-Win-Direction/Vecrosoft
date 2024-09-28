@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
-import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
+import { useNavigate } from 'react-router-dom';
 const baseURL = "http://localhost:4000";
 
 const Home = () => {
@@ -11,14 +11,13 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
   const [user, setUser] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchPosts = async () => {
       const token = localStorage.getItem('userdatatoken');
       
       if (!token) {
-        setError('User not authenticated');
-        setLoading(false);
+        navigate("/sign-in");
         return;
       }
 
@@ -39,7 +38,7 @@ const Home = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [navigate]);
 
   const handleDelete = (postId) => {
     setPosts(posts.filter(post => post._id !== postId));
@@ -59,7 +58,7 @@ const Home = () => {
         <SidebarDekstop />
       </div>
       <div className="home-content">
-        {/* <ArticleCarousel articles={articles} /> */}
+        
         {posts.map((post) => (
           <Post key={post._id} post={post} user={user} onDelete={handleDelete} />
         ))}

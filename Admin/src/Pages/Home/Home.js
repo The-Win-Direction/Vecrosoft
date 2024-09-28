@@ -1,49 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Post from "../../Components/Post/Post";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Home.css";
-import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
-import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
+
 const baseURL = "http://localhost:4000";
 
 const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [statistics, setStatistics] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
-  const [user, setUser] = useState("");
+  const [error, setError] = useState(null);
+  const [admin, setAdmin] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const token = localStorage.getItem('userdatatoken');
-      
+    const fetchStatistics = async () => {
+      const token = localStorage.getItem("admintoken");
+
       if (!token) {
-        setError('User not authenticated');
-        setLoading(false);
+        navigate("/sign-in");
         return;
       }
-
       try {
-        const response = await axios.get(`${baseURL}/api/get-posts`, {
+        const response = await axios.get(`${baseURL}/api/admin/stats`, {
           headers: {
-            'Authorization': token,
+            Authorization: token,
           },
         });
-       
-        setUser(response.data.userId);
-        setPosts(response.data.posts);
+
+        setAdmin(response.data.adminId);
+        setStatistics(response.data.statistics); 
       } catch (error) {
-        setError('Error fetching posts');
+        setError("Error fetching statistics");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPosts();
-  }, []);
-
-  const handleDelete = (postId) => {
-    setPosts(posts.filter(post => post._id !== postId));
-  };
+    fetchStatistics();
+  }, [navigate]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -54,15 +48,20 @@ const Home = () => {
   }
 
   return (
-    <div className="home">
-      <div className="sidebar-container">
-        <SidebarDekstop />
-      </div>
-      <div className="home-content">
-        {/* <ArticleCarousel articles={articles} /> */}
-        {posts.map((post) => (
-          <Post key={post._id} post={post} user={user} onDelete={handleDelete} />
-        ))}
+    <div className="admin-home">
+      <div className="admin-home-content">
+        <h1>Admin Dashboard</h1>
+        <h2>Statistics</h2>
+        {statistics ? (
+          <div className="statistics">
+            <p>Total Users: {statistics.totalUsers}</p>
+            <p>Total Posts: {statistics.totalPosts}</p>
+            <p>Total Articles: {statistics.totalArticles}</p>
+            <p>Total Admins: {statistics.totalAdmins}</p>
+          </div>
+        ) : (
+          <p>No statistics available</p>
+        )}
       </div>
     </div>
   );

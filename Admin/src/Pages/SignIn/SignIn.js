@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,8 +9,8 @@ import vecrosoftLogo from '../../Assets/Images/logo.png';
 const baseURL = "http://localhost:4000";
 
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
+const AdminSignIn = () => {
+    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -20,10 +20,10 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    
     try {
       const res = await axios.post(
-        `${baseURL}/api/sign-in`,
+        `${baseURL}/api/admin/sign-in`,  
         {
           email,
           password,
@@ -34,20 +34,22 @@ const SignIn = () => {
           },
         }
       );
-
-      console.log(res);
-      if (res.data.status === 201 && res.data.result.token) {
-        localStorage.setItem("userdatatoken", res.data.result.token);
-        localStorage.setItem("userId", res.data.result.userId);
-
+      
+      console.log(res.data.token);
+      if (res.status === 201 && res.data.token) {
+        localStorage.setItem("adminfname", res.data.fname); 
+        localStorage.setItem("adminlname", res.data.lname); 
+        localStorage.setItem("admintoken", res.data.token); 
+        localStorage.setItem("adminId", res.data.adminId); 
+        
         setEmail("");
         setPassword("");
         setMessage("");
-        toast.success("Sign in successful!");
-        navigate("/");
+        toast.success("Admin Sign in successful!");
+        navigate("/");  
       } else {
-        toast.error("Invalid details");
-        setMessage("Invalid details");
+        toast.error("Invalid admin details");
+        setMessage("Invalid admin details");
       }
     } catch (error) {
       if (error.response && error.response.data) {
@@ -84,7 +86,7 @@ const SignIn = () => {
         </div>
       </div>
       <div className="signin-right">
-        <h2 className="signin-title"> Welcome Back 😀</h2>
+        <h2 className="signin-title"> Admin Sign In 🚀</h2>
         <form className="signin-form" onSubmit={handleSubmit}>
           <div className="signin-field">
             <div className="signin-input-wrapper">
@@ -92,7 +94,7 @@ const SignIn = () => {
               <input
                 className="signin-input"
                 type="email"
-                placeholder="Email"
+                placeholder="Admin Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -119,11 +121,6 @@ const SignIn = () => {
               </button>
             </div>
           </div>
-          <div className="signin-forgot-password">
-            <p>
-              <Link to="/forgot-password">Forgot Password?</Link>
-            </p>
-          </div>
           <button className="signin-button" type="submit" disabled={loading}>
             {loading ? (
               <>
@@ -138,8 +135,7 @@ const SignIn = () => {
 
         <div className="signin-signup-link">
           <p>
-            Don't have an account? &nbsp;
-            <Link to="/sign-up">Sign Up here!</Link>
+            Don't have an admin account? Contact support for admin access.
           </p>
         </div>
       </div>
@@ -147,4 +143,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default AdminSignIn;

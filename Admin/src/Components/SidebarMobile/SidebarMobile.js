@@ -17,31 +17,30 @@ const SidebarMobile = ({ isOpen, closeSidebar }) => {
           <input type="text" placeholder="Search..." />
           <button className="search-button"><FaSearch /></button>
         </div>
+
         <nav className="sidebar-nav">
           <Link to="/" className="sidebar-link" onClick={handleLinkClick}>
             <FaHome /> Home
           </Link>
-          <Link to="/article" className="sidebar-link" onClick={handleLinkClick}>
-            <FaNewspaper/> Article
+          <Link to="/users" className="sidebar-link" onClick={handleLinkClick}>
+            <FaNewspaper/> Users
           </Link>
-          <Link to="/ai" className="sidebar-link" onClick={handleLinkClick}>
-            <FaDiagnoses /> Detect
+          <Link to="/posts" className="sidebar-link" onClick={handleLinkClick}>
+            <FaNewspaper/> Posts
           </Link>
-          <Link to="/chat" className="sidebar-link" onClick={handleLinkClick}>
-            <FaCommentDots /> Chat
+          <Link to="/admins" className="sidebar-link" onClick={handleLinkClick}>
+            <FaNewspaper/> Admins
           </Link>
-          <Link to="/about-us" className="sidebar-link" onClick={handleLinkClick}>
-            <FaUser /> About Us 
+          
+          <Link to="/articles" className="sidebar-link" onClick={handleLinkClick}>
+            <FaNewspaper/> Articles
           </Link>
-          <Link to="/contact-us" className="sidebar-link" onClick={handleLinkClick}>
-            <FaEnvelope/> Contact
+          
+          <Link to="/contact" className="sidebar-link" onClick={handleLinkClick}>
+            <FaNewspaper/> Contact
           </Link>
-          <Link to="/saved" className="sidebar-link" onClick={handleLinkClick}>
-            <FaBookmark /> Saved
-          </Link>
-          <Link to="/ads" className="sidebar-link" onClick={handleLinkClick}>
-            <FaAd /> Ads
-          </Link>
+          
+         
           <Link to="/" className="sidebar-link" onClick={handleLinkClick}>
             <FaEllipsisH /> See More
           </Link>

@@ -5,7 +5,8 @@ const path=require("path")
 const router =require("./Routes/router");
 const PORT = process.env.PORT || 4000;
 const cors=require("cors");
-//
+
+
 //Database connection
 const connectDB = require("./db/conn");
 connectDB();

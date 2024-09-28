@@ -58,7 +58,7 @@ const Home = () => {
         <SidebarDekstop />
       </div>
       <div className="home-content">
-        
+      
         {posts.map((post) => (
           <Post key={post._id} post={post} user={user} onDelete={handleDelete} />
         ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Team.css'; 
 import { FaGithub, FaFacebook, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import member1 from '../../Assets/Images/RishiSirPic.jpg';
+import mentor from '../../Assets/Images/RishiSirPic.jpg';
 import member2 from '../../Assets/Images/dipakPic.jpg';
 import member3 from '../../Assets/Images/dipaPic.JPG';
 import member4 from '../../Assets/Images/menukaPic.jpg';
@@ -10,14 +10,7 @@ import member6 from '../../Assets/Images/dhirajPic.jpg';
 
 function Team() {
   const teamMembers = [  
-    {
-      name: 'Rishi Marseni',
-      role: 'Supervisor||Mentor',
-      image: member1,
-      github: 'https://github.com/rk-marseni', 
-      linkedin: 'https://linkedin.com/',
-      email: 'mailto:dipa.joshi@example.com',
-    },
+   
     {
       name: 'Dipak Raj Giri',
       role: 'Full Stack Developer',
@@ -58,6 +51,14 @@ function Team() {
       github: 'm',
       linkedin: 'm',
       email: ',',
+    },
+    {
+      name: 'Rishi Marseni',
+      role: 'Supervisor||Mentor',
+      image: mentor,
+      github: 'https://github.com/rk-marseni', 
+      linkedin: 'https://linkedin.com/',
+      email: 'mailto:dipa.joshi@example.com',
     },
   ];
 

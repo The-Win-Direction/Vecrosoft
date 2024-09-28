@@ -16,7 +16,6 @@ import CreatePost from "./Pages/CreatePost/CreatePost";
 import CreateArticle from "./Pages/CreateArticle/CreateArticle";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import PredictionResult from "./Pages/PredictionResult/PredictionResult";
-import ParentComponent from "./Components/ParentHeader/ParentComponent";
 import "./index.css";
 import ParentComponentHeader from "./Components/ParentHeader/ParentComponent";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";

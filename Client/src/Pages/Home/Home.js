@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Post from "../../Components/Post/Post";
 import "./Home.css";
-import ArticleCarousel from '../../Components/ArticleCarousel/ArticleCarousel';
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
 const baseURL = "http://localhost:4000";
 
@@ -59,7 +58,6 @@ const Home = () => {
         <SidebarDekstop />
       </div>
       <div className="home-content">
-        {/* <ArticleCarousel articles={articles} /> */}
         {posts.map((post) => (
           <Post key={post._id} post={post} user={user} onDelete={handleDelete} />
         ))}

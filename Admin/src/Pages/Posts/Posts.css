@@ -1,0 +1,39 @@
+/* Posts.css */
+
+.posts-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  .posts-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .no-posts-message {
+    font-size: 18px;
+    color: #888;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .delete-button {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .delete-button:hover {
+    background-color: #e64545;
+  }
+}

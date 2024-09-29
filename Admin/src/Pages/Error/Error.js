@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './Error.css'
 const Error = () => {
   return (
-    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}> 
+    <div className="error-main-div"> 
       <div>An error has occured</div>
       <div>
-        <Link to="/sign-up">Don't have an account? &nbsp; SignUp</Link>
+        <div>Don't have an account? &nbsp; Contact to the Officials.</div>
       </div>
       <div>
-        <Link to="/sign-in">Already have an account? &nbsp;SignIn</Link>
+        <Link to="/sign-in">Already is an Admin? &nbsp;SignIn</Link>
       </div>
     </div>
   );

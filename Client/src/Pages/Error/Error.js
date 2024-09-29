@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
-    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}> 
+    <div className="error-main-div"> 
       <div>An error has occured</div>
       <div>
         <Link to="/sign-up">Don't have an account? &nbsp; SignUp</Link>

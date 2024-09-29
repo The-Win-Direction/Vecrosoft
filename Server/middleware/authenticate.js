@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const userDB = require("../models/userSchema");
-const keysecret = "ProjectVecrosoftProjectVecrosoft";
+require('dotenv').config();
+const keysecret = process.env.KEY_SECRET;
 
 const authenticate = async (req, res, next) => {
   try {

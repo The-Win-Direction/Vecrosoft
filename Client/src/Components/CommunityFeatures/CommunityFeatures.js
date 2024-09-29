@@ -1,6 +1,6 @@
 import React from 'react';
 import './CommunityFeatures.css';
-import { FaUsers, FaBookOpen, FaSearch, FaRobot, FaGraduationCap, FaBrain } from 'react-icons/fa'; // Import icons from FontAwesome
+import { FaUsers, FaBookOpen, FaSearch, FaRobot, FaGraduationCap, FaBrain } from 'react-icons/fa';
 
 const CommunityFeaturesComponent = () => {
   return (

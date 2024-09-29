@@ -26,16 +26,16 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true);
 
     if (!validateEmail(email)) {
       toast.error("Please enter a valid email address.");
-      setLoading(false); // Stop loading
+      setLoading(false);
       return;
     }
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters long.");
-      setLoading(false); // Stop loading
+      setLoading(false);
       return;
     }
     try {
@@ -76,7 +76,7 @@ const SignUp = () => {
       }
       console.error("Error during SignUp:", error);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 

@@ -70,7 +70,7 @@ const CreateArticle = () => {
       toast.success("Article created successfully!");
       setTimeout(() => {
         navigate("/article");
-      }, 1000); // Redirect after 1 seconds
+      }, 1000); // Redirecting after 1 seconds
 
     } catch (error) {
       console.error("Error creating post:", error);

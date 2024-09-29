@@ -15,10 +15,8 @@ import "./App.css";
 import CreatePost from "./Pages/CreatePost/CreatePost";
 import CreateArticle from "./Pages/CreateArticle/CreateArticle";
 import ContactUs from "./Pages/ContactUs/ContactUs";
-import PredictionResult from "./Pages/PredictionResult/PredictionResult";
 import "./index.css";
 import ParentComponentHeader from "./Components/ParentHeader/ParentComponent";
-import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
 import TermsOfService from './Pages/TermsOfService/TermsOfService';
 import GeneralTermsAndConditons from './Pages/GeneralTermsAndConditions/GeneralTermsAndConditions';
 import CookiePolicy from './Pages/CookiePolicy/CookiePolicy';
@@ -42,8 +40,6 @@ function App() {
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/create-article" element={<CreateArticle/>} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/prediction" element={<PredictionResult />} />
-            <Route path="/joincommunity" element={<JoinCommunity />} />
             <Route path='/terms-of-service' element = {<TermsOfService/>} /> 
             <Route path="/general-terms-and-conditions" element={<GeneralTermsAndConditons />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />

@@ -64,7 +64,7 @@ const ContactUsForm = () => {
           <FaPhone className="contact-icon" />
           <div>
             <h3>Phone</h3>
-            <p>9811060112</p>
+            <p>9864619901</p>
           </div>
         </div>
         <div className="contact-item">

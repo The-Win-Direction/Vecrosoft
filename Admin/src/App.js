@@ -11,6 +11,7 @@ import Articles from "./Pages/Articles/Articles";
 import Admins from "./Pages/Admins/Admins";
 import SignIn from "./Pages/SignIn/SignIn";
 import Error from "./Pages/Error/Error";
+
 import "./App.css"
 function App() {
   return (
@@ -20,10 +21,10 @@ function App() {
         <Routes>
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
-            <Route path="/users/" element={<Users />} />
+            <Route path="/users/*" element={<Users />} />
             <Route path="/contact/" element={<Contact />} />
             <Route path="/posts/" element={<Posts />} />
-            <Route path="/articles/" element={<Articles />} />
+            <Route path="/articles/*" element={<Articles />} />
             <Route path="/admins" element={<Admins />} />
           </Route>
 

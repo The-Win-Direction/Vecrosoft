@@ -9,7 +9,6 @@ const Home = () => {
   const [statistics, setStatistics] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [admin, setAdmin] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const Home = () => {
           },
         });
 
-        setAdmin(response.data.adminId);
         setStatistics(response.data.statistics); 
       } catch (error) {
         setError("Error fetching statistics");

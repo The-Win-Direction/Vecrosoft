@@ -1,5 +1,3 @@
-/* HeaderDesktop.css */
-
 .header-desktop {
     display: flex;
     align-items: center;
@@ -8,10 +6,10 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    padding: 0 1rem;
+    padding-right: 3rem;
     z-index: 1000;
     height: 3.5rem;
-
+  
     .header-left {
       display: flex;
       align-items: center;

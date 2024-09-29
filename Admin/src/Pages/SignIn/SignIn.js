@@ -35,7 +35,7 @@ const AdminSignIn = () => {
         }
       );
       
-      console.log(res.data.token);
+      // console.log(res.data.token);
       if (res.status === 201 && res.data.token) {
         localStorage.setItem("adminfname", res.data.fname); 
         localStorage.setItem("adminlname", res.data.lname); 

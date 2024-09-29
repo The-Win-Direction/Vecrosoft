@@ -46,12 +46,14 @@ router.get("/api/admin/stats", adminAuthenticate, adminControllers.getStatistics
 
 // Admin Authentication Route
 router.post("/api/admin/sign-in", adminControllers.adminSignInApi);
+
 // Admin Validation Route
 router.get("/api/admin/validate", adminAuthenticate, adminControllers.adminValidationApi); 
 
 // Admin User Management Routes
 router.get("/api/admin/users", adminAuthenticate, adminControllers.getUsersApi);
 router.delete("/api/admin/users/:userId", adminAuthenticate, adminControllers.deleteUserApi);
+router.get("/api/admin/users/:userId", adminAuthenticate, adminControllers.getUserProfileApi);
 
 // Admin Admin Management Routes
 router.post("/api/admin/add", adminAuthenticate, adminControllers.addAdminApi);

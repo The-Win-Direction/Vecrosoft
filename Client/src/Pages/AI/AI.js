@@ -15,7 +15,6 @@ function AI() {
     <DetectionDescription />
     <div className='detection-container-with-samples'>
       <DiseaseDetection />
-      {/* <SampleImages /> */}
     </div>  
   </div>
   <FeatureDescription/> 

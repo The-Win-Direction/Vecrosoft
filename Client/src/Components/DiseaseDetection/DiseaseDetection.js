@@ -30,7 +30,7 @@ function DiseaseDetection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true); // Started loading
 
     const formData = new FormData();
     formData.append('file', file);
@@ -45,7 +45,7 @@ function DiseaseDetection() {
     } catch (error) {
       console.error("There was an error uploading the file!", error);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); //  loading Stopped
     }
   };
 

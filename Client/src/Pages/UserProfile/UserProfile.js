@@ -69,7 +69,7 @@ const UserProfile = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Validate that the file is an image
+      // Validating that the file is an image
       if (!file.type.startsWith('image/')) {
         alert("Please select a valid image file.");
         return;

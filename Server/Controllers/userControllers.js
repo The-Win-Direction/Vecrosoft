@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const userDB = require("../models/userSchema");
 const postDB = require("../models/postSchema");
 const articleDB = require("../models/articleSchema");
+const contactDB = require('../models/contactSchema');
 const upload = require("../multerconfig/storageConfig");
 require('dotenv').config();
 const sendEmail=require("../Utils/sendemail");
@@ -350,9 +351,7 @@ exports.getArticlesApi = async (req, res) => {
 //sendEmail
 exports.sendEmailAPI = async (req, res) => {
   const { name, email, message } = req.body;
-  console.log("here 2");
 
-  // Email content
   const subject = `Message from ${name}`;
   const text = `A message from ${name} (${email}): ${message}`;
   const html = `<p>A message from <strong>${name}</strong> (${email}):</p><p>${message}</p>`;
@@ -364,5 +363,30 @@ exports.sendEmailAPI = async (req, res) => {
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ success: false, message: 'Error sending email.' });
+  }
+};
+
+exports.contactUsAPI = async (req, res) => {
+  const { name, email, message } = req.body;
+
+  const subject = `Message from ${name}`;
+  const text = `A message from ${name} (${email}): ${message}`;
+  const html = `<p>A message from <strong>${name}</strong> (${email}):</p><p>${message}</p>`;
+
+  try {
+    const newContact = new contactDB({
+      name,
+      email,
+      message,
+    });
+
+    await newContact.save(); 
+
+    await sendEmail('giridipak743@gmail.com', subject, text, html);
+
+    res.status(200).json({ success: true, message: 'Email sent and contact saved successfully!' });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ success: false, message: 'Error occurred while sending email or saving contact info.' });
   }
 };

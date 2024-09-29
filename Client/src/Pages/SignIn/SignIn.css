@@ -1,6 +1,4 @@
 
-
-
 .signin-page {
   display: flex;
   justify-content: space-evenly;
@@ -9,9 +7,8 @@
   background-color: var(--color-navbar);
   min-height: 100vh;
   margin-top: -3.5rem;
-}
 
-.signin-left {
+  .signin-left {
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -50,43 +47,11 @@
   width: 15rem;
 }
 
-
 .vecrosoft-logo p {
   font-size: 6rem;
   font-weight: bold;
-  color: #333;
+  color: var(--color-green);
   position: relative;
-}
-
-.animated-letter {
-  display: inline-block;
-  color: #333;
-  animation: letterAnimation 1s ease forwards;
-}
-
-.animated-letter:nth-child(1) { animation-delay: 0.2s; }
-.animated-letter:nth-child(2) { animation-delay: 0.4s; }
-.animated-letter:nth-child(3) { animation-delay: 0.6s; }
-.animated-letter:nth-child(4) { animation-delay: 0.8s; }
-.animated-letter:nth-child(5) { animation-delay: 1s; }
-.animated-letter:nth-child(6) { animation-delay: 1.2s; }
-.animated-letter:nth-child(7) { animation-delay: 1.4s; }
-.animated-letter:nth-child(8) { animation-delay: 1.6s; }
-.animated-letter:nth-child(9) { animation-delay: 1.8s; }
-
-@keyframes letterAnimation {
-  0% {
-    transform: scale(1);
-    color: #333;
-  }
-  50% {
-    transform: scale(1.2);
-    color: var(--color-green);
-  }
-  100% {
-    transform: scale(1);
-    color: var(--color-green);
-  }
 }
 
 
@@ -208,30 +173,67 @@
 .signin-forgot-password {
   align-self: flex-start;
 }
+}
+
+
+.animated-letter {
+  display: inline-block;
+  color: #333;
+  animation: letterAnimation 1s ease forwards;
+}
+
+.animated-letter:nth-child(1) { animation-delay: 0.2s; }
+.animated-letter:nth-child(2) { animation-delay: 0.4s; }
+.animated-letter:nth-child(3) { animation-delay: 0.6s; }
+.animated-letter:nth-child(4) { animation-delay: 0.8s; }
+.animated-letter:nth-child(5) { animation-delay: 1s; }
+.animated-letter:nth-child(6) { animation-delay: 1.2s; }
+.animated-letter:nth-child(7) { animation-delay: 1.4s; }
+.animated-letter:nth-child(8) { animation-delay: 1.6s; }
+.animated-letter:nth-child(9) { animation-delay: 1.8s; }
+
+@keyframes letterAnimation {
+  0% {
+    transform: scale(1);
+    color: #333;
+  }
+  50% {
+    transform: scale(1.2);
+    color: var(--color-green);
+  }
+  100% {
+    transform: scale(1);
+    color: var(--color-green);
+  }
+}
+
 
 @media (max-width: 768px) {
   .signin-page {
     flex-direction: column;
     padding: 1rem;
     height: auto;
-  }
-   .signin-left .signin-title h2{
-    font-size: 1rem;
-  }
-  .signin-left {
-    margin-bottom: 2rem;
-  }
-  .vecrosoft-logo img {
-    width: 5rem;
-  }
 
-  .signin-right {
-    padding: 2rem 1rem;
-    max-width: 100%;
+    .signin-left .signin-title h2{
+      font-size: 1rem;
+    }
+    .signin-left {
+      margin-bottom: 2rem;
+    }
+    .vecrosoft-logo img {
+      width: 5rem;
+    }
+  
+    .signin-right {
+      padding: 2rem 1rem;
+      max-width: 100%;
+    }
   }
+   
 }
 
 @media (max-width: 480px) {
+  .signin-page{
   .signin-left .signin-title,
   .signin-title {
     font-size: 1.5rem;
@@ -256,5 +258,6 @@
     margin-left: 0;
     margin-top: 0.5rem;
   }
+}
 }
 

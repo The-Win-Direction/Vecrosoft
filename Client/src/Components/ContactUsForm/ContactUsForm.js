@@ -22,7 +22,7 @@ const ContactUsForm = () => {
     e.preventDefault();
     try {
       let token = localStorage.getItem("userdatatoken");
-      const response = await fetch('http://localhost:4000/api/send-email', {
+      const response = await fetch('http://localhost:4000/api/contact-us', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

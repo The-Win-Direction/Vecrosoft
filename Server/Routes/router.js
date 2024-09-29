@@ -39,6 +39,7 @@ router.post("/api/user/update",  authenticate,  profileUpload.single("profile_pi
 router.post("/api/posts/:postId/like", authenticate, controllers.likePostApi);
 router.post("/api/posts/:postId/comment", authenticate, controllers.commentPostApi);
 router.post('/api/send-email', authenticate, controllers.sendEmailAPI);
+router.post('/api/contact-us', authenticate, controllers.contactUsAPI);
 router.get("/api/who-ami", authenticate, controllers.whoAmIApi);
 
 // Admin Statistics Route
@@ -68,4 +69,9 @@ router.delete("/api/admin/posts/:postId", adminAuthenticate, adminControllers.de
 router.get("/api/admin/articles", adminAuthenticate, adminControllers.getArticlesApi);
 router.delete("/api/admin/articles/:articleId", adminAuthenticate, adminControllers.deleteArticleApi);
 
-module.exports = router;
+// Get Contact Routes
+router.get("/api/admin/contacts", adminAuthenticate, adminControllers.getContactsApi);
+router.delete("/api/admin/contacts/:contactId", adminAuthenticate, adminControllers.deleteContactApi);
+router.post("/api/admin/send-email", adminAuthenticate, adminControllers.sendEmailAPI);
+
+module.exports = router;adminAuthenticate

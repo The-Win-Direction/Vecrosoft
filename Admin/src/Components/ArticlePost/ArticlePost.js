@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://localhost:4000";
 
-const ArticlePost = ({ article, user, onDelete }) => {
+const ArticlePost = ({ article, onDelete }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/article/${article._id}`, { state: { article, user } });
+    navigate(`/articles/${article._id}`, { state: { article } });
   };
 
   const handleDelete = () => {
@@ -17,8 +17,7 @@ const ArticlePost = ({ article, user, onDelete }) => {
   };
 
   return (
-    <div className="article-post">
-      <button className="delete-button" onClick={handleDelete}>✖</button>
+    <div className="admin-article-post">
       <img
         src={`${baseURL}${article.imageUrl}`}
         alt={article.heading}
@@ -26,15 +25,17 @@ const ArticlePost = ({ article, user, onDelete }) => {
       />
       <div className="article-details">
         <h3>{article.heading}</h3>
-        <p>
-          <strong>Author:</strong> {article.author}
-        </p>
-        <p>
-          <strong>Published Date:</strong> {new Date(article.createdDate).toLocaleDateString()}
-        </p>
-        <button onClick={handleClick} className="read-article-button">
-          Read Article
-        </button>
+        <p><strong>Author:</strong> {article.author}</p>
+        <p><strong>Published Date:</strong> {new Date(article.createdDate).toLocaleDateString()}</p>
+
+        <div className="button-group">
+          <button onClick={handleClick} className="read-article-button">
+            View Article
+          </button>
+          <button className="delete-button" onClick={handleDelete}>
+            Delete Article
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -48,7 +49,6 @@ ArticlePost.propTypes = {
     createdDate: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
   }).isRequired,
-  user: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 

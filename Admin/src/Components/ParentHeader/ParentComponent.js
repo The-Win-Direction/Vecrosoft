@@ -14,7 +14,7 @@ const ParentComponent = ({ children }) => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
       if (window.innerWidth > 768) {
-        setSidebarOpen(false); // Ensure sidebar is closed on desktop
+        setSidebarOpen(false); 
       }
     }; 
 

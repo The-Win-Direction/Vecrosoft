@@ -1,0 +1,109 @@
+/* UserProfile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.user-profile-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #ddd;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.posts-section, .articles-section {
+    margin-top: 20px;
+}
+
+.post, .article {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.post:hover, .article:hover {
+    background: #f1f1f1;
+}
+
+.post-image {
+    display: block; /* Center the image */
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto; /* Center horizontally */
+    border-radius: 5px;
+}
+
+.article-image {
+    display: block; /* Center the image */
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto; /* Center horizontally */
+    border-radius: 5px;
+    width: 100%; /* Make the image larger */
+    max-height: 300px; /* Set max height for better display */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Space above the button */
+    display: block; /* Ensure button takes up full width */
+    width: fit-content; /* Adjust button width */
+    margin-left: auto; /* Center the button */
+    margin-right: auto; /* Center the button */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red for hover effect */
+}
+
+@media (max-width: 600px) {
+    .profile-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-pic {
+        margin-bottom: 10px;
+    }
+
+    .delete-button {
+        width: 100%;
+    }
+}

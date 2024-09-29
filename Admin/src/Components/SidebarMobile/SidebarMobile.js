@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SidebarMobile.css';
-import { FaBars, FaSearch, FaBookmark, FaAd, FaInfoCircle, FaEllipsisH, FaUser, FaEnvelope, FaHome, FaNewspaper, FaDiagnoses, FaComments, FaCommentDots } from 'react-icons/fa';
+import {  FaSearch, FaEllipsisH, FaHome, FaNewspaper } from 'react-icons/fa';
 
 const SidebarMobile = ({ isOpen, closeSidebar }) => {
   const handleLinkClick = () => {

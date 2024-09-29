@@ -9,7 +9,6 @@ const keysecret = process.env.KEY_SECRET;
 
 // SignIn for Admin
 exports.adminSignInApi = async (req, res) => {
-  
   try {
     const { email, password } = req.body;
     // console.log(email, password);
@@ -29,7 +28,14 @@ exports.adminSignInApi = async (req, res) => {
     }
 
     const token = await admin.generateAuthToken();
-    res.status(201).json({ token, adminId: admin._id ,fname:admin.fname,lname:admin.lname});
+    res
+      .status(201)
+      .json({
+        token,
+        adminId: admin._id,
+        fname: admin.fname,
+        lname: admin.lname,
+      });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error, try again" });
@@ -41,7 +47,7 @@ exports.adminValidationApi = async (req, res) => {
   try {
     // console.log("i am here");
     const validAdmin = await adminDB.findOne({ _id: req.adminId });
-  // console.log(validAdmin);
+    // console.log(validAdmin);
     if (!validAdmin) {
       return res.status(404).json({ status: 404, message: "Admin not found" });
     }
@@ -54,16 +60,27 @@ exports.adminValidationApi = async (req, res) => {
   }
 };
 
-// get Admin
+// Get All Admins
 exports.getAllAdminsApi = async (req, res) => {
   try {
-    const admins = await adminDB.find(); 
+    const admins = await adminDB.find();
 
     if (!admins.length) {
       return res.status(404).json({ status: 404, message: "No admins found" });
     }
 
-    res.status(200).json({ status: 200, admins });
+    const filteredAdmins = admins.map((admin) => {
+      return {
+        _id: admin._id,
+        fname: admin.fname,
+        lname: admin.lname,
+        email: admin.email,
+        created_at: admin.created_at,
+        updated_at: admin.updated_at,
+      };
+    });
+
+    res.status(200).json({ status: 200, admins: filteredAdmins });
   } catch (err) {
     res
       .status(500)
@@ -74,9 +91,9 @@ exports.getAllAdminsApi = async (req, res) => {
 // Add Admin
 exports.addAdminApi = async (req, res) => {
   try {
-    const { email, password ,fname,lname} = req.body;
+    const { email, password, fname, lname } = req.body;
 
-    if (!email || !password||!fname||!lname) {
+    if (!email || !password || !fname || !lname) {
       return res
         .status(422)
         .json({ message: "Email and password are required" });
@@ -87,7 +104,7 @@ exports.addAdminApi = async (req, res) => {
       return res.status(400).json({ message: "Admin already exists" });
     }
 
-    const newAdmin = new adminDB({ email, password,fname,lname });
+    const newAdmin = new adminDB({ email, password, fname, lname });
     await newAdmin.save();
     res.status(201).json({ message: "Admin added successfully" });
   } catch (error) {
@@ -124,7 +141,21 @@ exports.deleteAdminApi = async (req, res) => {
 exports.getUsersApi = async (req, res) => {
   try {
     const users = await userDB.find();
-    res.status(200).json({ users });
+    const filteredUsers = users.map((user) => {
+      return {
+        _id: user._id,
+        fname: user.fname,
+        lname: user.lname,
+        email: user.email,
+        phone_number: user.phone_number,
+        profession: user.profession,
+        profile_pic_url: user.profile_pic_url,
+        created_at: user.created_at,
+        updated_at: user.updated_at,
+      };
+    });
+
+    res.status(200).json({ users: filteredUsers });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error" });
@@ -145,6 +176,33 @@ exports.deleteUserApi = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Get User Profile with Posts and Articles
+exports.getUserProfileApi = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    const user = await userDB.findById(userId);
+    if (!user) {
+      return res.status(404).json({ status: 404, message: "User not found" });
+    }
+
+    const posts = await postDB.find({ user_id: userId });
+
+    const articles = await articleDB.find({ user_id: userId });
+
+    res.status(200).json({
+      status: 200,
+      user,
+      posts,
+      articles,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ status: 500, message: "Server error", error: err.message });
   }
 };
 
@@ -259,4 +317,3 @@ exports.getStatisticsApi = async (req, res) => {
 //   }
 // };
 // x();
- 

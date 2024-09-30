@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Admins.css";
 
-const baseURL = "http://localhost:4000";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const Admins = () => {
   const [admins, setAdmins] = useState([]);
   const [newAdmin, setNewAdmin] = useState({ fname: "", lname: "", email: "", password: "" });

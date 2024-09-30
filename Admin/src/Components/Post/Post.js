@@ -1,6 +1,9 @@
 import React from "react";
 import "./Post.css";
 
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
+
 const Post = ({ post, onDelete }) => {
   return (
     <div className="post-card">
@@ -8,7 +11,7 @@ const Post = ({ post, onDelete }) => {
         <img
           src={
             post.user_id.profile_pic_url
-              ? `http://localhost:4000${post.user_id.profile_pic_url}`
+              ? `${baseURL}${post.user_id.profile_pic_url}`
               : "/default-profile.png"
           }
           alt={`${post.user_id.fname} ${post.user_id.lname}`}
@@ -23,7 +26,7 @@ const Post = ({ post, onDelete }) => {
 
       {post.imageUrl && (
         <img
-          src={`http://localhost:4000${post.imageUrl}`}
+          src={`${baseURL}${post.imageUrl}`}
           alt="Post"
           className="post-image"
         />
@@ -39,7 +42,7 @@ const Post = ({ post, onDelete }) => {
               <img
                 src={
                   like.profile_pic_url
-                    ? `http://localhost:4000${like.profile_pic_url}`
+                    ? `${baseURL}${like.profile_pic_url}`
                     : "/default-profile.png"
                 }
                 alt={`${like.fname} ${like.lname}`}

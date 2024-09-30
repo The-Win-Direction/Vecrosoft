@@ -3,7 +3,9 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './FullArticle.css';
 
-const baseURL = "http://localhost:4000";
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
+
 
 const FullArticle = () => {
   const location = useLocation();

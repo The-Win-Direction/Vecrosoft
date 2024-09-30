@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Post from '../../Components/Post/Post';
 import './Posts.css'; 
-
-const baseURL = "http://localhost:4000";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 

@@ -36,7 +36,7 @@ function DiseaseDetection() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('https://vecrosoft-ai.onrender.com/predict/', formData, {
+      const response = await axios.post('http://0.0.0.0:8080', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

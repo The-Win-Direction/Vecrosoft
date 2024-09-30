@@ -162,17 +162,18 @@ exports.getUsersApi = async (req, res) => {
   }
 };
 
-// Delete User
+
+// Delete User and associated posts, articles
 exports.deleteUserApi = async (req, res) => {
   try {
     const { userId } = req.params;
-
     const user = await userDB.findByIdAndDelete(userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
-    res.status(200).json({ message: "User deleted successfully" });
+    await postDB.deleteMany({ user_id: userId });
+    await articleDB.deleteMany({ user_id: userId });
+    res.status(200).json({ message: "User and associated posts and articles deleted successfully" });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error" });

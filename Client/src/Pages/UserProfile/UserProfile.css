@@ -210,12 +210,22 @@ input[type="file"] {
 .posts-section, 
 .articles-section {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.post-item, 
+.post-item{
+  width: 50%;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 .article-item {
+  width: 100%;
   padding: 1rem;
   background-color: #f9f9f9;
   border-radius: 8px;

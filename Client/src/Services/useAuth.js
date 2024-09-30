@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const baseURL="http://localhost:4000";
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const useAuth = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);

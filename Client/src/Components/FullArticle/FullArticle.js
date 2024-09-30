@@ -2,8 +2,8 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './FullArticle.css';
 
-const baseURL = "https://vecrosoft-server.onrender.com";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const FullArticle = () => {
   const location = useLocation();
   const { article, user } = location.state || {};

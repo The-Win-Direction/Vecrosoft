@@ -4,8 +4,8 @@ import "./SignUpForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const baseURL = "http://localhost:4000";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 
 const SignUp = () => {
   const [fname, setFname] = useState("");

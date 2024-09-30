@@ -45,7 +45,7 @@ function DiseaseDetection() {
     } catch (error) {
       console.error("There was an error uploading the file!", error);
     } finally {
-      setLoading(false); //  loading Stopped
+      setLoading(false); 
     }
   };
 

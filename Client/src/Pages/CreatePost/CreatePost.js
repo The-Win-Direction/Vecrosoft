@@ -4,9 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./CreatePost.css";
-const baseURL = "http://localhost:4000";
-
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);

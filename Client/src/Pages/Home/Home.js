@@ -4,8 +4,8 @@ import Post from "../../Components/Post/Post";
 import "./Home.css";
 import SidebarDekstop from '../../Components/SidebarDesktop/SidebarDesktop';
 import { useNavigate } from 'react-router-dom';
-const baseURL = "http://localhost:4000";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);

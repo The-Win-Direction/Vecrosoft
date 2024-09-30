@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Post.css';
-const baseURL = "http://localhost:4000";
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const Post = ({ post ,user, onDelete}) => {
   // console.log(user);
   // console.log(post);

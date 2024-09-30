@@ -7,8 +7,8 @@ import defaultProfilePic from "../../Assets/Images/default.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faBars, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
-const baseURL = "https://vecrosoft-server.onrender.com";
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const HeaderMobile = ({ toggleSidebar }) => {
   const [profilePic, setProfilePic] = useState(defaultProfilePic);
   const location = useLocation();

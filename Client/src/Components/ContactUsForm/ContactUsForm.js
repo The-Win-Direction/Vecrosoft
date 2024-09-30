@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './ContactUsForm.css';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-
+const baseURL = "https://vecrosoft-depl.onrender.com";
+// const baseURL = "http://localhost:4000";
 const ContactUsForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,7 +23,7 @@ const ContactUsForm = () => {
     e.preventDefault();
     try {
       let token = localStorage.getItem("userdatatoken");
-      const response = await fetch('http://localhost:4000/api/contact-us', {
+      const response = await fetch(`${baseURL}/api/contact-us`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -36,7 +36,7 @@ function DiseaseDetection() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://0.0.0.0:8080', formData, {
+      const response = await axios.post('http://localhost:8080/predict', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -87,7 +87,7 @@ function DiseaseDetection() {
         </button>
         {prediction && (
           <p className="prediction-result">
-            Disease: {prediction.predicted_disease} Probability: {prediction.probability.toFixed(2)}
+            Disease: {prediction.predicted_disease} Confidence Score: {prediction.probability.toFixed(2)}
           </p>
         )}
       </div>

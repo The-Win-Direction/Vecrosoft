@@ -90,5 +90,41 @@
     .full-article .article-image {
       max-height: 300px;
     }
+
+    .back-button,
+    .delete-article-button {
+      width: 100%; 
+      padding: 12px;
+      text-align: center;
+    }
+
+    .delete-article-button {
+      margin-top: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .full-article {
+      padding: 10px;
+      margin: 10px auto;
+    }
+
+    .full-article h1 {
+      font-size: 24px;
+    }
+
+    .full-article p {
+      font-size: 14px;
+    }
+
+    .full-article .article-image {
+      max-height: 200px;
+    }
+
+    .back-button,
+    .delete-article-button {
+      font-size: 14px;
+      padding: 10px;
+    }
   }
 }

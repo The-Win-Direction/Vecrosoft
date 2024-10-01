@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const userDB = require("../models/userSchema");
 const postDB = require("../models/postSchema");
 const articleDB = require("../models/articleSchema");
+const contactDB = require('../models/contactSchema');
 const upload = require("../multerconfig/storageConfig");
 require('dotenv').config();
 const sendEmail=require("../Utils/sendemail");
@@ -118,7 +119,6 @@ exports.createPostApi = async (req, res) => {
       likes: [],
     });
 
-    console.log("i am here");
     await newPost.save();
     res
       .status(201)
@@ -149,7 +149,7 @@ exports.getPostsApi = async (req, res) => {
 
 
 //get viewProfileApi
-exports.viewProfileApi = async (req, res) => {
+/* exports.viewProfileApi = async (req, res) => {
   try {
     const {
       _id,
@@ -176,19 +176,67 @@ exports.viewProfileApi = async (req, res) => {
       profile_pic_url,
     };
 
-    console.log("use");
+    
     
     if (!user) {
       return res.status(404).json({ status: 404, message: "User not found" });
     }
-    console.log(user);
     res.status(200).json({ status: 200, user });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: 500, message: "Server error, try again" });
   }
 };
+ */
 
+exports.viewProfileApi = async (req, res) => {
+  try {
+    const {
+      _id,
+      fname,
+      lname,
+      email,
+      created_at,
+      updated_at,
+      bio,
+      phone_number,
+      profession,
+      profile_pic_url,
+    } = req.rootUser;
+   console.log(_id)
+    // Fetch posts and articles associated with the user
+    const userPosts = await postDB.find({ user_id: _id });
+    const userArticles = await articleDB.find({ user_id: _id });
+     console.log(userPosts,userArticles)
+    const user = {
+      _id,
+      fname,
+      lname,
+      email,
+      created_at,
+      updated_at,
+      bio,
+      phone_number,
+      profession,
+      profile_pic_url,
+    };
+
+    if (!user) {
+      return res.status(404).json({ status: 404, message: "User not found" });
+    }
+
+    // Return the user profile along with posts and articles
+    res.status(200).json({
+      status: 200,
+      user,
+      posts: userPosts,
+      articles: userArticles,
+    });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: 500, message: "Server error, try again" });
+  }
+};
 
 // Update Profile API
 
@@ -333,9 +381,9 @@ exports.createArticleApi = async (req, res) => {
 exports.getArticlesApi = async (req, res) => {
   try {
     let articles = await articleDB.find()
-      .populate("user_id", "fname lname profile_pic_url") // Populate user details
-      .populate("likes", "fname lname profile_pic_url") // Populate likes details
-      .populate("comments.user_id", "fname lname profile_pic_url"); // Populate comments details
+      .populate("user_id", "fname lname profile_pic_url") 
+      .populate("likes", "fname lname profile_pic_url") 
+      .populate("comments.user_id", "fname lname profile_pic_url"); 
 
      articles=articles.reverse();
     res.status(200).json({ status: 200, articles, userId: req.userId });
@@ -350,9 +398,7 @@ exports.getArticlesApi = async (req, res) => {
 //sendEmail
 exports.sendEmailAPI = async (req, res) => {
   const { name, email, message } = req.body;
-  console.log("here 2");
 
-  // Email content
   const subject = `Message from ${name}`;
   const text = `A message from ${name} (${email}): ${message}`;
   const html = `<p>A message from <strong>${name}</strong> (${email}):</p><p>${message}</p>`;
@@ -364,5 +410,30 @@ exports.sendEmailAPI = async (req, res) => {
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).json({ success: false, message: 'Error sending email.' });
+  }
+};
+
+exports.contactUsAPI = async (req, res) => {
+  const { name, email, message } = req.body;
+
+  const subject = `Message from ${name}`;
+  const text = `A message from ${name} (${email}): ${message}`;
+  const html = `<p>A message from <strong>${name}</strong> (${email}):</p><p>${message}</p>`;
+
+  try {
+    const newContact = new contactDB({
+      name,
+      email,
+      message,
+    });
+
+    await newContact.save(); 
+
+    await sendEmail('giridipak743@gmail.com', subject, text, html);
+
+    res.status(200).json({ success: true, message: 'Email sent and contact saved successfully!' });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ success: false, message: 'Error occurred while sending email or saving contact info.' });
   }
 };

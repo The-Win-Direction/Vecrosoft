@@ -83,6 +83,7 @@ def preprocess_image(image):
     input_image = np.expand_dims(normalized_image, axis=0)
     return input_image
 
+
 # Function to predict diseases
 def predict_diseases(model, image, class_indices):
     preprocessed_img = preprocess_image(image)
@@ -91,14 +92,21 @@ def predict_diseases(model, image, class_indices):
     predicted_class_name = class_indices[str(predicted_class_index)]
     return predicted_class_name, float(probs[predicted_class_index])
 
+@app.get("/hello")
+async def say_hello():
+    return {"message": "Hello, welcome to the plant disease detection API!"}
+
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     image = Image.open(file.file)
     predicted_disease, probability = predict_diseases(model, image, class_indices)
     return {"predicted_disease": predicted_disease, "probability": probability}
 
+
 if __name__ == "__main__":
     import uvicorn
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", 8080))
     uvicorn.run(app, host=host, port=port)
+
+

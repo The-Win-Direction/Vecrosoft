@@ -6,7 +6,7 @@ import logo from "../../Assets/Images/logo.png";
 import defaultProfilePic from "../../Assets/Images/default.png"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faSearch, faComments, faPlus } from '@fortawesome/free-solid-svg-icons';
-const baseURL = "https://vecrosoft-server.onrender.com";
+const baseURL = "http://localhost:4000";
 
 
 const HeaderDesktop = () => {

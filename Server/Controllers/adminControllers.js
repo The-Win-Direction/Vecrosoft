@@ -2,8 +2,10 @@ const bcrypt = require("bcryptjs");
 const adminDB = require("../models/adminSchema");
 const userDB = require("../models/userSchema");
 const postDB = require("../models/postSchema");
+const contactDB = require("../models/contactSchema");
 const articleDB = require("../models/articleSchema");
 const jwt = require("jsonwebtoken");
+const sendEmail=require("../Utils/sendemail");
 require("dotenv").config();
 const keysecret = process.env.KEY_SECRET;
 
@@ -28,14 +30,12 @@ exports.adminSignInApi = async (req, res) => {
     }
 
     const token = await admin.generateAuthToken();
-    res
-      .status(201)
-      .json({
-        token,
-        adminId: admin._id,
-        fname: admin.fname,
-        lname: admin.lname,
-      });
+    res.status(201).json({
+      token,
+      adminId: admin._id,
+      fname: admin.fname,
+      lname: admin.lname,
+    });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error, try again" });
@@ -162,17 +162,18 @@ exports.getUsersApi = async (req, res) => {
   }
 };
 
-// Delete User
+
+// Delete User and associated posts, articles
 exports.deleteUserApi = async (req, res) => {
   try {
     const { userId } = req.params;
-
     const user = await userDB.findByIdAndDelete(userId);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
-    res.status(200).json({ message: "User deleted successfully" });
+    await postDB.deleteMany({ user_id: userId });
+    await articleDB.deleteMany({ user_id: userId });
+    res.status(200).json({ message: "User and associated posts and articles deleted successfully" });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server error" });
@@ -294,6 +295,61 @@ exports.getStatisticsApi = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+// Get All Contacts
+exports.getContactsApi = async (req, res) => {
+  try {
+    const contacts = await contactDB.find();
+
+    if (!contacts.length) {
+      return res.status(404).json({ message: "No contacts found" });
+    }
+
+    res.status(200).json({ contacts });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Delete Contact
+exports.deleteContactApi = async (req, res) => {
+  try {
+    const { contactId } = req.params;
+
+    const contact = await contactDB.findByIdAndDelete(contactId);
+    if (!contact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+
+    res.status(200).json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+//Reply to contact
+exports.sendEmailAPI = async (req, res) => {
+  const { email, message } = req.body;
+
+  if (!email || !message) {
+    return res.status(400).json({ success: false, message: "Email and message are required." });
+  }
+
+  const subject = `Message from Vecrosoft Officials`;
+  const text = `A message from Vecrosoft Officials (projectvecrosoft@gmail.com): ${message}`;
+  const html = `<p>A message from <strong>Vecrosoft Officials</strong> (projectvecrosoft@gmail.com):</p><p>${message}</p>`;
+
+  try {
+    await sendEmail(email, subject, text, html);
+    res.status(200).json({ success: true, message: "Email sent successfully!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, message: "Error sending email." });
+  }
+};
+
 
 // // initial admin creation lol
 // const x = async () => {
